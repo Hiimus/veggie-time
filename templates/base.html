@@ -15,6 +15,35 @@
 </head>
 <body>
 
+    <header>
+        <!-- Navbar -->
+        <nav>
+            <div class="nav-wrapper light-green">
+                <a href="{{ url_for('get_recipes') }}" class="brand-logo">Veggie Time</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fas fa-bars"></i></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <li><a href="#">All Recipes</a></li>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Navbar sidenav for mobile-->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align">Veggie Time</h4></li>
+            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            <li><a href="#">All Recipes</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </header>
+
     {% block content %}
     {% endblock %}
     
