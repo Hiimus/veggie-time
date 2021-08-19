@@ -63,12 +63,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "profile", username=session["user"]))
             else:
                 # password does not match
                 flash("Incorrect Username and/or Password")
@@ -94,6 +94,7 @@ def profile(username):
 
     return redirect(url_for("login"))
 
+
 # FROM CI VIDEOS
 @app.route("/logout")
 def logout():
@@ -101,7 +102,7 @@ def logout():
     flash("You have successfully logget out")
     session.pop("user")
     return redirect(url_for("login"))
-    
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
