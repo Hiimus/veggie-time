@@ -4,11 +4,27 @@
     <h3 class="center-align">Add Recipe</h3>
 
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
             <div class="row">
-                <div class="input-field col s12 l6">
-                    <a class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-                    <h5>Add New Recipe</h5>
+                <div class="input-field col s6">
+                    <i class="fas fa-plus prefix"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text"
+                        class="validate">
+                    <label for="recipe_name">Recipe Name</label>
+                </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="fas fa-align-left prefix"></i>
+                    <textarea id="recipe_description" name="recipe_description" maxlength="150" minlength="5"
+                        class="materialize-textarea validate" required></textarea>
+                    <label for="recipe_description">Recipe Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large">
+                        Add Recipe <i class="fas fa-plus-square right"></i>
+                    </button>
                 </div>
             </div>
         </form>
