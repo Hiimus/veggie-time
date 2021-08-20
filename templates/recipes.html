@@ -7,6 +7,8 @@
         <li>
           <strong>{{ recipe.recipe_name }}</strong> 
           <p>{{ recipe.recipe_description }}</p>
+          <p>{{ recipe.ingredients }}</p>
+          <p>{{ recipe.instructions }}</p>
           <p><em>Added by: {{ recipe.created_by }}</em></p>
         </li>
     {% endfor %}
