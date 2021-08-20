@@ -23,8 +23,9 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fas fa-bars"></i></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                    <li><a href="{{ url_for('add_recipe') }}">All Recipes</a></li>
+                    <li><a href="#">All Recipes</a></li>
                     {% if session.user %}
+                        <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
