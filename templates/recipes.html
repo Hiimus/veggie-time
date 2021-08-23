@@ -3,75 +3,43 @@
 
     <h3>Hola Señor!</h3>
 
-    {% for recipe in recipes %}
+    
         <li>
-          {% for category in categories %}
-            <p>{{ categories.category_name }}</p>
-          {% endfor %}
-          <strong>{{ recipe.recipe_name }}</strong> 
+          
+          <strong></strong>
+          
+          
+          
+          
+          
+        </li>
+    
+  <div class="row">
+
+    {% for recipe in recipes %}
+
+
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="static/img/vegetables1.jpg">
+          <span class="card-title">{{ recipe.recipe_name }}</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></a>
+        </div>
+        <div class="card-content">
           <p>{{ recipe.recipe_description }}</p>
-          {% for difficulty in difficulties %}
-            <p>{{ difficulties.difficulty_name }}</p>
-          {% endfor %}
+          <p>{{ recipe.difficulty_level }}</p>
+          <p>{{ recipe.category_name }}</p>
           <p>{{ recipe.ingredients }}</p>
           <p>{{ recipe.instructions }}</p>
           <p><em>Added by: {{ recipe.created_by }}</em></p>
-        </li>
+        </div>
+      </div>
+    </div>
+
+
     {% endfor %}
 
-    
-
-    
-
-    <div class="row">
-        <div class="col s12 m6 l4">
-          <div class="card">
-            <div class="card-image">
-              <img src="static/img/vegetables1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-image">
-                <img src="static/img/vegetables1.jpg">
-                <span class="card-title">Card Title</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-image">
-                <img src="static/img/vegetables1.jpg">
-                <span class="card-title">Card Title</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-image">
-                <img src="static/img/vegetables1.jpg">
-                <span class="card-title">Card Title</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
-      </div>
+  </div>
 
 {% endblock %}

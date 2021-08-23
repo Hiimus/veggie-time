@@ -107,12 +107,12 @@ def logout():
 # PARTLY FROM CI VIDEOS
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    difficulties = mongo.db.difficulty.find()
     if request.method == "POST":
         recipe = {
+            "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
+            "difficulty_level": request.form.get("difficulty_level"),
             "ingredients": request.form.getlist("ingredients"),
             "instructions": request.form.getlist("instructions"),
             "created_by": session["user"]
@@ -120,8 +120,11 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    difficulty = mongo.db.difficulty.find()
     return render_template(
-        "add_recipes.html", categories=categories, difficulties=difficulties)
+        "add_recipes.html", categories=categories, difficulty=difficulty)
 
 
 if __name__ == "__main__":
