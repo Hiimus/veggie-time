@@ -41,13 +41,13 @@
         <!-- difficulty level -->
         <div class="row">
             <div class="input-field col s12">
-                <select id="difficulty_level" name="difficulty_level" class="validate" required>
+                <select id="difficulty_name" name="difficulty_name" class="validate" required>
                     <option value="" disabled selected>Select a Difficulty</option>
                     {% for difficulty in difficulties %}
-                        <option value="{{ difficulty.difficulty_level }}">{{ difficulty.difficulty_level }}</option>
+                        <option value="{{ difficulty.difficulty_name }}">{{ difficulty.difficulty_name }}</option>
                     {% endfor %}
                 </select>
-                <label for="difficulty_level">Difficulty Level</label>
+                <label for="difficulty_name">Difficulty Level</label>
             </div>
         </div>
         <!-- ingredients-->

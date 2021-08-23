@@ -112,19 +112,20 @@ def add_recipe():
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
-            "difficulty_level": request.form.get("difficulty_level"),
+            "difficulty_name": request.form.get("difficulty_name"),
             "ingredients": request.form.getlist("ingredients"),
             "instructions": request.form.getlist("instructions"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
+        print(recipe)
         return redirect(url_for("get_recipes"))
 
-    difficulty = mongo.db.difficulty.find()
     categories = mongo.db.categories.find().sort("category_name", 1)
+    difficulties = mongo.db.difficulties.find()
     return render_template(
-        "add_recipes.html", categories=categories, difficulty=difficulty)
+        "add_recipes.html", categories=categories, difficulties=difficulties)
 
 
 if __name__ == "__main__":
