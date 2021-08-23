@@ -5,13 +5,23 @@
 
     {% for recipe in recipes %}
         <li>
+          {% for category in categories %}
+            <p>{{ categories.category_name }}</p>
+          {% endfor %}
           <strong>{{ recipe.recipe_name }}</strong> 
           <p>{{ recipe.recipe_description }}</p>
+          {% for difficulty in difficulties %}
+            <p>{{ difficulties.difficulty_name }}</p>
+          {% endfor %}
           <p>{{ recipe.ingredients }}</p>
           <p>{{ recipe.instructions }}</p>
           <p><em>Added by: {{ recipe.created_by }}</em></p>
         </li>
     {% endfor %}
+
+    
+
+    
 
     <div class="row">
         <div class="col s12 m6 l4">

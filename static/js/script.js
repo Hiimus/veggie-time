@@ -1,7 +1,8 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
-
+    $('select').formSelect();
+    
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients
 
     var max_fields      = 10;
