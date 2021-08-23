@@ -119,13 +119,22 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        print(recipe)
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     difficulties = mongo.db.difficulties.find()
     return render_template(
         "add_recipes.html", categories=categories, difficulties=difficulties)
+
+
+# Credit to: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/177f2f9ea9904567967ec72bdf01d4a0/?child=first
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    difficulties = mongo.db.difficulties.find()
+    return render_template(
+        "edit_recipes.html", recipe=recipe, categories=categories, difficulties=difficulties)
 
 
 if __name__ == "__main__":
