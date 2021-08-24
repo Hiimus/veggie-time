@@ -30,3 +30,14 @@ textarea {
         margin: 4px 2px;
         cursor: pointer;
     }
+
+#home_image {
+    background-image: url("../img/vegetables2.jpg");
+    background-repeat: no-repeat;  
+    background-size: cover;
+    height: 30vh;
+}
+
+#vegetable_chopper {
+    width: 100%;
+}
