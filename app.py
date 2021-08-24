@@ -26,6 +26,12 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/all_recipes")
+def all_recipes():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("all_recipes.html", recipes=recipes)
+
+
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/search", methods=["GET", "POST"])
 def search():
