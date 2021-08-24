@@ -27,7 +27,13 @@
       <div class="col s12 m6 l4">
         <div class="card">
           <div class="card-image">
-            <img src="static/img/vegetables1.jpg">
+            <!-- if image url exists, use that-->
+            {% if recipe.recipe_img %}
+              <img src="{{ recipe.recipe_img }}">
+            <!-- else, use default image -->
+            {% else %}
+              <img src="static/img/vegetables1.jpg">
+            {% endif %}
             <span class="card-title">{{ recipe.recipe_name }}</span>
           </div>
           <div class="card-content">
