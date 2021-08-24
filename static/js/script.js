@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
     $('select').formSelect();
     $('.modal').modal(); // Modal that appears when clicking delete button.
+    $('.tooltipped').tooltip(); // Tooltip that explains that product link is fake
 
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients
 
