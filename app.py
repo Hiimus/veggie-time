@@ -18,15 +18,23 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# PARTIALLY FROM CI VIDEOS
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
-# FROM CI VIDEOS
+# Credit to Flask Task Manager Mini-Project videos
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
+
+
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -52,7 +60,7 @@ def register():
     return render_template("register.html")
 
 
-# FROM CI VIDEOS
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -82,7 +90,7 @@ def login():
     return render_template("login.html")
 
 
-# FROM CI VIDEOS
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # uses the session user's username from database
@@ -95,7 +103,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-# FROM CI VIDEOS
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/logout")
 def logout():
     # remove user from session cookies
@@ -104,7 +112,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# PARTLY FROM CI VIDEOS
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -127,7 +135,7 @@ def add_recipe():
         "add_recipes.html", categories=categories, difficulties=difficulties)
 
 
-# Credit to: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/177f2f9ea9904567967ec72bdf01d4a0/?child=first
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -147,10 +155,11 @@ def edit_recipe(recipe_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     difficulties = mongo.db.difficulties.find()
     return render_template(
-        "edit_recipes.html", recipe=recipe, categories=categories, difficulties=difficulties)
+        "edit_recipes.html", recipe=recipe,
+        categories=categories, difficulties=difficulties)
 
 
-# Credit to: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/1f324afea21e4bcabb6db2fcf3d16aab/?child=first
+# Credit to Flask Task Manager Mini-Project videos
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
