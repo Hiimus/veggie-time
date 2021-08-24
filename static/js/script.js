@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('select').formSelect();
+    $('.modal').modal(); // Modal that appears when clicking delete button.
 
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients
 
@@ -70,3 +71,4 @@ $(document).ready(function(){
       });
   }
   });
+
