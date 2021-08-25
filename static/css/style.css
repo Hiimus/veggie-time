@@ -43,9 +43,17 @@ textarea {
 }
 
 #delete_btn {
-    right: 5px!important;
+    right: 5px;
 }
 
 #edit_btn {
-    right: 40px!important;
+    right: 40px;
+}
+
+#heart_btn {
+    left: 5px;
+}
+
+#rate_btn {
+    left: 40px;
 }
