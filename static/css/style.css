@@ -41,3 +41,11 @@ textarea {
 #vegetable_chopper {
     width: 100%;
 }
+
+#delete_btn {
+    right: 5px!important;
+}
+
+#edit_btn {
+    right: 40px!important;
+}
