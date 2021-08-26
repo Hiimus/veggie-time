@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+<a href="{{ url_for('get_recipes') }}"><i class="far fa-arrow-alt-circle-left fa-3x"></i></a>
+
+
 <div class="container">
   <!-- if image url exists, use that-->
   {% if recipe.recipe_img %}
