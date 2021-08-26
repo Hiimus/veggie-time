@@ -32,6 +32,11 @@ def all_recipes():
     return render_template("all_recipes.html", recipes=recipes)
 
 
+@app.route("/view_recipe")
+def view_recipe():
+    return render_template("view_recipe.html")
+
+
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/search", methods=["GET", "POST"])
 def search():
