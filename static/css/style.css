@@ -15,7 +15,7 @@ textarea {
         border: 1px solid #1c97f3;
         width: 260px;
         height: 40px;
-     margin-bottom:14px;
+        margin-bottom:14px;
     }
     
     .deletes{
@@ -46,14 +46,35 @@ textarea {
     right: 5px;
 }
 
+#delete-btn-view {
+    left: 15px;
+}
+
 #edit_btn {
     right: 40px;
+}
+
+#edit-btn-view {
+    left: 20px;
 }
 
 #heart_btn {
     left: 5px;
 }
 
+#heart-btn-view {
+    left: 5px;
+}
+
 #rate_btn {
     left: 40px;
+}
+
+#rate-btn-view {
+    left: 10px;
+}
+
+.created-by-view {
+    float: right!important;
+    width: auto!important;
 }
