@@ -38,6 +38,16 @@ textarea {
     height: 30vh;
 }
 
+/* Card image sizes for recipes */
+.card .card-image img {
+    height: 13rem;
+    object-fit: cover;
+}
+
+.card .card-content {
+    height: 12rem;
+}
+
 #vegetable_chopper {
     width: 100%;
 }
@@ -82,3 +92,4 @@ textarea {
 .page-footer {
     background-color: #95cb86!important;
 }
+
