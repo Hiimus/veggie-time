@@ -97,3 +97,11 @@ textarea {
     background-color: #95cb86!important;
 }
 
+.col-profile {
+    font-size: xx-large;
+}
+
+.img-profile {
+    width: 15%;
+    margin-top: 20px;
+}
