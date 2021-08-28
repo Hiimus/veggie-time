@@ -48,6 +48,10 @@ textarea {
     height: 13rem;
 }
 
+.col-search {
+    margin-top: 20px;
+}
+
 #vegetable_chopper {
     width: 100%;
 }
