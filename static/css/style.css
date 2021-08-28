@@ -102,6 +102,11 @@ textarea {
 }
 
 .img-profile {
-    width: 15%;
+    width: 5rem;
     margin-top: 20px;
+}
+
+.profile-name {
+    padding-left: 15px;
+    padding-right: 15px;
 }
