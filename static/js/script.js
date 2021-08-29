@@ -8,20 +8,28 @@ $(document).ready(function(){
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients
 
     let max_fields      = 20;
-    let wrapper         = $(".container1");
-    let add_button      = $(".add_form_field");
+    let wrapper1         = $(".container1");
+    let wrapper2         = $(".container2");
+    let add_button_ingredient      = $(".add_form_field_ingredient");
+    let add_button_instruction      = $(".add_form_field_instruction");
     let x = 1;
     let appendIngredient = `<div class='input-field col s12 m8 l8'>
         <input id='ingredients' name='ingredients' type='text' maxlength='100' class='validate_me'>
         <label for='ingredients'>Ingredients</label>
         <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i class='fas fa-minus'></i></button>
     </div>`
+    let appendInstruction = `<div class='input-field col s12 m8 l8'>
+    <input id='instructions' name='instructions' type='text' maxlength='100' class='validate_me'>
+    <label for='instructions'>Instructions</label>
+    <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i class='fas fa-minus'></i></button>
+</div>`
 
-    $(add_button).click(function(e) {
+    // Adds new ingredient field 
+    $(add_button_ingredient).click(function(e) {
         e.preventDefault();
         if (x < max_fields) {
             x++;
-            $(wrapper).append(appendIngredient); //add input box
+            $(wrapper1).append(appendIngredient); //add input box
         }
   else
   {
@@ -29,10 +37,26 @@ $(document).ready(function(){
   }
     });
  
-    $(wrapper).on("click",".delete", function(e){
+    $(wrapper1).on("click",".delete", function(e){
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
   
+    // Adds new instruction field
+    $(add_button_instruction).click(function(e) {
+        e.preventDefault();
+        if (x < max_fields) {
+            x++;
+            $(wrapper2).append(appendInstruction); //add input box
+        }
+  else
+  {
+  alert('You Reached the limits')
+  }
+    });
+ 
+    $(wrapper2).on("click",".delete", function(e){
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
 
 
   // Credit to: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/6449dcd23ca14016aa83dc7313d91a02/?child=first

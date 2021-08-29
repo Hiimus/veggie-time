@@ -55,7 +55,9 @@
   
   <h5>Instructions</h5>
   <ol>
-    <li>{{ recipe.instructions }}</li>
+    {% for instruction in recipe.instructions %}
+    <li>{{ instruction }}</li>
+    {% endfor %}
   </ol>
 </div>
 

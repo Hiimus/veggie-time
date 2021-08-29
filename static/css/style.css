@@ -9,6 +9,10 @@ textarea {
     margin:5px 5px 5px 0px;
     }
     
+    .container2 input[type=text] {
+        padding:5px 0px;
+        margin:5px 5px 5px 0px;
+        }    
     
     
     input{
