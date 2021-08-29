@@ -36,9 +36,7 @@ def all_recipes():
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    ingredient = mongo.db.recipes.find_one({"ingredients": "egg"})
-    print(ingredient)
-    return render_template("view_recipe.html", recipe=recipe, ingredient=ingredient)
+    return render_template("view_recipe.html", recipe=recipe)
 
 
 # Credit to Flask Task Manager Mini-Project videos
