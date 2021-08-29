@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients
 
-    let max_fields      = 10;
+    let max_fields      = 20;
     let wrapper         = $(".container1");
     let add_button      = $(".add_form_field");
     let x = 1;

@@ -48,7 +48,10 @@
   <h6>Category:</h6>
   <p>{{ recipe.category_name }}</p>
   <h5>Ingredients</h5>
-  <li>{{ recipe.ingredients }}</li>
+  {% for x in ingredients %}
+    <li>{{ recipe.ingredients[:] }}</li>
+  {% endfor %}
+  
   <h5>Instructions</h5>
   <ol>
     <li>{{ recipe.instructions }}</li>

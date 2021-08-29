@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    return render_template(
+        "recipes.html", recipes=recipes)
 
 
 @app.route("/all_recipes")
@@ -35,7 +36,9 @@ def all_recipes():
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=recipe)
+    ingredient = mongo.db.recipes.find_one({"ingredients": "egg"})
+    print(ingredient)
+    return render_template("view_recipe.html", recipe=recipe, ingredient=ingredient)
 
 
 # Credit to Flask Task Manager Mini-Project videos
