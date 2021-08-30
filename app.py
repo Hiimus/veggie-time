@@ -109,11 +109,24 @@ def profile(username):
     # uses the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
     if session["user"]:
         return render_template("profile.html", username=username)
+    else:
+        return redirect(url_for("login"))
 
-    return redirect(url_for("login"))
+
+@app.route("/favorite", methods=["GET", "POST"])
+def favorite(recipe_id):
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+    if request.method == "POST":
+        recipe = {
+            "liked_by": session["user"]
+        }
+        print(recipe)
+        mongo.db.recipes.insert_one(recipe)
+        mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        return render_template("profile.html", recipe=recipe, username=username)
 
 
 # Credit to Flask Task Manager Mini-Project videos
