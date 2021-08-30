@@ -38,7 +38,8 @@ $(document).ready(function(){
     });
  
     $(wrapper1).on("click",".delete", function(e){
-        e.preventDefault(); $(this).parent('div').remove(); x--;
+        e.preventDefault(); 
+        $(this).parent('div').remove(); x--;
     })
   
     // Adds new instruction field
@@ -58,6 +59,14 @@ $(document).ready(function(){
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
 
+    // $('.add-instruction-edit').click(function (event) {
+    //             let buttonClass = $(event.target).parent().attr("class");
+
+    //             if (buttonClass.includes("delete-edit")) {
+    //                 let item = $(event.target).closest(".recipe-item");
+    //                 item.remove();
+    //             }
+    //         })
 
   // Credit to: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/6449dcd23ca14016aa83dc7313d91a02/?child=first
   validateMaterializeSelect();
