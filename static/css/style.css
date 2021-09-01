@@ -114,3 +114,7 @@ textarea {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.submit-btn {
+    margin: 15px;
+}
