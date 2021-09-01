@@ -35,13 +35,16 @@
           <img src="{{ recipe.recipe_img }}">
           <!-- else, use default image -->
           {% else %}
-          <img src="static/img/vegetables1.jpg">
+          <img src="../static/img/vegetables1.jpg">
           {% endif %}
-          <a href="" id="heart_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
-            data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></a>
+          <form action="{{ url_for('add_favorite', username=session['user'], recipe_id=recipe._id) }}" method="POST">
+            <button type="submit" id="heart_btn"
+              class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+              data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+          </form>
           <a href="" id="rate_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
             data-position="bottom" data-tooltip="Give a Rating"><i class="fas fa-star"></i></a>
-        </div>
+          </div>
         <div class="card-content">
           <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title">{{ recipe.recipe_name }}</a>
           <p>{{ recipe.recipe_description }}</p>

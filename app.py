@@ -117,7 +117,7 @@ def profile(username):
 
 
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
-def my_profile(username, recipe_id):
+def add_favorite(username, recipe_id):
     # uses the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
