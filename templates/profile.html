@@ -21,7 +21,7 @@
                   <img src="{{ recipe.recipe_img }}">
                   <!-- else, use default image -->
                   {% else %}
-                  <img src="static/img/vegetables1.jpg">
+                  <img src="../static/img/vegetables1.jpg">
                   {% endif %}
                   <form action="{{ url_for('my_profile', username=session['user'], recipe_id=recipe._id) }}" method="POST">
                   <button type="submit" id="heart_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
