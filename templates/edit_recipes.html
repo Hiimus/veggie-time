@@ -6,7 +6,7 @@
     <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" onsubmit="return validateForm()" class="col card-panel m12 l10 offset-l1">
         <!-- recipe category -->
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s3">
                 <select id="category_name" name="category_name" class="validate" required>
                     <option value="" disabled>Select a Category</option>
                     {% for category in categories %}
@@ -44,7 +44,7 @@
         </div>
         <!-- difficulty level -->
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s3">
                 <select id="difficulty_name" name="difficulty_name" class="validate" required>
                     <option value="" disabled>Select a Difficulty</option>
                     {% for difficulty in difficulties %}
@@ -76,7 +76,7 @@
         </div>
         <div class="row">
             <div class="col s12 center-align">
-                <button id="add-ingredient" class="add_form_field btn waves-effect waves-light" type="button">Add Ingredient
+                <button id="add-ingredient" class="add_form_field_ingredient btn waves-effect waves-light" type="button">Add Ingredient
                     <i class="fas fa-plus-square right"></i>
                 </button>
             </div>
@@ -85,14 +85,21 @@
         <div class="row">
             <div class="container2">
                 {% for instruction in recipe.instructions %}
-                <div class="input-field preparation_step col s12">
-                    <input id="instructions" name="instructions" class="validate add-instruction-edit"
+                <div class="input-field col s12 m8 l8">
+                    <input id="instructions" name="instructions" type="text" class="validate add-instruction-edit"
                         value="{{ instruction }}" required maxlength="400">
                     <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i
                             class='fas fa-minus'></i></button>
                     <label for="instructions">Instructions</label>
                 </div>
                 {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <button class="add_form_field_instruction btn waves-effect waves-light" type="button">Add Step
+                    <i class="fas fa-plus-square right"></i>
+                </button>
             </div>
         </div>
         <!-- Edit button -->
@@ -103,7 +110,7 @@
                 <a href="{{ url_for('get_recipes') }}" class="btn-large">
                     Cancel <i class="fas fa-times-circle right"></i>
                 </a>
-                <button class="btn waves-effect waves-light" type="submit">Edit recipe
+                <button class="btn-large btn waves-effect waves-light" type="submit">Edit recipe
                     <i class="fas fa-plus-square right"></i>
                 </button>
             </div>
