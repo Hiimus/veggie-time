@@ -104,25 +104,14 @@ def login():
     return render_template("login.html")
 
 
-# # Credit to Flask Task Manager Mini-Project videos
-# @app.route("/profile/<username>", methods=["GET", "POST"])
-# def profile(username):
-#     # uses the session user's username from database
-#     username = mongo.db.users.find_one(
-#         {"username": session["user"]})["username"]
-#     if session["user"]:
-#         return render_template("profile.html", username=username)
-#     else:
-#         return redirect(url_for("login"))
-
-
 @app.route("/profile/<username>")
 def profile(username):
     # uses the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, recipes=recipes)
     else:
         return redirect(url_for("login"))
 
@@ -152,30 +141,6 @@ def my_profile(username, recipe_id):
         return render_template("profile.html", username=username, recipe=recipe, recipes=recipes)
     else:
         return redirect(url_for("login"))
-
-
-# @app.route("/favorite/<recipe_id>", methods=["GET", "POST"])
-# def favorite(recipe_id):
-#     username = mongo.db.users.find_one(
-#             {"username": session["user"]})["username"]
-#     if request.method == "POST":
-#         recipe = {
-#             "category_name": request.form.get("category_name"),
-#             "recipe_name": request.form.get("recipe_name"),
-#             "recipe_img": request.form.get("recipe_img"),
-#             "recipe_description": request.form.get("recipe_description"),
-#             "difficulty_name": request.form.get("difficulty_name"),
-#             "ingredients": request.form.getlist("ingredients"),
-#             "instructions": request.form.getlist("instructions"),
-#             "created_by": session["user"]
-#         }
-#         recipe_liked = {
-#             "liked_by": session["user"]
-#         }
-#         print(recipe)
-#         mongo.db.recipes.update({"liked_by": recipe_liked)
-#         mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-#         return render_template("profile.html", recipe=recipe, username=username)
 
 
 # Credit to Flask Task Manager Mini-Project videos
