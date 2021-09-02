@@ -133,8 +133,6 @@ def remove_favorite(recipe_id):
             {"_id": ObjectId(recipe_id)}, {"$pull": {"liked_by": session["user"]}})
         flash("Recipe Successfully Removed From Favorites")
         return redirect(url_for('profile', username=session['user']))
-    else:
-        return redirect(url_for("get_recipes"))
 
 
 # Credit to Flask Task Manager Mini-Project videos

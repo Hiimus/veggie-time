@@ -13,8 +13,12 @@
   <img class="responsive-img" src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
   {% endif %}
   <div class="row">
-    <a href="" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small" data-position="bottom"
-      data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></a>
+      <form action="{{ url_for('add_favorite', username=session['user'], recipe_id=recipe._id) }}"
+      method="POST">
+      <button type="submit" id="heart-btn-view"
+        class="btn tooltipped btn-floating green btn-small" data-position="bottom"
+        data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+    </form>
     <a href="" id="rate-btn-view" class="btn tooltipped btn-floating green btn-small" data-position="bottom"
       data-tooltip="Give a Rating"><i class="fas fa-star"></i></a>
     {% if session.user|lower == recipe.created_by|lower %}
