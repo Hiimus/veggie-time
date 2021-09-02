@@ -118,29 +118,12 @@ def profile(username):
 
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
 def add_favorite(username, recipe_id):
-    # uses the session user's username from database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    recipe = {
-            "category_name": request.form.get("category_name"),
-            "recipe_name": request.form.get("recipe_name"),
-            "recipe_img": request.form.get("recipe_img"),
-            "recipe_description": request.form.get("recipe_description"),
-            "difficulty_name": request.form.get("difficulty_name"),
-            "ingredients": request.form.getlist("ingredients"),
-            "instructions": request.form.getlist("instructions"),
-            "created_by": session["user"],
-            "liked_by": request.form.getlist("")
-        }
     if request.method == "POST":
         mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
         mongo.db.recipes.update_one(
             {"_id": ObjectId(recipe_id)}, {"$push": {"liked_by": session["user"]}})
     if session["user"]:
-        return render_template("profile.html", username=username, recipe=recipe, recipes=recipes)
-    else:
-        return redirect(url_for("login"))
+        return redirect(url_for('profile', username=session['user']))
 
 
 @app.route("/remove_favorite/<recipe_id>", methods=["GET", "POST"])
