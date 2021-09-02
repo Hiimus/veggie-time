@@ -10,7 +10,7 @@
   <img class="responsive-img" src="{{ recipe.recipe_img }}">
   <!-- else, use default image -->
   {% else %}
-  <img class="responsive-img" src="../static/img/vegetables1.jpg">
+  <img class="responsive-img" src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
   {% endif %}
   <div class="row">
     <a href="" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small" data-position="bottom"
