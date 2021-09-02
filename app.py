@@ -135,7 +135,7 @@ def add_favorite(username, recipe_id):
     if request.method == "POST":
         mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
-        mongo.db.recipes.update(
+        mongo.db.recipes.update_one(
             {"_id": ObjectId(recipe_id)}, {"$push": {"liked_by": session["user"]}})
     if session["user"]:
         return render_template("profile.html", username=username, recipe=recipe, recipes=recipes)
