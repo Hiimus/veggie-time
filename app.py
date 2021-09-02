@@ -145,10 +145,13 @@ def add_favorite(username, recipe_id):
 
 @app.route("/remove_favorite/<recipe_id>", methods=["GET", "POST"])
 def remove_favorite(recipe_id):
-    mongo.db.recipes.update_one(
-        {"_id": ObjectId(recipe_id)}, {"$pull": {"liked_by": session["user"]}})
-    flash("Recipe Successfully Deleted")
-    return redirect(url_for("get_recipes"))
+    if request.method == "POST":
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)}, {"$pull": {"liked_by": session["user"]}})
+        flash("Recipe Successfully Removed From Favorites")
+        return redirect(url_for('profile', username=session['user']))
+    else:
+        return redirect(url_for("get_recipes"))
 
 
 # Credit to Flask Task Manager Mini-Project videos
