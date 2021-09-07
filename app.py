@@ -107,13 +107,15 @@ def login():
 @app.route("/profile/<username>")
 def profile(username):
     # uses the session user's username from database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
-    if session["user"]:
-        return render_template("profile.html", username=username, recipes=recipes)
-    else:
+    # check if a user is logged in
+    if not session.get("user"):
+        flash("Please log in to like recipes")
         return redirect(url_for("login"))
+    else:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
+        return render_template("profile.html", username=username, recipes=recipes)
 
 
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
@@ -124,6 +126,7 @@ def add_favorite(username, recipe_id):
             {"_id": ObjectId(recipe_id)}, {"$push": {"liked_by": session["user"]}})
     if session["user"]:
         return redirect(url_for('profile', username=session['user']))
+
 
 
 @app.route("/remove_favorite/<recipe_id>", methods=["GET", "POST"])
