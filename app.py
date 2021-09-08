@@ -107,9 +107,9 @@ def login():
 def profile(username):
     # uses the session user's username from database
     # check if a user is logged in
+    # Only users can acces profile
     if not session.get("user"):
-        flash("Please log in to like recipes")
-        return redirect(url_for("login"))
+        return render_template("error_handlers/404.html")
     else:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
@@ -204,7 +204,13 @@ def delete_recipe(recipe_id):
     return redirect(url_for("get_recipes"))
 
 
+# ---------------------------------------------------------- ERROR HANDLERS #
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("errors/404.html"), 404
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug = True)
+            debug=True)
