@@ -76,6 +76,8 @@ def register():
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if session.get("user"):
+        return render_template("errors/404.html")
     if request.method == "POST":
         # checks if username exists in database
         existing_user = mongo.db.users.find_one(
@@ -148,6 +150,9 @@ def logout():
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if not session.get("user"):
+        return render_template("errors/404.html")
+
     if request.method == "POST":
         recipe = {
             "category_name": request.form.get("category_name"),
@@ -173,6 +178,9 @@ def add_recipe():
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if not session.get("user"):
+        return render_template("errors/404.html")
+
     if request.method == "POST":
         submit_recipe = {
             "category_name": request.form.get("category_name"),
@@ -199,6 +207,9 @@ def edit_recipe(recipe_id):
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    if not session.get("user"):
+        return render_template("errors/404.html")
+
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
