@@ -178,7 +178,10 @@ def add_recipe():
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    if not session.get("user"):
+    existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+    if not session.get("user") == existing_user:
         return render_template("errors/404.html")
 
     if request.method == "POST":
