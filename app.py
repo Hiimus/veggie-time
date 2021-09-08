@@ -109,7 +109,7 @@ def profile(username):
     # check if a user is logged in
     # Only users can acces profile
     if not session.get("user"):
-        return render_template("error_handlers/404.html")
+        return render_template("errors/404.html")
     else:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
