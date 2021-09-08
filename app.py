@@ -8,7 +8,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -128,7 +127,6 @@ def add_favorite(username, recipe_id):
         return redirect(url_for('profile', username=session['user']))
 
 
-
 @app.route("/remove_favorite/<recipe_id>", methods=["GET", "POST"])
 def remove_favorite(recipe_id):
     if request.method == "POST":
@@ -209,4 +207,4 @@ def delete_recipe(recipe_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug = True)

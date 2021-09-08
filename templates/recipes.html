@@ -50,6 +50,19 @@
   </form>
 </div>
 
+<!-- Sort by dropdown -->
+<div class="row">
+  <div class="input-field col s3">
+      <select id="category_name" name="category_name">
+          <option value="" disabled>Sort by</option>
+          {% for category in categories %}
+            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+          {% endfor %}
+      </select>
+      <label for="category_name"></label>
+  </div>
+</div>
+
 
 {% if recipes|length > 0 %}
 <div class="row">
