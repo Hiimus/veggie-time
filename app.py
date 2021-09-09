@@ -116,7 +116,8 @@ def profile(username):
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
-        return render_template("profile.html", username=username, recipes=recipes)
+        return render_template(
+            "profile.html", username=username, recipes=recipes)
 
 
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
@@ -124,7 +125,8 @@ def add_favorite(username, recipe_id):
     if request.method == "POST":
         mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)}, {"$push": {"liked_by": session["user"]}})
+            {"_id": ObjectId(recipe_id)},
+            {"$push": {"liked_by": session["user"]}})
     if session["user"]:
         return redirect(url_for('profile', username=session['user']))
 
@@ -133,7 +135,8 @@ def add_favorite(username, recipe_id):
 def remove_favorite(recipe_id):
     if request.method == "POST":
         mongo.db.recipes.update_one(
-            {"_id": ObjectId(recipe_id)}, {"$pull": {"liked_by": session["user"]}})
+            {"_id": ObjectId(recipe_id)},
+            {"$pull": {"liked_by": session["user"]}})
         flash("Recipe Successfully Removed From Favorites")
         return redirect(url_for('profile', username=session['user']))
 
@@ -178,10 +181,11 @@ def add_recipe():
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
-
-    if not session.get("user") == existing_user:
+    find_author = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)},
+        {"created_by": 1, "_id": 0})
+    created_by = find_author.get("created_by")
+    if session.get("user") != created_by:
         return render_template("errors/404.html")
 
     if request.method == "POST":
