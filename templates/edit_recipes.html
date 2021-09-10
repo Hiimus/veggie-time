@@ -23,7 +23,7 @@
         <!-- recipe name -->
         <div class="row">
             <div class="input-field col s12">
-                <input name="recipe_name" id="recipe_name" maxlength="100" value="{{ recipe.recipe_name }}" type="text"
+                <input name="recipe_name" id="recipe_name" pattern="^\S+[a-zA-Z0-9-_\s]+$" maxlength="100" value="{{ recipe.recipe_name }}" type="text"
                     class="validate" required>
                 <label for="recipe_name">Recipe Name</label>
             </div>
@@ -64,7 +64,7 @@
                 <div>
                     {% for ingredient in recipe.ingredients %}
                     <div class="input-field col s12 m8 l8">
-                        <input id="ingredients" name="ingredients" type="text" maxlength="100" value="{{ ingredient }}"
+                        <input id="ingredients" name="ingredients" pattern="^\S+[a-zA-Z0-9-_\s]+$" type="text" maxlength="100" value="{{ ingredient }}"
                             class="validate" required>
                         <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i
                                 class='fas fa-minus'></i></button>
@@ -86,7 +86,7 @@
             <div class="container2">
                 {% for instruction in recipe.instructions %}
                 <div class="input-field col s12 m8 l8">
-                    <input id="instructions" name="instructions" type="text" class="validate add-instruction-edit"
+                    <input id="instructions" name="instructions" pattern="^\S+[a-zA-Z0-9-_\s]+$" type="text" class="validate add-instruction-edit"
                         value="{{ instruction }}" required maxlength="400">
                     <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i
                             class='fas fa-minus'></i></button>
