@@ -214,7 +214,11 @@ def edit_recipe(recipe_id):
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    if not session.get("user"):
+    find_author = mongo.db.recipes.find_one(
+        {"_id": ObjectId(recipe_id)},
+        {"created_by": 1, "_id": 0})
+    created_by = find_author.get("created_by")
+    if session.get("user") != created_by:
         return render_template("errors/404.html")
 
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
