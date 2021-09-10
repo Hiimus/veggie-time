@@ -12,7 +12,7 @@
                     <div class="input-field col s12">
                         <i class="fas fa-user-plus prefix"></i>
                         <input id="username" name="username" type="text" minlength="5" 
-                            maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
+                            maxlength="20" pattern="^/S+[a-zA-Z0-9]{5,20}+$" class="validate" required>
                         <label for="username">Username</label>
                     </div>
                 </div>
@@ -21,10 +21,14 @@
                     <div class="input-field col s12">
                         <i class="fas fa-key prefix"></i>
                         <input id="password" name="password" type="password" minlength="5" 
-                            maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
+                            maxlength="20" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="validate" required>
                         <label for="password">Password</label>
                     </div>
+                    <div class="col s12">
+                        <p>Password must contain at least eight characters, at least one letter and one number</p>
+                    </div>
                 </div>
+
                 <!-- Submit button -->
                 <div class="row">
                     <button type="submit" class="col s6 btn-large offset-s3">Register</button>
