@@ -62,4 +62,22 @@
 <h4>No Results Found</h4>
 {% endif %}
 
+<!-- Credit to https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9 for pagination -->
+
+<div class="container center-align">
+  {{ pagination.links }}
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ loop.index + (page - 1) * per_page }}</td>
+          <td>{{ user }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 {% endblock %}

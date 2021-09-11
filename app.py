@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_paginate import Pagination, get_page_args
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -16,6 +17,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+app.template_folder = "templates"
+users = list(range(100))
+
+
+def get_users(offset=0, per_page=10):
+    return users[offset: offset + per_page]
+
 
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/")
@@ -27,10 +35,24 @@ def get_recipes():
         "recipes.html", recipes=recipes, recipe=recipe)
 
 
+# Credit to https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+# for pagination.
 @app.route("/all_recipes")
 def all_recipes():
+    page, per_page, offset = get_page_args(
+        page_parameter='page',
+        per_page_parameter='per_page',
+        offset_parameter='offset')
+    per_page = 9
+    offset = (page - 1) * per_page
+    total = mongo.db.recipes.find().count()
     recipes = list(mongo.db.recipes.find())
-    return render_template("all_recipes.html", recipes=recipes)
+    recipes_paginated = recipes[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='materializecss')
+    return render_template(
+        "all_recipes.html", recipes=recipes_paginated, page=page,
+        per_page=per_page, pagination=pagination)
 
 
 @app.route("/view_recipe/<recipe_id>")
