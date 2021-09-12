@@ -66,7 +66,20 @@ def view_recipe(recipe_id):
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("recipes.html", recipes=recipes)
+    page, per_page, offset = get_page_args(
+        page_parameter='page',
+        per_page_parameter='per_page',
+        offset_parameter='offset')
+    per_page = 9
+    offset = (page - 1) * per_page
+    total = mongo.db.recipes.find().count()
+    recipes_page = list(mongo.db.recipes.find())
+    recipes_paginated = recipes_page[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='materializecss')
+    return render_template(
+        "all_recipes.html", recipes=recipes, recipes_page=recipes_paginated, page=page,
+        per_page=per_page, pagination=pagination)
 
 
 # Credit to Flask Task Manager Mini-Project videos
