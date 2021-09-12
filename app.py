@@ -78,8 +78,18 @@ def search():
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='materializecss')
     return render_template(
-        "all_recipes.html", recipes=recipes, recipes_page=recipes_paginated, page=page,
+        "all_recipes.html", recipes=recipes,
+        recipes_page=recipes_paginated, page=page,
         per_page=per_page, pagination=pagination)
+
+
+@app.route("/sort_category", methods=["GET", "POST"])
+def sort_category():
+    category = request.args.get("category_name")
+    recipes = list(
+                mongo.db.recipes.find(
+                    {"category_name": category}))
+    return render_template("recipes.html", recipes=recipes, category=category)
 
 
 # Credit to Flask Task Manager Mini-Project videos

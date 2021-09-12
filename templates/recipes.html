@@ -50,18 +50,23 @@
   </form>
 </div>
 
-<!-- Sort by dropdown -->
 <div class="row">
-  <div class="input-field col s3">
-      <select id="category_name" name="category_name">
-          <option value="" disabled>Sort by</option>
-          {% for category in categories %}
-            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-          {% endfor %}
-      </select>
-      <label for="category_name"></label>
-  </div>
+    <div>
+      <a href="{{ url_for('sort_category', category_name='Breakfast') }}">
+        <div class="breakfast">Breakfast</div>
+      </a>
+      <a href="{{ url_for('sort_category', category_name='Dinner') }}">
+        <div class="breakfast">Dinner</div>
+      </a>
+      <a href="{{ url_for('sort_category', category_name='Lunch') }}">
+        <div class="breakfast">Lunch</div>
+      </a>
+      <a href="{{ url_for('sort_category', category_name='Snack') }}">
+        <div class="breakfast">Snack</div>
+      </a>
+    </div>
 </div>
+  
 
 
 {% if recipes|length > 0 %}
