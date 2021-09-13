@@ -105,7 +105,6 @@
               <p>Difficulty: {{ recipe.difficulty_name }}</p>
               <p>Category: {{ recipe.category_name }}</p>
             </div>
-            {% if session.user|lower == recipe.created_by|lower %}
             <div class="card-action center-align">
               <form action="{{ url_for('remove_favorite', recipe_id=recipe._id) }}" method="POST">
                 <button type="submit" id="delete-btn-view" data-target="modal1"
@@ -116,11 +115,6 @@
                   data-tooltip="Edit Recipe"><i class="far fa-edit"></i></a>
               </form>
             </div>
-            {% else %}
-            <div class="card-action card-action-profile">
-              <p>Added by: <em>{{ recipe.created_by }}</em></p>
-            </div>
-            {% endif %}
           </div>
         </div>
       </a>
