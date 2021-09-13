@@ -6,9 +6,10 @@ $(document).ready(function(){
     $('.tooltipped').tooltip(); // Tooltip that explains that product link is fake
 
     
+    
+
 
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients
-
     let max_fields      = 20;
     let wrapper1         = $(".container1");
     let wrapper2         = $(".container2");
@@ -110,9 +111,39 @@ $(document).ready(function(){
               });
           }
       });
-  }
+  }     
+
+  
+
+  
+    
   });
 
+  const el = document.createElement('div');
+    el.innerHTML = "Here's a <a href='http://google.com'>link</a>";
 
-  
-  
+
+  function sweetalertclick() {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: `<a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">LINK</a>`
+       }).then((result) => {
+         if (result.value) {
+         Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+       }
+       })
+  }
+
+
+  {{ url_for('delete_recipe', recipe_id=recipe._id) }}
+
+  `<a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">LINK</a>`
