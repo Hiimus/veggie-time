@@ -29,7 +29,7 @@ def get_users(offset=0, per_page=10):
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = list(mongo.db.recipes.find().limit(9))
+    recipes = list(mongo.db.recipes.find().limit(9).sort("_id", -1))
     recipe = list(mongo.db.recipes.find())
     return render_template(
         "recipes.html", recipes=recipes, recipe=recipe)
@@ -46,7 +46,7 @@ def all_recipes():
     per_page = 9
     offset = (page - 1) * per_page
     total = mongo.db.recipes.find().count()
-    recipes = list(mongo.db.recipes.find())
+    recipes = list(mongo.db.recipes.find().sort("_id", -1))
     recipes_paginated = recipes[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='materializecss')
@@ -161,9 +161,9 @@ def profile(username):
     else:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
-        recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
+        recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}).sort("_id", -1))
         real_recipes = list(
-            mongo.db.recipes.find({"created_by": session["user"]}))
+            mongo.db.recipes.find({"created_by": session["user"]}).sort("_id", -1))
         created_recipes = mongo.db.recipes.find_one(
             {"created_by": session["user"]},
             {"created_by": 1, "_id": 0})
