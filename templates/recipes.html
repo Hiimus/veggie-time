@@ -50,21 +50,15 @@
   </form>
 </div>
 
+
+<!-- Choose category buttons small, medium and large devices-->
 <div class="row">
-    <div>
-      <a href="{{ url_for('sort_category', category_name='Breakfast') }}">
-        <div class="breakfast">Breakfast</div>
-      </a>
-      <a href="{{ url_for('sort_category', category_name='Dinner') }}">
-        <div class="breakfast">Dinner</div>
-      </a>
-      <a href="{{ url_for('sort_category', category_name='Lunch') }}">
-        <div class="breakfast">Lunch</div>
-      </a>
-      <a href="{{ url_for('sort_category', category_name='Snack') }}">
-        <div class="breakfast">Snack</div>
-      </a>
-    </div>
+  <div class="col s12 center-align">
+    <a href="{{ url_for('sort_category', category_name='Breakfast') }}" class="category-btns">Breakfast</a>
+    <a href="{{ url_for('sort_category', category_name='Dinner') }}" class="category-btns">Dinner</a>
+    <a href="{{ url_for('sort_category', category_name='Lunch') }}" class="category-btns">Lunch</a>
+    <a href="{{ url_for('sort_category', category_name='Snack') }}" class="category-btns">Snack</a>
+  </div>
 </div>
   
 

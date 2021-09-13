@@ -126,3 +126,11 @@ textarea {
 .responsive-img {
     max-height: 50vh;
 }
+
+.category-btns {
+    border: 2px solid #4CAF50;
+    border-radius: 25%;
+    color: white;
+    padding: 7px;
+    background-color: #4CAF50;
+}
