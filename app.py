@@ -86,6 +86,7 @@ def search():
 @app.route("/sort_category", methods=["GET", "POST"])
 def sort_category():
     category = request.args.get("category_name")
+    print(category)
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
@@ -161,8 +162,14 @@ def profile(username):
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}))
+        real_recipes = list(
+            mongo.db.recipes.find({"created_by": session["user"]}))
+        created_recipes = mongo.db.recipes.find_one(
+            {"created_by": session["user"]},
+            {"created_by": 1, "_id": 0})
         return render_template(
-            "profile.html", username=username, recipes=recipes)
+            "profile.html", username=username, recipes=recipes,
+            created_recipes=created_recipes, real_recipes=real_recipes)
 
 
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
