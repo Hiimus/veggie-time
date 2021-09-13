@@ -81,8 +81,6 @@
           <button name="like" type="submit" id="heart_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
             data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
           </form>
-          <a href="" id="rate_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
-            data-position="bottom" data-tooltip="Give a Rating"><i class="fas fa-star"></i></a>
         </div>
         <div class="card-content">
           <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title">{{ recipe.recipe_name }}</a>

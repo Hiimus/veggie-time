@@ -18,8 +18,6 @@
       <button type="submit" id="heart-btn-view"
         class="btn tooltipped btn-floating green btn-small" data-position="bottom"
         data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-        <a href="" id="rate-btn-view" class="btn tooltipped btn-floating green btn-small" data-position="bottom"
-        data-tooltip="Give a Rating"><i class="fas fa-star"></i></a>
       {% if session.user|lower == recipe.created_by|lower %}
       <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete-btn-view" onclick="myFunction()" 
         class="btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
