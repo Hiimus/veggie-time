@@ -11,7 +11,7 @@
 
     <h3 class="center-align">Recipes You Have Created:</h3>
 
-    {% if created_recipes|length > 0 %}
+    {% if created_recipes %}
     <div class="row row-test">
       {% for recipe in real_recipes %}
         {% if session.user|lower == recipe.created_by|lower %}
@@ -42,16 +42,6 @@
                 <p>Category: {{ recipe.category_name }}</p>
               </div>
               {% if session.user|lower == recipe.created_by|lower %}
-              <div class="card-action center-align">
-                
-                  <button onclick="sweetalertclick()" id="delete-btn-view"
-                    class="btn tooltipped btn-floating green btn-small delete-btn"
-                    data-position="bottom" data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></button>
-                  <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
-                    class="btn tooltipped green btn-small" data-position="bottom"
-                    data-tooltip="Edit Recipe"><i class="far fa-edit"></i></a>
-                
-              </div>
               {% else %}
               <div class="card-action card-action-profile">
                 <p>Added by: <em>{{ recipe.created_by }}</em></p>
@@ -105,10 +95,10 @@
               <form action="{{ url_for('remove_favorite', recipe_id=recipe._id) }}" method="POST">
                 <button type="submit" id="delete-btn-view" data-target="modal1"
                   class="btn tooltipped green modal-trigger btn-small delete-btn" data-position="bottom"
-                  data-tooltip="Remove Recipe"><i class="fas fa-trash"></i></button>
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
+                  data-tooltip="Remove Recipe from Favorites"><i class="fas fa-trash"></i></button>
+                <!-- <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
                   class="btn tooltipped green btn-small" data-position="bottom"
-                  data-tooltip="Edit Recipe"><i class="far fa-edit"></i></a>
+                  data-tooltip="Edit Recipe"><i class="far fa-edit"></i></a> -->
               </form>
             </div>
           </div>
