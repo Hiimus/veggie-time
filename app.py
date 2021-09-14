@@ -185,6 +185,18 @@ def add_favorite_from_profile(username, recipe_id):
         return redirect(url_for('profile', username=session['user']))
 
 
+# Adds to favorites, redirects to all_recipes page if added while on all_recipes page.
+@app.route("/all_recipes/<username>/<recipe_id>", methods=["GET", "POST"])
+def add_favorite_from_all(username, recipe_id):
+    if request.method == "POST":
+        mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {"$push": {"liked_by": session["user"]}})
+    if session["user"]:
+        return redirect(url_for('all_recipes', username=session['user']))
+
+
 # Adds to favorites, redirects to home page if added while on home page.
 @app.route("/<username>/<recipe_id>", methods=["GET", "POST"])
 def add_favorite_from_home(username, recipe_id):
@@ -217,6 +229,17 @@ def remove_favorite_from_home(recipe_id):
             {"$pull": {"liked_by": session["user"]}})
         flash("Recipe Successfully Removed From Favorites")
         return redirect(url_for('get_recipes', username=session['user']))
+
+
+# Removes favorite, redirects to home page if removing while on home page.
+@app.route("/all_recipes/<recipe_id>", methods=["GET", "POST"])
+def remove_favorite_from_all(recipe_id):
+    if request.method == "POST":
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {"$pull": {"liked_by": session["user"]}})
+        flash("Recipe Successfully Removed From Favorites")
+        return redirect(url_for('all_recipes', username=session['user']))
 
 
 # Credit to Flask Task Manager Mini-Project videos
