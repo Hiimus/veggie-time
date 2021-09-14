@@ -18,6 +18,11 @@
     <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
       <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-small"
         data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+        <div class="col">
+          {% if recipe.liked_by|length > 0 %}
+          <h6>{{ recipe.liked_by|length }}</h6>
+          {% endif %}
+        </div>
       {% if session.user|lower == recipe.created_by|lower %}
       <a href="#modal1" id="delete-btn-view"
         class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
@@ -44,6 +49,11 @@
   <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}" method="POST">
     <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small" data-position="bottom"
       data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+      <div class="col">
+        {% if recipe.liked_by|length > 0 %}
+        <h6>{{ recipe.liked_by|length }}</h6>
+        {% endif %}
+      </div>
     {% if session.user|lower == recipe.created_by|lower %}
     <a href="#modal1" id="delete-btn-view" class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn"
       data-position="bottom" data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>

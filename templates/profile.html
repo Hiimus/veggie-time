@@ -32,6 +32,12 @@
                   class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
               </form>
+              <div class="col">
+                {% if recipe.liked_by|length > 0 %}
+                <h6>{{ recipe.liked_by|length }}</h6>
+                {% endif %}
+              </div>
+              
               {% else %}
               <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
                 method="POST">
@@ -39,6 +45,11 @@
                   class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
               </form>
+              <div class="col">
+                {% if recipe.liked_by|length > 0 %}
+                <h6>{{ recipe.liked_by|length }}</h6>
+                {% endif %}
+              </div>
               {% endif %}
               </div>
   
@@ -90,6 +101,9 @@
                   class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
               </form>
+              <div class="col">
+                <h6>{{ recipe.liked_by|length }}</h6>
+              </div>
               {% else %}
               <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
                 method="POST">
@@ -97,9 +111,11 @@
                   class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
               </form>
+              <div class="col">
+                <h6>{{ recipe.liked_by|length }}</h6>
+              </div>
               {% endif %}
             </div>
-
             <div class="card-content">
               <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}"
                 class="card-title">{{ recipe.recipe_name }}</a>

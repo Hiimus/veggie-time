@@ -161,7 +161,8 @@ def profile(username):
     else:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
-        recipes = list(mongo.db.recipes.find({"liked_by": session["user"]}).sort("_id", -1))
+        recipes = list(
+            mongo.db.recipes.find({"liked_by": session["user"]}).sort("_id", -1))
         real_recipes = list(
             mongo.db.recipes.find({"created_by": session["user"]}).sort("_id", -1))
         created_recipes = mongo.db.recipes.find_one(

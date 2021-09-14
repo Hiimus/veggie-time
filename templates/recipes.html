@@ -82,11 +82,21 @@
             <button name="like" type="submit" id="heart_btn" class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small"
               data-position="bottom" data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
             </form>
+            <div class="col">
+              {% if recipe.liked_by|length > 0 %}
+              <h6>{{ recipe.liked_by|length }}</h6>
+              {% endif %}
+            </div>
           {% else %}
           <form action="{{ url_for('add_favorite_from_home', username=session['user'], recipe_id=recipe._id) }}" method="POST">
           <button name="like" type="submit" id="heart_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
             data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
           </form>
+          <div class="col">
+            {% if recipe.liked_by|length > 0 %}
+            <h6>{{ recipe.liked_by|length }}</h6>
+            {% endif %}
+          </div>
           {% endif %}
         </div>
         <div class="card-content">
