@@ -26,12 +26,20 @@
                 {% else %}
                 <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
                 {% endif %}
-                <form action="{{ url_for('add_favorite', username=session['user'], recipe_id=recipe._id) }}"
-                  method="POST">
-                  <button type="submit" id="heart_btn"
-                    class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
-                    data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-                </form>
+                {% if session.user|lower in recipe.liked_by|lower %}
+              <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+                <button name="like" type="submit" id="heart_btn"
+                  class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
+                  data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
+              </form>
+              {% else %}
+              <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
+                method="POST">
+                <button name="like" type="submit" id="heart_btn"
+                  class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+                  data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+              </form>
+              {% endif %}
               </div>
   
               <div class="card-content">
@@ -76,12 +84,20 @@
               {% else %}
               <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
               {% endif %}
-              <form action="{{ url_for('add_favorite', username=session['user'], recipe_id=recipe._id) }}"
+              {% if session.user|lower in recipe.liked_by|lower %}
+              <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+                <button name="like" type="submit" id="heart_btn"
+                  class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
+                  data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
+              </form>
+              {% else %}
+              <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
                 method="POST">
-                <button type="submit" id="heart_btn"
+                <button name="like" type="submit" id="heart_btn"
                   class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
               </form>
+              {% endif %}
             </div>
 
             <div class="card-content">
@@ -92,7 +108,7 @@
               <p>Category: {{ recipe.category_name }}</p>
             </div>
             <div class="card-action center-align">
-              <form action="{{ url_for('remove_favorite', recipe_id=recipe._id) }}" method="POST">
+              <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
                 <button type="submit" id="delete-btn-view" data-target="modal1"
                   class="btn tooltipped green modal-trigger btn-small delete-btn" data-position="bottom"
                   data-tooltip="Remove Recipe from Favorites"><i class="fas fa-trash"></i></button>

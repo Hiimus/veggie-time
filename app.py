@@ -172,8 +172,9 @@ def profile(username):
             created_recipes=created_recipes, real_recipes=real_recipes)
 
 
+# Adds to favorites, redirects to profile page if added while on profile page or view_recipe page.
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
-def add_favorite(username, recipe_id):
+def add_favorite_from_profile(username, recipe_id):
     if request.method == "POST":
         mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
         mongo.db.recipes.update_one(
@@ -183,14 +184,38 @@ def add_favorite(username, recipe_id):
         return redirect(url_for('profile', username=session['user']))
 
 
-@app.route("/remove_favorite/<recipe_id>", methods=["GET", "POST"])
-def remove_favorite(recipe_id):
+# Adds to favorites, redirects to home page if added while on home page.
+@app.route("/<username>/<recipe_id>", methods=["GET", "POST"])
+def add_favorite_from_home(username, recipe_id):
+    if request.method == "POST":
+        mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {"$push": {"liked_by": session["user"]}})
+    if session["user"]:
+        return redirect(url_for('get_recipes', username=session['user']))
+
+
+# Removes favorite, redirects to profile page if removing while on profile page or view_recipe page.
+@app.route("/profile/<recipe_id>", methods=["GET", "POST"])
+def remove_favorite_from_profile(recipe_id):
     if request.method == "POST":
         mongo.db.recipes.update_one(
             {"_id": ObjectId(recipe_id)},
             {"$pull": {"liked_by": session["user"]}})
         flash("Recipe Successfully Removed From Favorites")
         return redirect(url_for('profile', username=session['user']))
+
+
+# Removes favorite, redirects to home page if removing while on home page.
+@app.route("/", methods=["GET", "POST"])
+def remove_favorite_from_home(recipe_id):
+    if request.method == "POST":
+        mongo.db.recipes.update_one(
+            {"_id": ObjectId(recipe_id)},
+            {"$pull": {"liked_by": session["user"]}})
+        flash("Recipe Successfully Removed From Favorites")
+        return redirect(url_for('get_recipes', username=session['user']))
 
 
 # Credit to Flask Task Manager Mini-Project videos

@@ -78,12 +78,12 @@
           <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}">
           {% endif %}
           {% if session.user|lower in recipe.liked_by|lower %}
-          <form action="{{ url_for('remove_favorite', recipe_id=recipe._id) }}" method="POST">
+          <form action="{{ url_for('remove_favorite_from_home', recipe_id=recipe._id) }}" method="POST">
             <button name="like" type="submit" id="heart_btn" class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small"
               data-position="bottom" data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
             </form>
           {% else %}
-          <form action="{{ url_for('add_favorite', username=session['user'], recipe_id=recipe._id) }}" method="POST">
+          <form action="{{ url_for('add_favorite_from_home', username=session['user'], recipe_id=recipe._id) }}" method="POST">
           <button name="like" type="submit" id="heart_btn" class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
             data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
           </form>
