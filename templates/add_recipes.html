@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<main class="container">
     <h3 class="center-align">Add Recipe</h3>
 
     <form method="POST" action="{{ url_for('add_recipe') }}" onsubmit="return validateForm()" class="col card-panel m12 l10 offset-l1">
@@ -93,6 +94,6 @@
             </div>
         </div>
     </form>
-
+</main>
 
 {% endblock %}
