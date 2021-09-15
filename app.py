@@ -161,9 +161,11 @@ def profile(username):
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         recipes = list(
-            mongo.db.recipes.find({"liked_by": session["user"]}).sort("_id", -1))
+            mongo.db.recipes.find(
+                {"liked_by": session["user"]}).sort("_id", -1))
         real_recipes = list(
-            mongo.db.recipes.find({"created_by": session["user"]}).sort("_id", -1))
+            mongo.db.recipes.find(
+                {"created_by": session["user"]}).sort("_id", -1))
         created_recipes = mongo.db.recipes.find_one(
             {"created_by": session["user"]},
             {"created_by": 1, "_id": 0})
@@ -172,7 +174,8 @@ def profile(username):
             created_recipes=created_recipes, real_recipes=real_recipes)
 
 
-# Adds to favorites, redirects to profile page if added while on profile page or view_recipe page.
+# Adds to favorites, redirects to profile page if added while on profile
+# page or view_recipe page.
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
 def add_favorite_from_profile(username, recipe_id):
     if request.method == "POST":
@@ -184,7 +187,8 @@ def add_favorite_from_profile(username, recipe_id):
         return redirect(url_for('profile', username=session['user']))
 
 
-# Adds to favorites, redirects to all_recipes page if added while on all_recipes page.
+# Adds to favorites, redirects to all_recipes page if added while
+# on all_recipes page.
 @app.route("/all_recipes/<username>/<recipe_id>", methods=["GET", "POST"])
 def add_favorite_from_all(username, recipe_id):
     if request.method == "POST":
@@ -208,7 +212,8 @@ def add_favorite_from_home(username, recipe_id):
         return redirect(url_for('get_recipes', username=session['user']))
 
 
-# Removes favorite, redirects to profile page if removing while on profile page or view_recipe page.
+# Removes favorite, redirects to profile page if removing while
+# on profile page or view_recipe page.
 @app.route("/profile/<recipe_id>", methods=["GET", "POST"])
 def remove_favorite_from_profile(recipe_id):
     if request.method == "POST":
@@ -330,6 +335,11 @@ def delete_recipe(recipe_id):
 @app.errorhandler(404)
 def not_found(e):
     return render_template("errors/404.html"), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template("errors/500.html"), 500
 
 
 if __name__ == "__main__":

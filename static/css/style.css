@@ -1,3 +1,13 @@
+.home-background {
+    min-height: 60vh;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kutte.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+}
+
+
 textarea {
     resize: vertical;
     min-height: 50px;
@@ -134,3 +144,15 @@ textarea {
     padding: 7px;
     background-color: #4CAF50;
 }
+
+/* Media queries */
+  @media screen and (min-width: 992px) {
+    .home-background {
+        min-height: 60vh;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/eat-cpp.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center top;
+    }
+  }
