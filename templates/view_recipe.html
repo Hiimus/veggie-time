@@ -2,23 +2,23 @@
 {% block content %}
 
 <main class="container">
-<a href="{{ url_for('get_recipes') }}"><i class="far fa-arrow-alt-circle-left fa-3x"></i></a>
+
 
 
 <div class="container">
-  <!-- if image url exists, use that-->
-  {% if recipe.recipe_img %}
-  <img class="responsive-img" src="{{ recipe.recipe_img }}">
-  <!-- else, use default image -->
-  {% else %}
-  <img class="responsive-img" src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
-  {% endif %}
   <div class="row">
-
-    {% if session.user|lower in recipe.liked_by|lower %}
+    <a href="{{ url_for('get_recipes') }}"><i class="far fa-arrow-alt-circle-left fa-3x"></i></a>
+  </div>
+  <div id="one" class="row border-view">
+    <div class="col s6">
+      <h3>{{ recipe.recipe_name }}</h3>
+      <h5>{{ recipe.recipe_description }}</h5>
+      <h6>Difficulty: {{ recipe.difficulty_name }}</h6>
+      <h6>Category: {{ recipe.category_name }}</h6>
+      {% if session.user|lower in recipe.liked_by|lower %}
     <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-      <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-small"
-        data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+      <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-large"
+        data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart fa-5x"></i></button>
         <div class="col">
           {% if recipe.liked_by|length > 0 %}
           <h6>{{ recipe.liked_by|length }}</h6>
@@ -41,9 +41,9 @@
         </div>
       </div>
       <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
-        class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
+        class="btn tooltipped btn-floating green btn-large " data-position="bottom" data-tooltip="Edit Recipe"><i
           class="far fa-edit"></i></a>
-  </div>
+  
   {% endif %}
   </form>
   {% else %}
@@ -77,9 +77,31 @@
 {% endif %}
     </form>
     {% endif %}
+    </div>
+    
+    <!-- if image url exists, use that-->
+  {% if recipe.recipe_img %}
+  <div class="col s6">
+    <img class="responsive-img" src="{{ recipe.recipe_img }}">
+    <p></p><em>Added by: {{ recipe.created_by }}</em></p>
+  </div>
+  
+  <!-- else, use default image -->
+  {% else %}
+  <div class="col s6">
+    <img class="responsive-img" src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
+    <p></p><em>Added by: {{ recipe.created_by }}</em></p>
+  </div>
+  {% endif %}
+  </div>
+    
+  
+  
+
+    
 
       
-  <div class="row">
+  <!-- <div class="row">
     <div class="col s3 created-by-view">
       <p></p><em>Added by: {{ recipe.created_by }}</em></p>
     </div>
@@ -96,22 +118,30 @@
   <div class="row">
     <h6>Category:</h6>
     <p>{{ recipe.category_name }}</p>
-  </div>
+  </div> -->
   <div class="row">
-    <h5>Ingredients</h5>
+    <div class="col s6">
+      <div id="one" class="border-view">
+        <h5>Ingredients</h5>
     
-    {% for ingredient in recipe.ingredients %}
-    <li>{{ ingredient }}</li>
-    {% endfor %}
-    
-  </div>
-  <div class="row">
-    <h5>Instructions</h5>
+        {% for ingredient in recipe.ingredients %}
+        <li>{{ ingredient }}</li>
+        <hr>
+        {% endfor %}
+      </div>
+      
+    </div>
+    <div class="col s6">
+      <div id="one" class="border-view">
+      <h5>Instructions</h5>
     <ol>
       {% for instruction in recipe.instructions %}
       <li>{{ instruction }}</li>
+      <hr>
       {% endfor %}
     </ol>
+    </div>
+  </div>
   </div>
 </main>
 

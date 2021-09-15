@@ -92,6 +92,7 @@ textarea {
 
 #heart-btn-view {
     left: 5px;
+    top: 35px;
 }
 
 #rate_btn {
@@ -102,10 +103,7 @@ textarea {
     left: 10px;
 }
 
-.created-by-view {
-    float: right!important;
-    width: auto!important;
-}
+
 
 .page-footer {
     background-color: #95cb86!important;
@@ -144,6 +142,38 @@ textarea {
     padding: 7px;
     background-color: #4CAF50;
 }
+
+/* view_recipe */
+
+.sketchy {
+    padding: 4rem 4rem;
+    display: inline-block;
+    border: 3px solid #333333;
+    font-size: 1.5rem;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    text-transform: uppercase;
+    letter-spacing: 0.3ch;
+    background: #ffffff;
+    position: relative;
+    font-family: 'Just Another Hand', cursive;
+}
+
+#one {
+    border:solid 5px #8dbf7f;
+  }
+
+.border-view {
+    width:100%; 
+    margin-top:5%; 
+    text-align:center;
+    display:inline-block;
+    margin:5% auto;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:1em;
+    line-height:1.5em;
+    background:hsla(67, 95%, 95%, 1);
+}
+
 
 /* Media queries */
   @media screen and (min-width: 992px) {
