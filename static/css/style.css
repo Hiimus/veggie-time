@@ -145,18 +145,7 @@ textarea {
 
 /* view_recipe */
 
-.sketchy {
-    padding: 4rem 4rem;
-    display: inline-block;
-    border: 3px solid #333333;
-    font-size: 1.5rem;
-    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
-    text-transform: uppercase;
-    letter-spacing: 0.3ch;
-    background: #ffffff;
-    position: relative;
-    font-family: 'Just Another Hand', cursive;
-}
+/* -- Handdrawn border effect, credit from: https://freefrontend.com/css-border-examples/ -- */
 
 #one {
     border:solid 5px #8dbf7f;
@@ -174,6 +163,7 @@ textarea {
     background:hsla(67, 95%, 95%, 1);
 }
 
+/* ---------------------------------- */
 
 /* Media queries */
   @media screen and (min-width: 992px) {
