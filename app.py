@@ -86,7 +86,6 @@ def search():
 @app.route("/sort_category", methods=["GET", "POST"])
 def sort_category():
     category = request.args.get("category_name")
-    print(category)
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
