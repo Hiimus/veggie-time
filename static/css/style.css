@@ -1,3 +1,16 @@
+
+@import url(https://fonts.googleapis.com/css?family=Leckerli+One);
+
+a, h1, h2, h3, h4, h5, h6 { 
+    margin: 0; 
+    font-family: 'Leckerli One', cursive;
+    text-shadow: 0 2px rgba(0,0,0,.5);
+  }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}  
+
 .home-background {
     min-height: 60vh;
         background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/lilla.jpg");
