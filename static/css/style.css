@@ -1,10 +1,10 @@
 .home-background {
     min-height: 60vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kutte.jpg");
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/lilla.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center top;
+        background-position: center;
 }
 
 
@@ -169,10 +169,10 @@ textarea {
   @media screen and (min-width: 992px) {
     .home-background {
         min-height: 60vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/eat-cpp.jpg");
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kjøkkenbenk.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center top;
+        background-size: cover;
+        background-position: center;
     }
   }
