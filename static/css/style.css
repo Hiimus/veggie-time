@@ -195,6 +195,128 @@ textarea {
 
 /* ---------------------------------- */
 
+/* PRODUCT */
+  /* Credit to https://freefrontend.com/css-product-cards/ for inspiring design */
+  
+  /*product info */
+  
+  .h1-chopper {
+    color: #8dbf7f;
+    font-family: "muli";
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 21px;
+    display: inline-block;
+  }
+  
+  .h3-chopper {
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .h2-chopper {
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  
+  .h4-chopper {
+    display: inline-block;
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+ 
+  /*main card*/
+  
+  .card-chopper {
+    display: flex;
+    align-items: center;
+    background: #252831 url("../img/salad.jpg")
+      no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 2%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card-chopper:hover {
+    border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  animation-name: example;
+  animation-duration: 0.25s;
+  border-left: 8px solid #252831;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
+  .left-chopper {
+    content: "";
+    height: 160px;
+    width: 99px;
+    display: flex;
+    align-items: center;
+    background-color: #8dbf7f;
+    margin-left: 25.2px;
+    border-radius: 0% 50% 50% 0%;
+    position: absolute;
+    z-index: 5;
+  }
+  
+  .left-chopper img {
+    margin-left: -23px;
+    margin-top: 60px;
+    height: 80%;
+    margin-bottom: 50px;
+  }
+  
+  .right-chopper {
+    content: "";
+    height: 160px;
+    width: 199px;
+    background-color: #2a2f40;
+    z-index: 3;
+    margin-left: 54px;
+  }
+  
+  .product-info {
+    position: absolute;
+    margin-left: 86px;
+    height: 160px;
+    width: 82.65px;
+    z-index: 10;
+  }
+
+  .foot {
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 5px;
+    margin-right: 50px;
+    font-weight: 500;
+    font-size: 10px;
+    float: left;
+    transition: 0.3s all ease;
+  }
+  
+  .foot i:nth-child(1) {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+  
+  .foot:hover {
+    color: #f76b39;
+    cursor: pointer;
+  }
+
 /* Media queries */
   @media screen and (min-width: 992px) {
     .home-background {
@@ -205,11 +327,9 @@ textarea {
         background-size: cover;
         background-position: center;
     }
-  }
 
-
-  /* PRODUCT */
-
+    /* PRODUCT */
+  /* Credit to https://freefrontend.com/css-product-cards/ for inspiring design */
   
   /*product info */
   
@@ -220,21 +340,6 @@ textarea {
     font-size: 22px;
     margin-top: 21px;
     display: inline-block;
-  }
-  
-  i.fa.fa-search {
-    margin-left: 90px;
-  }
-  
-  .product-name i {
-    color: #ffffff;
-    transition: 0.3s all ease;
-    margin: 0px 12px;
-  }
-  
-  .product-name i:hover {
-    color: #ff6d39;
-    cursor: pointer;
   }
   
   .h3-chopper {
@@ -261,63 +366,13 @@ textarea {
     font-weight: bold;
     font-size: 20px;
   }
-  
-  .h4-chopper.dis {
-    display: inline-block;
-    color: #ffffff;
-    font-family: "muli";
-    font-weight: 400;
-    font-size: 17px;
-    margin-left: 30px;
-    text-decoration: line-through #ea3201;
-  }
-  
-  .h4-chopper.dis span {
-    text-decoration: line-through #ea3201;
-  }
-  
-  
-  
-  .bg {
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    padding: 2px;
-    margin-right: 20px;
-    transition: 0.3s all ease;
-    border-radius: 50%;
-  }
-  
-  .bg:hover {
-    background-color: #ff6d39;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-  }
-  
-  
-  
-  /*shoe slider indicator*/
-  
-  .left-chopper i {
-    color: #ffd5c6;
-    margin-top: 260px;
-    transition: 0.3s all ease;
-  }
-
-  
-  .left-chopper i:hover {
-    cursor: pointer;
-    color: #2a2f40;
-  }
-  
+ 
   /*main card*/
   
   .card-chopper {
     display: flex;
     align-items: center;
-    background: #252831 url(https://images.pexels.com/photos/2749165/pexels-photo-2749165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
+    background: #252831 url("../img/salad.jpg")
       no-repeat;
     background-size: cover;
     background-position: center;
@@ -374,17 +429,6 @@ textarea {
     z-index: 10;
   }
 
-
-  h4.dis {
-    display: inline-block;
-    color: #ffffff;
-    font-family: "muli";
-    font-weight: 400;
-    font-size: 17px;
-    margin-left: 30px;
-    text-decoration: line-through #ea3201;
-  }
-
   .foot {
     color: #ffffff;
     font-family: "muli";
@@ -405,3 +449,7 @@ textarea {
     color: #f76b39;
     cursor: pointer;
   }
+  }
+
+
+  
