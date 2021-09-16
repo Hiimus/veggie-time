@@ -92,7 +92,8 @@ textarea {
 
 #heart-btn-view {
     left: 5px;
-    top: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #rate_btn {
@@ -102,7 +103,6 @@ textarea {
 #rate-btn-view {
     left: 10px;
 }
-
 
 
 .page-footer {
