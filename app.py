@@ -225,7 +225,7 @@ def remove_favorite_from_profile(recipe_id):
 
 
 # Removes favorite, redirects to home page if removing while on home page.
-@app.route("/", methods=["GET", "POST"])
+@app.route("/get_recipes/<recipe_id>", methods=["GET", "POST"])
 def remove_favorite_from_home(recipe_id):
     if request.method == "POST":
         mongo.db.recipes.update_one(

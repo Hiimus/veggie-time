@@ -11,49 +11,49 @@
   </div>
   <div id="one" class="row border-view">
     <div class="col s12 m6">
-      <h3>{{ recipe.recipe_name }}</h3>
-      <h5>{{ recipe.recipe_description }}</h5>
-      <div class="col s12">
-        <h6>Difficulty: {{ recipe.difficulty_name }}</h6>
-        <h6>Category: {{ recipe.category_name }}</h6>
-      </div>
+          <h3>{{ recipe.recipe_name }}</h3>
+          <h5>{{ recipe.recipe_description }}</h5>
+          <div class="col s12">
+            <h6>Difficulty: {{ recipe.difficulty_name }}</h6>
+            <h6>Category: {{ recipe.category_name }}</h6>
+          </div>
 
-      <!-- If a user is logged in, and this user has liked the recipe, the like button will be red -->
-      {% if session.user and session.user|lower in recipe.liked_by|lower %}
-      <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-                <div class="col s12 center-align">
-                        <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-large"
-                          data-position="bottom" data-tooltip="Add to Favorites"><i class="heart-icon fas fa-heart fa-5x">
-                            {% if recipe.liked_by|length > 0 %}
-                            {{ recipe.liked_by|length }}
-                            {% endif %}
-                          </i></button>
-                          <!-- If user is author of recipe -->
-                      {% if session.user|lower == recipe.created_by|lower %}
-                      <a href="#modal1" id="delete-btn-view"
-                        class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
-                        data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
-                      <!-- Modal Structure -->
-                      <div id="modal1" class="modal">
-                        <div class="modal-content">
-                          <h4>Modal Header</h4>
-                          <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                          <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                            class="modal-close waves-effect waves-green btn-flat">Yes</a>
-                          <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
-                        </div>
-                      </div>
-                      <!-- edit recipe button -->
-                      <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
-                        class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
-                          class="far fa-edit"></i></a>
-                        {% endif %}
-                </div>
-      </form>
+          <!-- If a user is logged in, and this user has liked the recipe, the like button will be red -->
+          {% if session.user and session.user|lower in recipe.liked_by|lower %}
+          <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+              <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-large"
+                data-position="bottom" data-tooltip="Remove from Favorites"><i class="heart-icon fas fa-heart fa-5x">
+                  {% if recipe.liked_by|length > 0 %}
+                  {{ recipe.liked_by|length }}
+                  {% endif %}
+                </i></button>
+          </form>
+          <!-- If user is author of recipe -->
+          {% if session.user|lower == recipe.created_by|lower %}
+          <a href="#modal1" id="delete-btn-view"
+            class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
+            data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                class="modal-close waves-effect waves-green btn-flat">Yes</a>
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+            </div>
+          </div>
+          <!-- edit recipe button -->
+          <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
+            class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
+              class="far fa-edit"></i></a>
+          {% endif %}
+        </div>
+      </div>
       {% else %}
-      <!-- -->
+      <!-- Else, if the user is the author of the recipe, but has not liked it, the like button will be green  -->
       <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
         method="POST">
         <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small"
@@ -64,6 +64,28 @@
           {% endif %}
         </div>
         </form>
+        <!-- If user is author of recipe -->
+        {% if session.user|lower == recipe.created_by|lower %}
+        <a href="#modal1" id="delete-btn-view"
+          class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
+          data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+          </div>
+          <div class="modal-footer">
+            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+              class="modal-close waves-effect waves-green btn-flat">Yes</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+          </div>
+        </div>
+        <!-- edit recipe button -->
+        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
+          class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
+            class="far fa-edit"></i></a>
+        {% endif %}
       
     
       
