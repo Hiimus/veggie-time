@@ -2,32 +2,29 @@
 {% block content %}
 
 <main class="container">
-
-
-
-
   <div class="row">
     <a href="{{ url_for('get_recipes') }}"><i class="far fa-arrow-alt-circle-left fa-3x"></i></a>
   </div>
   <div id="one" class="row border-view">
     <div class="col s12 m6">
-          <h3>{{ recipe.recipe_name }}</h3>
-          <h5>{{ recipe.recipe_description }}</h5>
-          <div class="col s12">
-            <h6>Difficulty: {{ recipe.difficulty_name }}</h6>
-            <h6>Category: {{ recipe.category_name }}</h6>
-          </div>
+      <h3>{{ recipe.recipe_name }}</h3>
+      <h5>{{ recipe.recipe_description }}</h5>
+      <div class="col s12">
+        <h6>Difficulty: {{ recipe.difficulty_name }}</h6>
+        <h6>Category: {{ recipe.category_name }}</h6>
+      </div>
+      <div class="col s12">
 
-          <!-- If a user is logged in, and this user has liked the recipe, the like button will be red -->
-          {% if session.user and session.user|lower in recipe.liked_by|lower %}
-          <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-              <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-large"
-                data-position="bottom" data-tooltip="Remove from Favorites"><i class="heart-icon fas fa-heart fa-5x">
-                  {% if recipe.liked_by|length > 0 %}
-                  {{ recipe.liked_by|length }}
-                  {% endif %}
-                </i></button>
-          </form>
+        <!-- If a user is logged in, and this user has liked the recipe, the like button will be red -->
+        {% if session.user and session.user|lower in recipe.liked_by|lower %}
+        <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+          {% if recipe.liked_by|length > 0 %}
+          {{ recipe.liked_by|length }}
+          {% endif %}
+          <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-small"
+            data-position="bottom" data-tooltip="Remove from Favorites"><i class="heart-icon fas fa-heart fa-5x">
+            </i></button>
+
           <!-- If user is author of recipe -->
           {% if session.user|lower == recipe.created_by|lower %}
           <a href="#modal1" id="delete-btn-view"
@@ -50,25 +47,24 @@
             class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
               class="far fa-edit"></i></a>
           {% endif %}
-        </div>
-      </div>
-      {% else %}
-      <!-- Else, if the user is the author of the recipe, but has not liked it, the like button will be green  -->
-      <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
+        </form>
+        {% else %}
+        <!-- Else, if the user is the author of the recipe, but has not liked it, the like button will be green  -->
+        <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
         method="POST">
         <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small"
-          data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+        data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
         <div class="col">
           {% if recipe.liked_by|length > 0 %}
           <h6>{{ recipe.liked_by|length }}</h6>
           {% endif %}
         </div>
-        </form>
+        
         <!-- If user is author of recipe -->
         {% if session.user|lower == recipe.created_by|lower %}
         <a href="#modal1" id="delete-btn-view"
-          class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
-          data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
+        class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
+        data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
@@ -77,59 +73,74 @@
           </div>
           <div class="modal-footer">
             <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-              class="modal-close waves-effect waves-green btn-flat">Yes</a>
+            class="modal-close waves-effect waves-green btn-flat">Yes</a>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
           </div>
         </div>
         <!-- edit recipe button -->
         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
-          class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
-            class="far fa-edit"></i></a>
+        class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
+        class="far fa-edit"></i></a>
         {% endif %}
-      
-    
-      
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+    <!-- if image url exists, use that-->
+    {% if recipe.recipe_img %}
+    <div class="col s12 m6">
+      <img class="responsive-img" src="{{ recipe.recipe_img }}">
+      <p></p><em>Added by: {{ recipe.created_by }}</em></p>
+    </div>
+    <!-- else, use default image -->
+    {% else %}
+    <div class="col s12 m6">
+      <img class="responsive-img" src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
+      <p></p><em>Added by: {{ recipe.created_by }}</em></p>
     </div>
     {% endif %}
-  </div>
 
-  <!-- if image url exists, use that-->
-  {% if recipe.recipe_img %}
-  <div class="col s12 m6">
-    <img class="responsive-img" src="{{ recipe.recipe_img }}">
-    <p></p><em>Added by: {{ recipe.created_by }}</em></p>
-  </div>
-  <!-- else, use default image -->
-  {% else %}
-  <div class="col s12 m6">
-    <img class="responsive-img" src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
-    <p></p><em>Added by: {{ recipe.created_by }}</em></p>
-  </div>
-  {% endif %}
-  <!-- Ingredients -->
-  <div class="row">
-    <div class="col s12 m6">
-      <div id="one" class="border-view">
-        <h5>Ingredients</h5>
-        {% for ingredient in recipe.ingredients %}
-        <li>{{ ingredient }}</li>
-        <hr>
-        {% endfor %}
+    <!-- Ingredients -->
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="row border-view" id="one">
+          <table>
+            <tbody>
+              <tr>
+                <th>Ingredients</th>
+              </tr>
+              {% for ingredient in recipe.ingredients %}
+              <tr>
+                <td>{{ ingredient }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Instructions-->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="row border-view" id="one">
+            <table>
+              <tbody>
+                <tr>
+                  <th>Instructions</th>
+                </tr>
+                {% for instruction in recipe.instructions %}
+                <tr>
+                  <td>
+                    <li>{{ instruction }}</li>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Instructions-->
-    <div class="col s12 m6">
-      <div id="one" class="border-view">
-        <h5>Instructions</h5>
-        <ol>
-          {% for instruction in recipe.instructions %}
-          <li>{{ instruction }}</li>
-          <hr>
-          {% endfor %}
-        </ol>
-      </div>
-    </div>
-  </div>
-  </main>
+</main>
 
-  {% endblock %}
+{% endblock %}
