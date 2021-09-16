@@ -11,6 +11,23 @@ body {
     font-family: 'Open Sans', sans-serif;
 }  
 
+nav {
+    background-color: #8dbf7f;
+}
+
+nav ul a {
+    letter-spacing: 1px;
+}
+
+.hero-header {
+    color:aliceblue;
+}
+
+/* Credit to https://www.codegrepper.com/code-examples/css/background+blur+header+css on how to create a blurry header */
+.blurry-header {
+    backdrop-filter: blur(2px);
+}
+
 .home-background {
     min-height: 60vh;
         background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/lilla.jpg");
