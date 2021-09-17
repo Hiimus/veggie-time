@@ -212,6 +212,19 @@ a.card-title {
     background-color: #95cb86!important;
 }
 
+ul li a:hover {
+  text-shadow: 0 3px rgb(0 0 0 / 50%)
+}
+
+i.fa-github {
+  padding-left: 10px;
+  color: white;
+}
+
+i.fa-github:hover {
+  text-shadow: 0 3px rgb(0 0 0 / 50%)
+}
+
 .col-profile {
     font-size: xx-large;
 }

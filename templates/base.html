@@ -78,24 +78,28 @@
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <h5 class="white-text">Veggie Time</h5>
             </div>
             <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+                {% if session.user %}
+                <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
               </ul>
             </div>
           </div>
         </div>
         <div class="footer-copyright">
-          <div class="container">
+          <div class="container center-align">
           © 2021 Copyright Hiimus
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          <a href="https://github.com/Hiimus/veggie-time" target="_blank"><i class="fa-2x fab fa-github"></i></a>
           </div>
         </div>
       </footer>
