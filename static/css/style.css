@@ -21,13 +21,40 @@ nav ul a {
     letter-spacing: 1px;
 }
 
+a.brand-logo {
+  top: 12px;
+}
+
+h2.logo {
+  font-size: 29px!important;
+}
+
 .hero-header {
     color:aliceblue;
+}
+
+ul.sidenav {
+  background-color: #95cb86;
+  color: aliceblue;
+  width: 250px;
+}
+
+ul li a {
+  color: aliceblue!important;
 }
 
 /* Credit to https://www.codegrepper.com/code-examples/css/background+blur+header+css on how to create a blurry header */
 .blurry-header {
     backdrop-filter: blur(2px);
+}
+
+h2.hero-header {
+  font-size: 30px!important;
+}
+
+h3.hero-header {
+  font-size: 20px!important;
+  margin-top: 5px;
 }
 
 .home-background {
@@ -341,10 +368,27 @@ textarea {
   .right-chopper {
     margin-left: 154px;
   }
+
+  h2.logo {
+    font-size: 38px!important;
+  }
+
+  h2.hero-header {
+    font-size: 45px!important;
+  }
+
+  h3.hero-header {
+    font-size: 35px!important;
+    margin-top: 5px;
+  }
 }
 
 
 @media screen and (min-width: 992px) {
+  h2.logo {
+    padding-left: 20px;
+  }
+
   .home-background {
     min-height: 60vh;
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kjøkkenbenk.jpg");
