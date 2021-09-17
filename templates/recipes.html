@@ -50,14 +50,14 @@
   <div class="row">
     <form action="{{ url_for('search') }}" method="post" class="col s12">
       <div class="row center-align search-row">
-          <div class="input-field col s6 l8">
+          <div class="input-field col s6 m8 l8">
             <i class="fas fa-search prefix"></i>
             <label for="query">Search</label>
             <input type="text" name="query" id="query" class="validate"><a href="{{ url_for('get_recipes') }}"></a>
           </div>
           <button type="reset" class="reset"><i class="search-bar fas fa-times fa-7x red btn"></i></button>
           <button class="search-bar btn green" type="submit">
-            <i class="fas fa-search"></i> Search
+            <i class="fas fa-search"></i>
           </button>
       </div>
     </form>
@@ -100,7 +100,7 @@
             </form>
             <div class="col">
               {% if recipe.liked_by|length > 0 %}
-              <h6>{{ recipe.liked_by|length }}</h6>
+              <h6 class="like-counter">{{ recipe.liked_by|length }}</h6>
               {% endif %}
             </div>
             <!-- else, if no user is logged in, all the like buttons will be green -->
@@ -108,18 +108,19 @@
             <form action="{{ url_for('add_favorite_from_home', username=session['user'], recipe_id=recipe._id) }}"
               method="POST">
               <button name="like" type="submit" id="heart_btn"
-                class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
-                data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+                  class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+                  data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
             </form>
             <div class="col">
               {% if recipe.liked_by|length > 0 %}
-              <h6>{{ recipe.liked_by|length }}</h6>
+              <h6 class="like-counter">{{ recipe.liked_by|length }}</h6>
               {% endif %}
             </div>
+            
             {% endif %}
           </div>
           <div class="card-content">
-            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title"><h5>{{ recipe.recipe_name }}</h5></a>
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title"><h5 class="h5-card-title">{{ recipe.recipe_name }}</h5></a>
             <p>{{ recipe.recipe_description }}</p>
             <p>Difficulty: {{ recipe.difficulty_name }}</p>
             <p>Category: {{ recipe.category_name }}</p>
@@ -137,7 +138,7 @@
 
   <div class="row">
     <div class="col s12 center-align">
-      <h4>Click <a href="{{ url_for('all_recipes') }}"><em>here</em></a> to see all the recipes</h4>
+      <h4>Click <a href="{{ url_for('all_recipes') }}"><em class="underline">here</em></a> to see all the recipes</h4>
     </div>
   </div>
 </main>

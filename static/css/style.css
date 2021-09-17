@@ -69,7 +69,7 @@ h3.hero-header {
 /* Search bar -----------------------------*/
 
 i.search-bar, button.search-bar {
-  margin-top: 22px;
+  margin-top: 23px;
   border-radius: 15px;
 }
 
@@ -85,7 +85,7 @@ button.reset, button.reset:focus {
   background-color: aliceblue;
   border-radius: 15px;
   box-shadow: aliceblue;
-  box-shadow: 10px 10px 50px grey;
+  box-shadow: 1px 1px 10px 1px grey;
 }
 /*-----------------------------------------*/
 
@@ -140,8 +140,29 @@ textarea {
     object-fit: cover;
 }
 
+a.card-title {
+  color:black;
+}
+
+.h5-card-title {
+  font-family: 'muli', cursive;
+  font-weight: 500;
+  text-shadow: none;
+}
+
 .card .card-content {
     height: 13rem;
+}
+
+.underline {
+  text-decoration: underline;
+  color:black;
+}
+
+.like-counter {
+  font-family: 'muli', sans-serif;
+  text-shadow: none;
+  color: black;
 }
 
 .col-search {
@@ -169,7 +190,7 @@ textarea {
 }
 
 #heart_btn {
-    left: 5px;
+    left: 25px;
 }
 
 #heart-btn-view {
@@ -223,6 +244,7 @@ textarea {
     color: white;
     padding: 7px;
     background-color: #4CAF50;
+    box-shadow: 1px 1px 10px 1px grey;
 }
 
 /* view_recipe */
