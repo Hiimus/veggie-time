@@ -5,7 +5,9 @@ a, h1, h2, h3, h4, h5, h6 {
     margin: 0; 
     font-family: 'Leckerli One', cursive;
     text-shadow: 0 2px rgba(0,0,0,.5);
-  }
+  }  
+
+
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -209,13 +211,6 @@ textarea {
     display: inline-block;
   }
   
-  .h3-chopper {
-    color: #ffffff;
-    font-family: "muli";
-    margin-top: 10px;
-    font-size: 12px;
-    font-weight: 500;
-  }
   
   .h2-chopper {
     color: #ffffff;
@@ -225,6 +220,14 @@ textarea {
     font-size: 14px;
   }
   
+  .h3-chopper {
+    color: #ffffff;
+    font-family: "muli";
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
   .h4-chopper {
     display: inline-block;
     color: #ffffff;
@@ -252,11 +255,11 @@ textarea {
 
   .card-chopper:hover {
     border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  animation-name: example;
-  animation-duration: 0.25s;
-  border-left: 8px solid #252831;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-bottom-left-radius: 10px;
+    animation-name: example;
+    animation-duration: 0.25s;
+    border-left: 8px solid #252831;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
   
   .left-chopper {
@@ -316,6 +319,17 @@ textarea {
     cursor: pointer;
   }
 
+  a.product-link {
+    color: #ffffff;
+    font-family: "muli";
+    font-weight: 500;
+  }
+
+  a.product-link:hover {
+    color: #f76b39;
+    cursor: pointer;
+  }
+
   /*-----------------------------------------------------------------------------------------*/
 
 /* Media queries */
@@ -330,143 +344,75 @@ textarea {
 }
 
 
-
-  @media screen and (min-width: 992px) {
-    .home-background {
-        min-height: 60vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kjøkkenbenk.jpg");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-
-    /* PRODUCT */
-  /* Credit to https://freefrontend.com/css-product-cards/ for inspiring design ------------*/
-  
-  /*product info */
-  
-  .h1-chopper {
-    color: #8dbf7f;
-    font-family: "muli";
-    font-weight: bold;
-    font-size: 22px;
-    margin-top: 21px;
-    display: inline-block;
-  }
-  
-  .h3-chopper {
-    color: #ffffff;
-    font-family: "muli";
-    margin-top: 84px;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  .h2-chopper {
-    color: #ffffff;
-    font-family: "muli";
-    margin-top: 10px;
-    font-weight: 800;
-    font-size: 26px;
-  }
-  
-  .h4-chopper {
-    display: inline-block;
-    color: #ffffff;
-    font-family: "muli";
-    margin-top: 13px;
-    font-weight: bold;
-    font-size: 20px;
-  }
- 
-  /*main card*/
-  
-  .card-chopper {
-    display: flex;
-    align-items: center;
-    background: #252831 url("../img/salad.jpg")
-      no-repeat;
+@media screen and (min-width: 992px) {
+  .home-background {
+    min-height: 60vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kjøkkenbenk.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    margin: 0 auto;
-    box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.4);
-    margin-top: 2%;
-    margin: 0;
-    padding: 0;
   }
 
-  .card-chopper:hover {
-    border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  animation-name: example;
-  animation-duration: 0.25s;
-  border-left: 8px solid #252831;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  /* PRODUCT */
+  /* Credit to https://freefrontend.com/css-product-cards/ for inspiring design ------------*/
+
+  /*product info */
+
+  .h1-chopper {
+    font-size: 22px;
   }
-  
+
+  .h3-chopper {
+    margin-top: 84px;
+    font-size: 20px;
+  }
+
+  .h2-chopper {
+    font-size: 26px;
+  }
+
+  .h4-chopper {
+    margin-top: 13px;
+    font-size: 20px;
+  }
+
+  /*main card*/
+
   .left-chopper {
-    content: "";
     height: 395px;
     width: 330px;
-    display: flex;
-    align-items: center;
-    background-color: #8dbf7f;
     margin-left: 93px;
-    border-radius: 0% 50% 50% 0%;
-    position: absolute;
-    z-index: 5;
   }
-  
+
+
   .left-chopper img {
     margin-left: -88px;
-    margin-top: 60px;
     height: 100%;
-    margin-bottom: 50px;
   }
-  
+
   .right-chopper {
-    content: "";
     height: 395px;
     width: 550px;
-    background-color: #2a2f40;
-    z-index: 3;
     margin-left: 200px;
   }
 
   .product-name {
     margin-top: 120px;
   }
-  
+
   .product-info {
-    position: absolute;
     margin-left: 245px;
     height: 394px;
     width: 305px;
-    z-index: 10;
   }
 
   .foot {
-    color: #ffffff;
-    font-family: "muli";
     margin-top: 20px;
     margin-right: 50px;
-    font-weight: 500;
     font-size: 22px;
-    float: left;
-    transition: 0.3s all ease;
   }
-  
-  .foot i:nth-child(1) {
-    margin-left: 0;
-    margin-right: 15px;
-  }
-  
-  .foot:hover {
-    color: #f76b39;
-    cursor: pointer;
-  }
-  }
+}
 
   /*----------------------------------------------------------------------------------------------------*/
 
