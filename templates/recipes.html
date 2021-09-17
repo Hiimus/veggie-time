@@ -49,21 +49,20 @@
   <!-- Search bar -->
   <div class="row">
     <form action="{{ url_for('search') }}" method="post" class="col s12">
-      <div class="row center-align">
-        <div class="input-field col s12 m8">
-          <i class="fas fa-search prefix"></i>
-          <input type="text" name="query" id="query" class="validate">
-          <label for="query">Search</label>
-        </div>
-        <div class="col s12 m4 col-search">
-          <a href="{{ url_for('get_recipes') }}"><i class="fas fa-times fa-7x red btn"></i></a>
-          <button class="btn green" type="submit">
+      <div class="row center-align search-row">
+          <div class="input-field col s6 l8">
+            <i class="fas fa-search prefix"></i>
+            <label for="query">Search</label>
+            <input type="text" name="query" id="query" class="validate"><a href="{{ url_for('get_recipes') }}"></a>
+          </div>
+          <button type="reset" class="reset"><i class="search-bar fas fa-times fa-7x red btn"></i></button>
+          <button class="search-bar btn green" type="submit">
             <i class="fas fa-search"></i> Search
           </button>
-        </div>
       </div>
     </form>
   </div>
+ 
 
 
   <!-- Choose category buttons small, medium and large devices-->
