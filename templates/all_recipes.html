@@ -2,7 +2,7 @@
 {% block content %}
 
 <main class="container">
-<h3 class="center-align">All Recipes</h3>
+<h3 class="center-align margin-header">All Recipes</h3>
 
 <!-- Search bar -->
 <div class="row">
@@ -54,7 +54,7 @@
             </form>
             <div class="col">
               {% if recipe.liked_by|length > 0 %}
-              <h6>{{ recipe.liked_by|length }}</h6>
+              <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
               {% endif %}
             </div>
           {% else %}
@@ -64,18 +64,18 @@
           </form>
           <div class="col">
             {% if recipe.liked_by|length > 0 %}
-            <h6>{{ recipe.liked_by|length }}</h6>
+            <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
             {% endif %}
           </div>
           {% endif %}
           </div>
-        <div class="card-content">
-          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title">{{ recipe.recipe_name }}</a>
-          <p>{{ recipe.recipe_description }}</p>
-          <p>Difficulty: {{ recipe.difficulty_name }}</p>
-          <p>Category: {{ recipe.category_name }}</p>
-          <p><em>Added by: {{ recipe.created_by }}</em></p>
-        </div>
+          <div class="card-content">
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title"><h5 class="h5-card-title">{{ recipe.recipe_name }}</h5></a>
+            <p>{{ recipe.recipe_description }}</p>
+            <p>Difficulty: {{ recipe.difficulty_name }}</p>
+            <p>Category: {{ recipe.category_name }}</p>
+            <p><em>Added by: {{ recipe.created_by }}</em></p>
+          </div>
       </div>
     </div>
   </a>

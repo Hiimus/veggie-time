@@ -159,12 +159,6 @@ a.card-title {
   color:black;
 }
 
-.like-counter {
-  font-family: 'muli', sans-serif;
-  text-shadow: none;
-  color: black;
-}
-
 .col-search {
     margin-top: 20px;
 }
@@ -185,9 +179,6 @@ a.card-title {
     right: 40px;
 }
 
-#edit-btn-view {
-    
-}
 
 #heart_btn {
     left: 25px;
@@ -199,18 +190,61 @@ a.card-title {
     margin-bottom: 5px;
 }
 
-#rate_btn {
-    left: 40px;
-}
-
-#rate-btn-view {
-    left: 10px;
-}
-
-
 .page-footer {
     background-color: #95cb86!important;
 }
+
+.margin-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card-panel {
+  background-color: #8dbf7f!important;
+}
+
+.submit-buttons {
+  background-color: #2a2f40;
+  font-family: 'muli', sans-serif;
+  font-weight: 600;
+}
+
+.muli-font {
+  font-family: 'muli', sans-serif;
+  font-weight: 600;
+  color: black;
+  text-shadow: none;
+}
+
+p a.muli-font {
+  text-shadow: none;
+  outline: none;
+  color: black;
+  text-decoration: underline;
+}
+
+.submit-buttons:hover {
+  background-color: #2a2f40!important;
+  color: #f76b39;
+  cursor: pointer;
+}
+
+.pagination ul li a {
+  font-family: 'muli', sans-serif;
+  font-weight: 600;
+  text-shadow: none;
+  color: black!important;
+}
+
+.pagination ul li a:hover {
+  text-shadow: 0 1px rgb(0 0 0 / 50%);
+}
+
+.radius {
+  border-radius: 15px!important;
+}
+  
+
 
 ul li a:hover {
   text-shadow: 0 3px rgb(0 0 0 / 50%)

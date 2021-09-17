@@ -34,7 +34,7 @@
               </form>
               <div class="col">
                 {% if recipe.liked_by|length > 0 %}
-                <h6>{{ recipe.liked_by|length }}</h6>
+                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
                 {% endif %}
               </div>
               
@@ -47,7 +47,7 @@
               </form>
               <div class="col">
                 {% if recipe.liked_by|length > 0 %}
-                <h6>{{ recipe.liked_by|length }}</h6>
+                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
                 {% endif %}
               </div>
               {% endif %}
@@ -103,7 +103,7 @@
                   data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
               </form>
               <div class="col">
-                <h6>{{ recipe.liked_by|length }}</h6>
+                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
               </div>
               {% else %}
               <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
@@ -113,7 +113,7 @@
                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
               </form>
               <div class="col">
-                <h6>{{ recipe.liked_by|length }}</h6>
+                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
               </div>
               {% endif %}
             </div>

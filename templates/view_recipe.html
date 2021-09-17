@@ -19,7 +19,7 @@
         {% if session.user and session.user|lower in recipe.liked_by|lower %}
         <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
           {% if recipe.liked_by|length > 0 %}
-          {{ recipe.liked_by|length }}
+          <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
           {% endif %}
           <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-small"
             data-position="bottom" data-tooltip="Remove from Favorites"><i class="heart-icon fas fa-heart fa-5x">
@@ -56,7 +56,7 @@
         data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
         <div class="col">
           {% if recipe.liked_by|length > 0 %}
-          <h6>{{ recipe.liked_by|length }}</h6>
+          <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
           {% endif %}
         </div>
         
