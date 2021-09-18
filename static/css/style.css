@@ -216,6 +216,10 @@ a.card-title {
     left: 25px;
 }
 
+#modal1 {
+  border-radius: 15px;
+}
+
 #heart-btn-view {
     
     margin-top: 5px;
