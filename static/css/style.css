@@ -12,7 +12,9 @@ option input p {
   font-weight: 600;
 }  
 
-
+.btn-forms {
+  background-color: #95cb86;
+}
 
 body {
     font-family: 'muli', sans-serif;

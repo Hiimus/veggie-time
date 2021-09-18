@@ -45,7 +45,7 @@
         </div>
         <!-- difficulty level -->
         <div class="row">
-            <div class="input-field col s3">
+            <div class="input-field col s12 m6">
                 <select id="difficulty_name" name="difficulty_name" class="validate" required>
                     <option value="" disabled>Select a Difficulty</option>
                     {% for difficulty in difficulties %}
@@ -77,7 +77,7 @@
         </div>
         <div class="row">
             <div class="col s12 center-align">
-                <button id="add-ingredient" class="radius muli-font add_form_field_ingredient btn waves-effect waves-light light-blue accent-4" type="button">Add Ingredient
+                <button id="add-ingredient" class="btn-forms radius muli-font add_form_field_ingredient btn waves-effect waves-light" type="button">Add Ingredient
                     <i class="fas fa-plus-square right"></i>
                 </button>
             </div>
@@ -98,7 +98,7 @@
         </div>
         <div class="row">
             <div class="col s12 center-align">
-                <button class="radius muli-font add_form_field_instruction btn waves-effect waves-light light-blue accent-4" type="button">Add Step
+                <button class="btn-forms radius muli-font add_form_field_instruction btn waves-effect waves-light" type="button">Add Step
                     <i class="fas fa-plus-square right"></i>
                 </button>
             </div>
@@ -108,10 +108,10 @@
             <div class="col s12 center-align">
                 <hr><br>
                 <!-- cancel button-->
-                <a href="{{ url_for('get_recipes') }}" class="radius muli-font btn-large red accent-4">
+                <a href="{{ url_for('get_recipes') }}" class="radius muli-font btn-large red">
                     Cancel <i class="fas fa-times-circle"></i>
                 </a>
-                <button class="radius muli-font submit-btn btn-large btn waves-effect waves-light green accent-4" type="submit">Save Changes
+                <button class="radius muli-font submit-btn btn-large btn waves-effect waves-light green" type="submit">Save Changes
                     <i class="fas fa-save right"></i>
                 </button>
             </div>
