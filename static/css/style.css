@@ -21,6 +21,31 @@ nav ul a {
     letter-spacing: 1px;
 }
 
+.hr {
+  border: 1px solid black;
+}
+
+.container .row.row-all-recipes {
+  margin-bottom: 40px;
+}
+
+.row.row-all-recipes {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.row-all-recipes {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+
 a.brand-logo {
   top: 12px;
 }
@@ -182,10 +207,6 @@ a.card-title {
     right: 5px;
 }
 
-#delete-btn-view {
-    
-}
-
 #edit_btn {
     right: 40px;
 }
@@ -203,6 +224,10 @@ a.card-title {
 
 .page-footer {
     background-color: #95cb86!important;
+}
+
+#page-content {
+  min-height: 83vh;
 }
 
 .margin-header {

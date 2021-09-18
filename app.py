@@ -79,7 +79,7 @@ def search():
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='materializecss')
     return render_template(
-        "all_recipes.html", recipes=recipes,
+        "search.html", recipes=recipes,
         recipes_page=recipes_paginated, page=page,
         per_page=per_page, pagination=pagination)
 
@@ -110,9 +110,9 @@ def sort_category_all():
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
-    return render_template("all_recipes.html", recipes=recipes,
-        category=category, recipes_page=recipes_paginated, page=page,
-        per_page=per_page, pagination=pagination)
+    return render_template("search.html", recipes=recipes,
+                           category=category, recipes_page=recipes_paginated,
+                           page=page, per_page=per_page, pagination=pagination)
 
 
 # Credit to Flask Task Manager Mini-Project videos
