@@ -103,20 +103,27 @@
               <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
               {% endif %}
             </div>
-            <!-- else, if no user is logged in, all the like buttons will be green -->
-            {% else %}
-            <a href="{{ url_for('login_to_like') }}">
-              <button name="like" type="submit" id="heart_btn"
-                  class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
-                  data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-            </a>
-            <div class="col">
-              {% if recipe.liked_by|length > 0 %}
-              <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-              {% endif %}
-            </div>
-            
-            {% endif %}
+             <!-- else, if no user is logged in, all the like buttons will be green -->
+             {% elif not session.user %}
+             <a href="{{ url_for('login_to_like') }}">
+               <button name="like" type="submit" id="heart_btn"
+                   class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+             </a>
+             {% else %}
+             <form action="{{ url_for('add_favorite_from_home', username=session['user'], recipe_id=recipe._id) }}"
+               method="POST">
+               <button name="like" type="submit" id="heart_btn"
+                   class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+             </form>
+             <div class="col">
+               {% if recipe.liked_by|length > 0 %}
+               <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
+               {% endif %}
+             </div>
+             
+             {% endif %}
           </div>
           <div class="card-content">
             <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title"><h5 class="h5-card-title">{{ recipe.recipe_name }}</h5></a>

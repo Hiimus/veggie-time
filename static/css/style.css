@@ -16,6 +16,10 @@ option input p {
   background-color: #8dbf7f;
 }
 
+.green-background:hover {
+  background-color: #8dbf7f;
+}
+
 body {
     font-family: 'muli', sans-serif;
 }  
