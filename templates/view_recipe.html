@@ -88,7 +88,7 @@
       <!-- if image url exists, use that-->
       {% if recipe.recipe_img %}
       <div class="col s12 m6">
-        <img class="view-img responsive-img" src="{{ recipe.recipe_img }}">
+        <img class="view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
         <p></p><em>Added by: {{ recipe.created_by }}</em></p>
       </div>
       <!-- else, use default image -->

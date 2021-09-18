@@ -22,7 +22,7 @@
   <!-- Vegetable chopper product-->
   <div class="card-chopper">
     <div class="left-chopper">
-      <img src="https://purepng.com/public/uploads/large/purepng.com-vegetable-cutterfood-objects-vegetables-kitchen-cooking-cut-cutter-vegetable-cutter-vegetable-blade-941524682126hs9mg.png" alt="chopper">
+      <img src="{{ url_for('static', filename='img/cutter.png') }}" alt="vegetable chopper">
     </div>
     <div class="right-chopper">
       <div class="product-info">
@@ -86,10 +86,10 @@
           <div class="card-image">
             <!-- if image url exists, use that-->
             {% if recipe.recipe_img %}
-            <img src="{{ recipe.recipe_img }}">
+            <img src="{{ recipe.recipe_img }}" alt="recipe image">
             <!-- else, use default image -->
             {% else %}
-            <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}">
+            <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="vegetables">
             {% endif %}
             <!-- if user is logged in, and the user has liked a recipe, the like button will be red -->
             {% if session.user and session.user|lower in recipe.liked_by|lower %}

@@ -42,7 +42,7 @@
         <div class="card-image">
           <!-- if image url exists, use that-->
           {% if recipe.recipe_img %}
-          <img src="{{ recipe.recipe_img }}">
+          <img src="{{ recipe.recipe_img }}" alt="recipe image">
           <!-- else, use default image -->
           {% else %}
           <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">

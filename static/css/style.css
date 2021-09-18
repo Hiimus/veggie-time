@@ -59,7 +59,7 @@ h3.hero-header {
 
 .home-background {
     min-height: 60vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/lilla.jpg");
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/vegetables.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -126,13 +126,6 @@ textarea {
         margin: 4px 2px;
         cursor: pointer;
     }
-
-#home_image {
-    background-image: url("../img/vegetables2.jpg");
-    background-repeat: no-repeat;  
-    background-size: cover;
-    height: 30vh;
-}
 
 /* Card image sizes for recipes */
 .card .card-image img {
@@ -502,7 +495,7 @@ i.fa-github:hover {
 
   .home-background {
     min-height: 60vh;
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/kjøkkenbenk.jpg");
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/cookbook.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
