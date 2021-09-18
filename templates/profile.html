@@ -22,7 +22,7 @@
                 <img src="{{ recipe.recipe_img }}" alt="recipe image">
                 <!-- else, use default image -->
                 {% else %}
-                <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">
+                <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
                 {% endif %}
                 {% if session.user|lower in recipe.liked_by|lower %}
               <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
@@ -88,7 +88,7 @@
             <div class="card-image">
               <!-- if image url exists, use that-->
               {% if recipe.recipe_img %}
-              <img src="{{ recipe.recipe_img }}">
+              <img src="{{ recipe.recipe_img }}" alt="recipe image">
               <!-- else, use default image -->
               {% else %}
               <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="Vegetables">

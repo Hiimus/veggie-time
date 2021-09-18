@@ -59,7 +59,7 @@ h3.hero-header {
 
 .home-background {
     min-height: 60vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/vegetables.jpg");
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/vegetables-min.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -372,7 +372,7 @@ i.fa-github:hover {
   .card-chopper {
     display: flex;
     align-items: center;
-    background: #252831 url("../img/salad.jpg")
+    background: #252831 url("../img/salad-min.jpg")
       no-repeat;
     background-size: cover;
     background-position: center;
@@ -495,7 +495,7 @@ i.fa-github:hover {
 
   .home-background {
     min-height: 60vh;
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/cookbook.jpg");
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/cookbook-min.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

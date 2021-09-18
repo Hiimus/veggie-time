@@ -89,7 +89,7 @@
             <img src="{{ recipe.recipe_img }}" alt="recipe image">
             <!-- else, use default image -->
             {% else %}
-            <img src="{{ url_for('static', filename='img/vegetables1.jpg') }}" alt="vegetables">
+            <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="vegetables">
             {% endif %}
             <!-- if user is logged in, and the user has liked a recipe, the like button will be red -->
             {% if session.user and session.user|lower in recipe.liked_by|lower %}
