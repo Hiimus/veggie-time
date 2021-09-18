@@ -180,7 +180,7 @@ a.card-title {
 }
 
 .margin-top-7 {
-  margin-top: 7px;
+  margin-top: 7px!important;
 }
 
 .back-arrow {
@@ -254,7 +254,7 @@ a.card-title {
 
 .muli-font {
   font-family: 'muli', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   color: black;
   text-shadow: none;
 }

@@ -77,16 +77,20 @@
   {% if recipes|length > 0 %}
   <div class="row">
     {% for recipe in recipes %}
-    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+    
       <div class="col s12 m6 l4">
         <div class="card">
           <div class="card-image">
             <!-- if image url exists, use that-->
             {% if recipe.recipe_img %}
-            <img src="{{ recipe.recipe_img }}" alt="recipe image">
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+              <img src="{{ recipe.recipe_img }}" alt="recipe image">
+            </a>
             <!-- else, use default image -->
             {% else %}
-            <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="vegetables">
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+              <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="vegetables">
+            </a>
             {% endif %}
             <!-- if user is logged in, and the user has liked a recipe, the like button will be red -->
             {% if session.user and session.user|lower in recipe.liked_by|lower %}
@@ -122,16 +126,18 @@
              
              {% endif %}
             </div>
-          <div class="card-content">
-            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title"><h5 class="h5-card-title">{{ recipe.recipe_name }}</h5></a>
-            <p>{{ recipe.recipe_description }}</p>
-            <p>Difficulty: {{ recipe.difficulty_name }}</p>
-            <p>Category: {{ recipe.category_name }}</p>
-            <p><em>Added by: {{ recipe.created_by }}</em></p>
-          </div>
+              <div class="card-content">
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
+                  <h5 class="h5-card-title">{{ recipe.recipe_name }}</h5>
+                  <p class="margin-top-7">{{ recipe.recipe_description }}</p>
+                  <p class="margin-top-7">Difficulty: {{ recipe.difficulty_name }}</p>
+                  <p class="margin-top-7">Category: {{ recipe.category_name }}</p>
+                  <p class="margin-top-7 right"><em>Added by: {{ recipe.created_by }}</em></p>
+                </a>
+              </div>
         </div>
       </div>
-    </a>
+    
     {% endfor %}
 
   </div>
