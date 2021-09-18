@@ -1,6 +1,100 @@
 @import url('https://fonts.googleapis.com/css?family=Muli');
 @import url(https://fonts.googleapis.com/css?family=Leckerli+One);
 
+
+/*----------------- home.html --------------------------- */
+
+.hero-header {
+  color:aliceblue;
+}
+
+h2.hero-header {
+  font-size: 30px!important;
+}
+
+h3.hero-header {
+  font-size: 20px!important;
+  margin-top: 5px;
+}
+
+.home-background {
+  min-height: 60vh;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/vegetables-min.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Credit to https://www.codegrepper.com/code-examples/css/background+blur+header+css on how to create a blurry header */
+.blurry-header {
+  backdrop-filter: blur(2px);
+}
+
+/*----------------- all_recipes.html -------------------- */
+
+.container .row.row-all-recipes {
+  margin-bottom: 40px;
+}
+
+.row.row-all-recipes {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.row-all-recipes {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/*----------------- search.html ------------------------- */
+
+/*----------------- view_recipes.html ------------------- */
+
+.view-img {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/*----------------- edit_recipes.html ------------------- */
+
+/*----------------- add_recipes.html -------------------- */
+
+/*----------------- profile.html ------------------------ */
+
+/*----------------- login.html -------------------------- */
+
+/*----------------- register.html ----------------------- */
+
+/*----------------- base.html --------------------------- */
+
+nav {
+  background-color: #8dbf7f;
+}
+
+nav ul a {
+  letter-spacing: 1px;
+}
+
+a.brand-logo {
+  top: 12px;
+}
+
+h2.logo {
+  font-size: 29px!important;
+}
+
+ul.sidenav {
+  background-color: #95cb86;
+  color: aliceblue;
+  width: 250px;
+}
+
+#page-content {
+  min-height: 83vh;
+}
+
+/*----------------- 404.html / 500.html ----------------- */
+
 a, h1, h2, h3, h4, h5, h6 { 
     margin: 0; 
     font-family: 'Leckerli One', sans-serif;
@@ -20,83 +114,31 @@ body {
     font-family: 'muli', sans-serif;
 }  
 
-nav {
-    background-color: #8dbf7f;
-}
 
-nav ul a {
-    letter-spacing: 1px;
-}
 
 .hr {
   border: 1px solid black;
 }
 
-.container .row.row-all-recipes {
-  margin-bottom: 40px;
-}
-
-.row.row-all-recipes {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.row-all-recipes {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
 
 
 
-a.brand-logo {
-  top: 12px;
-}
 
-h2.logo {
-  font-size: 29px!important;
-}
 
-.hero-header {
-    color:aliceblue;
-}
 
-ul.sidenav {
-  background-color: #95cb86;
-  color: aliceblue;
-  width: 250px;
-}
+
+
+
+
+
 
 ul li a {
   color: aliceblue!important;
 }
 
-/* Credit to https://www.codegrepper.com/code-examples/css/background+blur+header+css on how to create a blurry header */
-.blurry-header {
-    backdrop-filter: blur(2px);
-}
 
-h2.hero-header {
-  font-size: 30px!important;
-}
 
-h3.hero-header {
-  font-size: 20px!important;
-  margin-top: 5px;
-}
 
-.home-background {
-    min-height: 60vh;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0)), url("../img/vegetables-min.jpg");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-}
 
 /* Search bar -----------------------------*/
 
@@ -163,9 +205,7 @@ textarea {
     object-fit: cover;
 }
 
-.view-img {
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-}
+
 
 a.card-title {
   color:black;
@@ -204,17 +244,9 @@ a.card-title {
     margin-top: 20px;
 }
 
-#vegetable_chopper {
-    width: 70%;
-}
 
-#delete_btn {
-    right: 5px;
-}
 
-#edit_btn {
-    right: 40px;
-}
+
 
 
 .heart-btn {
@@ -226,7 +258,6 @@ a.card-title {
 }
 
 #heart-btn-view {
-    
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -235,9 +266,7 @@ a.card-title {
     background-color: #95cb86!important;
 }
 
-#page-content {
-  min-height: 83vh;
-}
+
 
 .margin-header {
   margin-top: 20px;

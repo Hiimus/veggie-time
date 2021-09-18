@@ -87,9 +87,15 @@
 
       <!-- if image url exists, use that-->
       {% if recipe.recipe_img %}
-      <div class="col s12 m6">
-        <img class="view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
-        <p><em>Added by: {{ recipe.created_by }}</em></p>
+      <div class="row hide-on-med-and-up">
+        <div class="col hide-on-med-and-up s12">
+          <img class="hide-on-med-and-up view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
+          <p class="hide-on-med-and-up"><em class="hide-on-med-and-up">Added by: {{ recipe.created_by }}</em></p>
+        </div>
+        <div class="col hide-on-small-only m6">
+          <img class="hide-on-small-only view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
+          <p class="hide-on-small-only"><em class="hide-on-small-only">Added by: {{ recipe.created_by }}</em></p>
+        </div>
       </div>
       <!-- else, use default image -->
       {% else %}
@@ -122,7 +128,7 @@
       <!-- Instructions-->
       <div class="row">
         <div class="col s12 m6">
-          <div class="row border-view">
+          <div class="row border-view border-recipe-view">
             <table>
               <tbody>
                 <tr>
