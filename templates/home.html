@@ -31,9 +31,9 @@
         </div>
         <div class="details">
           <h2 class="h2-chopper">Vegetable Chopper</h2>
-          <h4 class="h4-chopper"><i class="fas fa-euro-sign">
-              <h4 class="h4-chopper">5</h4>
-            </i></h4>
+          <div class="h4-chopper"><i class="fas fa-euro-sign">
+              <div class="h4-chopper">5</div>
+            </i></div>
           <span class="foot"><i class="fa fa-shopping-bag"></i><a href="https://www.amazon.com/" target="_blank"
               class="tooltipped product-link" data-position="bottom" data-tooltip="Fake Amazon Link">Buy Now</a></span>
           </div>
@@ -80,7 +80,7 @@
   {% if recipes|length > 0 %}
   <div class="row">
     {% for recipe in recipes %}
-    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+    <form action="{{ url_for('view_recipe', recipe_id=recipe._id) }}" method="GET">
       <div class="col s12 m6 l4">
         <div class="card">
           <div class="card-image">
@@ -134,7 +134,7 @@
           </div>
         </div>
       </div>
-    </a>
+    </form>
     {% endfor %}
 
   </div>

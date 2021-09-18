@@ -12,11 +12,7 @@ option input p {
   font-weight: 600;
 }  
 
-.green-background {
-  background-color: #8dbf7f;
-}
-
-.green-background:hover {
+.green-background, .green-background:hover, .green-background:focus {
   background-color: #8dbf7f;
 }
 
