@@ -29,7 +29,7 @@ def get_users(offset=0, per_page=10):
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = list(mongo.db.recipes.find().limit(9).sort("_id", -1))
+    recipes = list(mongo.db.recipes.find().limit(6).sort("_id", -1))
     recipe = list(mongo.db.recipes.find())
     return render_template(
         "recipes.html", recipes=recipes, recipe=recipe)
@@ -37,6 +37,7 @@ def get_recipes():
 
 # Credit to https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 # for pagination.
+
 @app.route("/all_recipes")
 def all_recipes():
     page, per_page, offset = get_page_args(
@@ -83,13 +84,35 @@ def search():
         per_page=per_page, pagination=pagination)
 
 
-@app.route("/sort_category", methods=["GET", "POST"])
-def sort_category():
+@app.route("/sort_category_home", methods=["GET", "POST"])
+def sort_category_home():
     category = request.args.get("category_name")
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
     return render_template("recipes.html", recipes=recipes, category=category)
+
+
+@app.route("/sort_category_all", methods=["GET", "POST"])
+def sort_category_all():
+    page, per_page, offset = get_page_args(
+        page_parameter='page',
+        per_page_parameter='per_page',
+        offset_parameter='offset')
+    per_page = 9
+    offset = (page - 1) * per_page
+    total = mongo.db.recipes.find().count()
+    recipes_page = list(mongo.db.recipes.find().sort("_id", -1))
+    recipes_paginated = recipes_page[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='materializecss')
+    category = request.args.get("category_name")
+    recipes = list(
+                mongo.db.recipes.find(
+                    {"category_name": category}))
+    return render_template("all_recipes.html", recipes=recipes,
+        category=category, recipes_page=recipes_paginated, page=page,
+        per_page=per_page, pagination=pagination)
 
 
 # Credit to Flask Task Manager Mini-Project videos
