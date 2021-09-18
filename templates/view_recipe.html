@@ -23,11 +23,9 @@
           {% if session.user and session.user|lower in recipe.liked_by|lower %}
           <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST"
             class="margin-top-7">
-
             <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-small"
               data-position="bottom" data-tooltip="Remove from Favorites"><i class="heart-icon fas fa-heart fa-5x">
               </i></button>
-
             <!-- If user is author of recipe -->
             {% if session.user|lower == recipe.created_by|lower %}
             <a href="#modal1" id="delete-btn-view"
@@ -50,13 +48,17 @@
                 class="far fa-edit"></i></a>
             {% endif %}
           </form>
+          {% elif not session.user %}
+          <a href="{{ url_for('login_to_like') }}" class="margin-top-7">
+            <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small"
+              data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+          </a>
           {% else %}
           <!-- Else, if the user is the author of the recipe, but has not liked it, the like button will be green  -->
           <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
             method="POST" class="margin-top-7">
             <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small"
               data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-
             <!-- If user is author of recipe -->
             {% if session.user|lower == recipe.created_by|lower %}
             <a href="#modal1" id="delete-btn-view"
@@ -77,11 +79,11 @@
             <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
               class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
                 class="far fa-edit"></i></a>
-            {% endif %}
-            {% endif %}
           </form>
-        </div>
-      </div>
+          {% endif %}
+          {% endif %}
+          </div>
+          </div>
 
       <!-- if image url exists, use that-->
       {% if recipe.recipe_img %}

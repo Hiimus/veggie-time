@@ -12,8 +12,8 @@ option input p {
   font-weight: 600;
 }  
 
-.btn-forms {
-  background-color: #95cb86;
+.green-background {
+  background-color: #8dbf7f;
 }
 
 body {
@@ -259,11 +259,15 @@ a.card-title {
   text-shadow: none;
 }
 
-p a.muli-font {
+.link {
   text-shadow: none;
   outline: none;
   color: black;
   text-decoration: underline;
+}
+
+.row-error {
+  margin-top: 10vh;
 }
 
 .submit-buttons:hover {

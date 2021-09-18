@@ -197,6 +197,12 @@ def profile(username):
             created_recipes=created_recipes, real_recipes=real_recipes)
 
 
+@app.route("/login")
+def login_to_like():
+    flash("Please log in in order to like recipes")
+    return redirect(url_for('login'))
+
+
 # Adds to favorites, redirects to profile page if added while on profile
 # page or view_recipe page.
 @app.route("/profile/<username>/<recipe_id>", methods=["GET", "POST"])
