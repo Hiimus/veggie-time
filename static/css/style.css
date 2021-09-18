@@ -7,6 +7,11 @@ a, h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 2px rgba(0,0,0,.5);
   }  
 
+option input p {
+  font-family: 'muli', sans-serif;
+  font-weight: 600;
+}  
+
 
 
 body {
@@ -239,10 +244,6 @@ a.card-title {
   margin-bottom: 20px;
 }
 
-.card-panel {
-  background-color: #8dbf7f!important;
-}
-
 .submit-buttons {
   background-color: #2a2f40;
   font-family: 'muli', sans-serif;
@@ -284,6 +285,9 @@ p a.muli-font {
   border-radius: 15px!important;
 }
   
+select {
+  background-color: white;
+}
 
 
 ul li a:hover {
