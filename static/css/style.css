@@ -219,7 +219,7 @@ a.card-title {
 }
 
 
-#heart_btn {
+.heart-btn {
     left: 25px;
 }
 
@@ -405,6 +405,11 @@ i.fa-github:hover {
     font-weight: bold;
     font-size: 12px;
   }
+
+  .flashes {
+    box-shadow: 1px 1px 10px 1px grey;
+  }
+
  
   /*main card*/
   

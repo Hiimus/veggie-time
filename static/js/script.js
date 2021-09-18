@@ -4,9 +4,12 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.modal').modal(); // Modal that appears when clicking delete button.
     $('.tooltipped').tooltip(); // Tooltip that explains that product link is fake
+    flashMessage(); // Credit to https://my-veganrecipes.herokuapp.com/ for creating a fade effect on flash message
 
     
-    
+    function flashMessage() {
+        $('.flashes').delay(3000).slideUp('slow');
+      }
 
 
     // Credit to https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html for adding new field to ingredients

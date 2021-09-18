@@ -26,8 +26,8 @@
                 {% endif %}
                 {% if session.user|lower in recipe.liked_by|lower %}
               <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-                <button name="like" type="submit" id="heart_btn"
-                  class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
+                <button name="like" type="submit"
+                  class="heart-btn btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
               </form>
               <div class="col">
@@ -39,8 +39,8 @@
               {% else %}
               <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
                 method="POST">
-                <button name="like" type="submit" id="heart_btn"
-                  class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+                <button name="like" type="submit"
+                  class="heart-btn btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
                   data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
               </form>
               <div class="col">
@@ -82,54 +82,59 @@
     {% if recipes|length > 0 %}
     <div class="row row-test">
       {% for recipe in recipes %}
-      <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-        <div class="col s12 m6 l4">
-          <div class="card">
-            <div class="card-image">
-              <!-- if image url exists, use that-->
-              {% if recipe.recipe_img %}
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image">
+            <!-- if image url exists, use that-->
+            {% if recipe.recipe_img %}
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
               <img src="{{ recipe.recipe_img }}" alt="recipe image">
-              <!-- else, use default image -->
-              {% else %}
+            </a>
+            <!-- else, use default image -->
+            {% else %}
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
               <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
-              {% endif %}
-              {% if session.user|lower in recipe.liked_by|lower %}
-              <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-                <button name="like" type="submit" id="heart_btn"
-                  class="btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
-                  data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
-              </form>
-              <div class="col">
-                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-              </div>
-              {% else %}
-              <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
-                method="POST">
-                <button name="like" type="submit" id="heart_btn"
-                  class="btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
-                  data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-              </form>
-              <div class="col">
-                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-              </div>
-              {% endif %}
+            </a>
+            {% endif %}
+            {% if session.user|lower in recipe.liked_by|lower %}
+            <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+              <button name="like" type="submit"
+                class="heart-btn btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
+                data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
+            </form>
+            <div class="col">
+              <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
             </div>
-            <div class="card-content">
-              <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="card-title"><h5 class="h5-card-title">{{ recipe.recipe_name }}</h5></a>
-              <p>{{ recipe.recipe_description }}</p>
-              <p>Difficulty: {{ recipe.difficulty_name }}</p>
-              <p>Category: {{ recipe.category_name }}</p>
-              <p><em>Added by: {{ recipe.created_by }}</em></p>
+            {% else %}
+            <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
+              method="POST">
+              <button name="like" type="submit"
+                class="heart-btn btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
+                data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+            </form>
+            <div class="col">
+              <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
             </div>
+            {% endif %}
+          </div>
+          <div class="card-content">
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
+              <h5 class="h5-card-title">{{ recipe.recipe_name }}</h5>
+              <p class="margin-top-7">{{ recipe.recipe_description }}</p>
+              <p class="margin-top-7">Difficulty: {{ recipe.difficulty_name }}</p>
+              <p class="margin-top-7">Category: {{ recipe.category_name }}</p>
+              <p class="margin-top-7 right"><em>Added by: {{ recipe.created_by }}</em></p>
+            </a>
           </div>
         </div>
-      </a>
+      </div>
+
       {% endfor %}
     </div>
     {% else %}
     <h4 class="margin-header center-align">No Favorites Added</h4>
     {% endif %}
-  </main>
+    </main>
 
     
 

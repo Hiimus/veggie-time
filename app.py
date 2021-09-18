@@ -213,6 +213,7 @@ def add_favorite_from_profile(username, recipe_id):
             {"_id": ObjectId(recipe_id)},
             {"$push": {"liked_by": session["user"]}})
     if session["user"]:
+        flash("Recipe Successfully Added to Favorites")
         return redirect(url_for('profile', username=session['user']))
 
 
@@ -226,6 +227,7 @@ def add_favorite_from_all(username, recipe_id):
             {"_id": ObjectId(recipe_id)},
             {"$push": {"liked_by": session["user"]}})
     if session["user"]:
+        flash("Recipe Successfully Added to Favorites")
         return redirect(url_for('all_recipes', username=session['user']))
 
 
@@ -238,6 +240,7 @@ def add_favorite_from_home(username, recipe_id):
             {"_id": ObjectId(recipe_id)},
             {"$push": {"liked_by": session["user"]}})
     if session["user"]:
+        flash("Recipe Successfully Added to Favorites")
         return redirect(url_for('home', username=session['user']))
 
 
