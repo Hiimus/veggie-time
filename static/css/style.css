@@ -113,10 +113,8 @@ button.reset, button.reset:focus {
  
 .search-row {
   border: 1px solid black;
-  border-color: aliceblue;
   background-color: aliceblue;
   border-radius: 15px;
-  box-shadow: aliceblue;
   box-shadow: 1px 1px 10px 1px grey;
 }
 /*-----------------------------------------*/

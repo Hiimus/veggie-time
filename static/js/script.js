@@ -23,12 +23,12 @@ $(document).ready(function(){
         <input id='ingredients' name='ingredients' type='text' maxlength='100' class='validate_me'>
         <label for='ingredients'>Ingredients</label>
         <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i class='fas fa-minus'></i></button>
-    </div>`
+    </div>`;
     let appendInstruction = `<div class='input-field col s12 m8 l8'>
     <input id='instructions' name='instructions' type='text' maxlength='100' class='validate_me'>
     <label for='instructions'>Instructions</label>
     <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i class='fas fa-minus'></i></button>
-</div>`
+</div>`;
 
     // Adds new ingredient field 
     $(add_button_ingredient).click(function(e) {
@@ -39,14 +39,14 @@ $(document).ready(function(){
         }
   else
   {
-  alert('You Reached the limits')
+  alert('You Reached the limits');
   }
     });
  
     $(wrapper1).on("click",".delete", function(e){
         e.preventDefault(); 
         $(this).parent('div').remove(); x--;
-    })
+    });
   
     // Adds new instruction field
     $(add_button_instruction).click(function(e) {
@@ -57,13 +57,13 @@ $(document).ready(function(){
         }
   else
   {
-  alert('You Reached the limits')
+  alert('You Reached the limits');
   }
     });
  
     $(wrapper2).on("click",".delete", function(e){
         e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
+    });
 
     // $('.add-instruction-edit').click(function (event) {
     //             let buttonClass = $(event.target).parent().attr("class");
