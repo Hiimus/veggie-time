@@ -348,7 +348,7 @@ i.fa-github:hover {
 
 /* -- Handdrawn border effect, credit from: https://freefrontend.com/css-border-examples/ -- */
 
-#one {
+.border-recipe-view {
     border:solid 5px #8dbf7f;
   }
 

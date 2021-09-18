@@ -13,16 +13,20 @@
     <div class="row row-test">
       {% for recipe in real_recipes %}
         {% if session.user|lower == recipe.created_by|lower %}
-        <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+        
           <div class="col s12 m6 l4">
             <div class="card">
               <div class="card-image">
                 <!-- if image url exists, use that-->
                 {% if recipe.recipe_img %}
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
                 <img src="{{ recipe.recipe_img }}" alt="recipe image">
+              </a>
                 <!-- else, use default image -->
                 {% else %}
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
                 <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
+              </a>
                 {% endif %}
                 {% if session.user|lower in recipe.liked_by|lower %}
               <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
@@ -66,7 +70,7 @@
               {% endif %}
             </div>
           </div>
-        </a>
+        
         {% else %}
           <h4>No Recipes Added</h4>
         {% endif %}
