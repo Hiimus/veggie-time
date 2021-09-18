@@ -8,7 +8,7 @@
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css"/>
     <!--Favicon links from favicon.io-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}" crossorigin="use-credentials">
@@ -25,10 +25,10 @@
         <!-- Navbar -->
         <nav>
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_recipes') }}" class="brand-logo"><h2 class="logo">Veggie Time</h2></a>
+                <a href="{{ url_for('home') }}" class="brand-logo"><h2 class="logo">Veggie Time</h2></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fas fa-bars"></i></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
@@ -45,7 +45,7 @@
         <!-- Navbar sidenav for mobile-->
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align">Veggie Time</h4></li>
-            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
@@ -89,7 +89,7 @@
             </div>
             <div class="col l4 offset-l2 s12">
               <ul>
-                <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
                 {% if session.user %}
                 <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>

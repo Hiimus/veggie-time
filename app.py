@@ -27,12 +27,12 @@ def get_users(offset=0, per_page=10):
 
 # Credit to Flask Task Manager Mini-Project videos
 @app.route("/")
-@app.route("/get_recipes")
-def get_recipes():
+@app.route("/home")
+def home():
     recipes = list(mongo.db.recipes.find().limit(6).sort("_id", -1))
     recipe = list(mongo.db.recipes.find())
     return render_template(
-        "recipes.html", recipes=recipes, recipe=recipe)
+        "home.html", recipes=recipes, recipe=recipe)
 
 
 # Credit to https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
@@ -90,7 +90,7 @@ def sort_category_home():
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
-    return render_template("recipes.html", recipes=recipes, category=category)
+    return render_template("home.html", recipes=recipes, category=category)
 
 
 @app.route("/sort_category_all", methods=["GET", "POST"])
@@ -238,7 +238,7 @@ def add_favorite_from_home(username, recipe_id):
             {"_id": ObjectId(recipe_id)},
             {"$push": {"liked_by": session["user"]}})
     if session["user"]:
-        return redirect(url_for('get_recipes', username=session['user']))
+        return redirect(url_for('home', username=session['user']))
 
 
 # Removes favorite, redirects to profile page if removing while
@@ -261,7 +261,7 @@ def remove_favorite_from_home(recipe_id):
             {"_id": ObjectId(recipe_id)},
             {"$pull": {"liked_by": session["user"]}})
         flash("Recipe Successfully Removed From Favorites")
-        return redirect(url_for('get_recipes', username=session['user']))
+        return redirect(url_for('home', username=session['user']))
 
 
 # Removes favorite, redirects to home page if removing while on home page.
@@ -304,7 +304,7 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("home"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     difficulties = mongo.db.difficulties.find()
@@ -357,7 +357,7 @@ def delete_recipe(recipe_id):
 
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
-    return redirect(url_for("get_recipes"))
+    return redirect(url_for("home"))
 
 
 # ---------------------------------------------------------- ERROR HANDLERS #
