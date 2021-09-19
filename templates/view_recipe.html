@@ -223,7 +223,7 @@
                 </tr>
                 {% for instruction in recipe.instructions %}
                 <tr>
-                  <td>{{ instruction }}</td>
+                  <td>{{ loop.index }}. {{ instruction }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
