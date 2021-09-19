@@ -6,19 +6,19 @@
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 # Table of Contents
  * ### UX 
-    * Project Goals
+    * [Project Goals](https://github.com/Hiimus/veggie-time##project-goals)
     * User Journey
     * User Stories
-* Design
-* Information architecture
+    * Design
+    * Information architecture
     * Wireframes
     * Features
     * Existing Features
     * Features Left to Implement
-* ### Technologies Used
-    * Tools
-    * Libraries
-    * Languages
+* ### [Technologies Used](https://github.com/Hiimus/veggie-time#technologies-used)
+    - [Tools](https://github.com/Hiimus/veggie-time##tools)
+    - Libraries
+    - Languages
 * ### Testing
 * ### Deployment
 * ### Credits
