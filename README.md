@@ -1,104 +1,238 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Veggie Time
 
-Welcome Hiimus,
+![Am I responsive image](readme-images/amiresponsive.JPG)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store and create their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
+To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
+# Table of Contents
+ * ### UX 
+    * Project Goals
+    * User Journey
+    * User Stories
+* Design
+* Information architecture
+    * Wireframes
+    * Features
+    * Existing Features
+    * Features Left to Implement
+* ### Technologies Used
+    * Tools
+    * Libraries
+    * Languages
+* ### Testing
+* ### Deployment
+* ### Credits
+    * Contents
+    * Media
+    * Acknowledgements
+* Disclaimer
+    
 
-## Gitpod Reminders
+# User Experience (UX)
+## Project Goals
+- To make a web application  that has full CRUD (create, read, update and delete) functionality. 
+- To make a full-stack web application using HTML, CSS, JavaScript, Python, MongoDB and the microframework Flask.
+- Create a web application that is good looking and easy for users to navigate and use.
+- Create a site for users to get inspired to use more vegetables in their own cooking, by browsing or creating their own recipes.
+## User Journey
+### Home
+When accessing this website, the user will first arrive at the home page. The home page will greet the user saying "Welcome to Veggie Time, a place to find and share healthy veggie meals". BILDE. Before scrolling the user can see a navbar/side bar, a hero image, and a vegetable chopper product. The vegetable chopper has a fake link to amazon.com. BILDE(desktop+mobil). When the user scrolls past the product section, a search bar, category buttons and recipe cards are displayed. BILDE. Only six recipes are shown, the user has to click on the link at the bottom in order to see all the recipes. If the user choose to search for a recipe, the user will be directed to the "All Recipes" page. BILDE. If the user clicks on a category, the result will be displayed on the home page. BILDE. The user can also perform searches and click on category on the all recipes page, but then all the results will be displayed on that page. More on that later. On the recipe cards there is an image, a recipe title, recipe description and who created the recipe. There is also a green heart button, that has the function of liking/saving a recipe. This button will be green for all users that are not logged in, so if the user tries to like a recipe without being logged in, they will be directed to the login page. However, if the user is logged in, the user can like and remove the like. The button will turn red once the user click it, and revert back to green if the user clicks it again. BILDE. 
+At the bottom there is a footer that contains the Veggie Time logo and links that are the exact same as the ones the user can find in the navbar/sidebar. A copyright is found in the bottom center of the footer, with a github link to this project. BILDE.
+### Register Page
+If the user does not own a user account, the user has to register. This is done by clicking on the "Register" link found in the navbar/sidebar or in the footer. However, if the user already own an account, the user can click the "Log In" link either below the form, in the navbar/sidebar or in the footer. Once on the register page, the user fill in a username and a password, both with requirements mentioned below the input fields. BILDE. 
+### Login Page
+The login page looks similar to the register page. If the wrong username or password is submitted, a message will let the user know. BILDE. If the user provides correct information, the user will be directed to the profile page.
+### Profile Page
+The user can view their profile when clicking on "My Profile". However, this page will not be accessed if the user is not logged in. BILDE. 
+Once on this page, the user will find an overview of the recipes and favorites the user has created and added. BILDE. On this page the user can also add and remove to favorites without leaving this page. A flash message will give feedback to the user if adding/removing a recipe.BILDE.
+### All Recipes
+When the user clicks on "All Recipes", the page will contain all the recipes, separated by pagination. At the top of the page there's a navbar, a header, a search bar and categories. As mentioned, if the user performes a search or category selection from this page, the result will also be displayed on this page.  On this page there are displayed nine recipes on each page. 
+### Viewing a Recipe
+When clicking on a recipe card, the user will be directed to a new page, displaying more information about the recipe. On this page there is an arrow that will revert the user back to the home page, and there is a large container that displays all information about the recipe that was chosen. BILDE.
+Which icons that are being displayed depends on the state of the user. If the user is not logged in, the green heart button will be displayed. If the user is logged in the heart button will either be green if the user has not liked it, or red if the user already likes it. When the user is the author of a recipe, the user will have the ability to delete and/or edit the recipe. BILDE. 
+If the user clicks on the delete button, the user will have to confirm this by clicking "Yes" in a modal that pops up. 
+If the user clicks on the edit button, the user will be directed to the editing page.
+### Edit Recipe Page
+On the edit page, the user will see that all information that is currently used on the recipe is already filled in. Here the user can change and edit what they want. Once the user is finished on this page, the user can either click on the "Save Changes" button if they want, or click the "Cancel" button, which directs the user back to the Home page. BILDE.
+### Adding a Recipe
+In order for a user to add a recipe, the user has to be logged in. Once they are logged in, the user can click on the "Add Recipe" link either in the navbar/sidebar or in the footer. 
+Once on the Add Recipe page, the user will be presented with an empty form, where the user can provide information. The user  has the option to add an image url link, but this is optional. If no link is added, a default image will display. On both the ingredients and instructions fields, there are buttons for adding extra fields. BILDE.
+When the user is happy with the information provided, clicking "Add Recipe" will submit the form, creating a new recipe. The user will be directed to the home page, and a flash message will display at the top of the page, saying "Recipe Successfully Added".
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Stories
 
-`python3 -m http.server`
+The users of this site will be first time visitors, site members and the admin.
+### First Time Visitor
+As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
+As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
+As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
+As a first time visitor, I want to see all the ingredients needed so that I know what is needed in order to make the dish.
+As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
+As a first time visitor, I want to be able to search for recipes, so that I can search instead of browse for recipes.
+As a first time visitor, I want to know if the dish is easy, medium or hard to make, so that I know the difficulty level of the dish.
+As a first time visitor, I want to know how long it takes to make the dish, so that I can expect how much time I will use.
+### Site Members
+All the features mentioned for the first time users also applies to the site members.
+As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
+As a site member, I want to add recipes, so that I can share my own recipes to the site.
+As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
+As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
+### Admin
+All features mentioned for the first time users and site users also applies to the admin.
+As an admin, I want to add recipes, so that I can share my own recipes to the site.
+As an admin , I want to be able to delete recipes, so that I can remove recipes if I want to.
+As an admin, I want to be able to edit recipes, so that I can change them if I want to.
+# Design
+### Colors
+There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) where used on most buttons. 
+BILDE
+- The green pistachio colour is the most used colour. The reason behind this is because vegetables are often assosiated with this color. I also think the standard materialize green colour was better suited for the buttons, and not across the whole site. 
+- The black raisin colour is used in the product section, and I think it is a nice contrast to the pistachio color. This color is also used on the login and register button.
+- The white color is used throughout the site, and in my opinion works great due to the high contrast against the pistachio and raisin black.
+### Fonts
+There are used two different fonts on this site: 'Leckerli One' and 'muli'. 
+Both of these fonts were found when I was browsing [Free Frontend](https://freefrontend.com/). 
+The Leckerli One font was inspired from [this page]( https://codepen.io/tsimenis/pen/xVPLjp). I think this font looks great for my project, and gives a playful image.
+The muli font was found from [this page](https://codepen.io/fatihtakey/pen/eyyWVr). This font looked so good I just had to use it. This font is cleaner than Leckerli One, so where that font is not used, I have chosen muli.
+## Icons
+All icons used on this project is provided by [Font Awesome](https://fontawesome.com/). The icons serves as buttons that has functions, example is the heart button which adds to favorites.
+## Images
+All images are royalty free and are downloaded from [Pexels](https://pexels.com/), [Unsplash](https://unsplash.com/) and [PurePNG](https://purepng.com/). If users add images to their recipes, they have to copy the image address. 
+## Defensive design
+The users can only like recipes when they have registered, and logged in. Once logged in, the user can only edit and delete their own recipes.
+When deleting a recipe, the user has to confirm this by  clicking one more time on a pop up modal. 
+When adding or editing a recipe, the user is required to enter data in the input fields, and the user can maximum have ten fields of ingredients/instructions. The user also have to provide valid characters.
+The user have to make sure the username has between 5-20 characters. The password needs to be at least eight characters, and have at least one letter and one number. If the username and password provided already exists, the user will get a warning about this.
+## Interactive Design
+- The website is easy to navigate for the user. Below is a overview of how the user can navigate.
 
-A blue button should appear to click: _Make Public_,
+DIAGRAM.
+## Information Architecture
+This project uses MongoDB as a database, and is using four collections. See database structure below:
+STRUKTURDIAGRAM.
 
-Another blue button should appear to click: _Open Browser_.
+## Wireframes
+To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
+# Features
+## Existing Features:
+Home page:
+The home page has a lot of green and a lot of vegetables, quickly giving an impression of what this site contains and is about. A header floating above the background image also greets the user and give a short explanation about the site. Veggie Time is easy to navigate, using navbar/sidebar or links in the footer.
+There is a product section in the middle of the home page, with a link to amazon.com. 
+Below the product section there is a search bar where the user can search for recipes.
+All the recipes have categories and they can be sorted through the category buttons below the search bar.
+The home page displays some recipes, and offers the user to view all recipes through a link at the bottom. 
+There is a github link at the bottom of the footer.
+### Recipes
+All recipe cards have a heart button where the user can add and remove favorites, if the user is logged in.
+When clicking on a recipe card, the user can delete or edit the recipe if the user is the author. From this page the user can also add/remove favorites.
+When viewing a recipe, the user can click on the arrow button on the top left corner to arrive back to the home page. 
+### Register, Login and Logout
+- Users can create their own account.
+- Users can log in and out of the account.
+- When the user logs in, a flash message will welcome the user.
+-When the user logs out, a flash message will let the user know he/she successfully logged out.
+## Features Left to Implement:
+- Having the option so select differents serving, so that ingredient will adjust accordingly.
+- Have the option to upload images, not just from image adress.
+- Adding an email to registration. 
+- Adding news/notifications that the user could choose to recieve on their registered mail.
+- Adding a field for servings when adding a recipe.
+- Improve design. I was really inspired by the cool designs on Free Frontend, so I think it can always get better.
+# Technologies Used
+## Tools:
+- [Gitpod](https://www.gitpod.io/) used as IDE.
+- [GitHub](https://github.com/) used to store and share repository.
+- [Git](https://git-scm.com/) for version control.
+- [Balsamiq](https://balsamiq.com/) for creating wireframes.
+- [Responsive Design Checker](https://www.responsivedesignchecker.com/) for testing of responsiveness on various screen sizes and devices.
+- [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) for resizing images.
+- [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
+[CompressJPEG](https://compressjpeg.com/) was used to compress jpg files.
+[PurePNG](https://purepng.com/) was used to download image of vegetable chopper and a broccoli image. 
+- [Favicon](https://favicon.io/) was used to create a favicon for this project.
+## Libraries:
+- [jQuery](https://jquery.com/) a JavaScript library.
+- [Materializecss](https://materializecss.com/) for a quick page structure, components and colours.
+- [Font Awesome](https://fontawesome.com/) as a provider of icons.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Languages:
 
-A blue button should appear to click: _Make Public_,
+[HTML5](https://en.wikipedia.org/wiki/HTML5),  [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language).
 
-Another blue button should appear to click: _Open Browser_.
+### Frameworks & Other
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) is a microframework that was used to provide libraries, technologies and tools for the app.
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) was used as a templating language for Python.
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) was used for password hashing, authentication and authorization.
+-[Heroku](https://heroku.com/) was used as a platform to deploy the app.
+-[MongoDB](https://mongodb.com) was used as a cloud database.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Testing tools
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) to view the site in various screen sizes and devices. For trying out style and code without doing any real changes to the page. 
+- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing of performance, accessibility and SEO.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate all the css code.
+-[W3C Markup Validation Service](https://validator.w3.org/) was used to validate all the html code.
+-[JShint](https://jshint.com/) was used to validate the JavaScript code.
+-[PEP8](https://www.python.org/dev/peps/pep-0008/) was used as a style guide for all Python code.
 
-To log into the Heroku toolbelt CLI:
+# Testing
+The testing of this project can be found as a seperate [TESTING.md](TESTING.md) file.
+# Deployment
+### Requirements
+- Heroku account
+-MongoDB account
+- Github account
+- Python3
+### How to clone this project
+In order to make a local clone of this project:
+1. Log in to Github and go to the repository.
+2. Click on the button with the text "Code".
+3. Click on the field with the text "Open with Github Desktop".
+4. Follow the steps provided by Github Desktop Application or follow the instruction from this [link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop).
+## Working with the local copy
+Once you have performed the steps above do the following in your IDE:
+1. Make sure you install all the requirements in a requirements.txt file. In the terminal window, type: pip3 install -r requirements.txt.
+2. Create a MongoDB database.
+3. Sign up to your MongoDB account, and create a cluster and a database.
+4. Create these four collections in the database: categories, recipes, users and difficulties.
+5. Add keys and values for the collections, copy the projects [Information Architecture]() so you get the same keys and values.
+6. Create environment variables:
+- Create a .gitignore file in the root directory to hide confidential files.
+- Create a env.py file that will contain all environment variables
+BILDE:
+- Add the env.py file in the .gitignore file.
+7. Now run the app. In your terminal window, type python3 app.py.
+### Heroku Deployment
+1. Set up the local workspace for Heroku
+- Make sure Heroku know which files to  install by typing the following in your terminal: pip3 freeze --local > requirements.txt
+- You also need a Procfile, which is a list of the process types Heroku looks for. Type the following: python app.py > Procfile
+2. Sign up to Heroku
+-Sign up to Heroku, select your region and create a new app.
+3. Deployment using the Github deployment method
+- Click on the deploy  tab, and then click on "connect to Github".
+- Search for your repository and connect to it.
+- Go to the settings tab and click on Reveal Config Vars further down the page.
+- Enter the variables that is contained in your env.pr file. Your env.py file should contain the info mentioned above (IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME).
+4. Now you can add, commit and push the Procfile and requirements.txt.
+BILDE.
+5. Finally, click on the deploy tab in Heroku. Scroll down and click on Automatic Deployments. Choose Enable Automatic Deploys. For manual deployment, see the field "Manual deploy" and click on Deploy Branch.
+# Credits
+## Content
+[SANwebCORNER](https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html) for helping me to create a new field when clicking the add ingredient and add instruction step in add recipes page.
+[JorisPaarde's app My Vegan Recipies](https://my-veganrecipes.herokuapp.com/) for how to make flash messages appear for a short while.
+[mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) for how to implement pagination on my all recipes page.
+## Media
+The vegetable chopper is an image downloaded from [PurePNG](https://purepng.com/). A broccoli image was also downloaded from this site, used as a favicon. 
+Default recipe image by Engin Akyurt from [Pexels](https://www.pexels.com/photo/flat-lay-photography-of-variety-of-vegetables-1435904/)
+Background image of product by Mark Stebnicki from [Pexels](https://www.pexels.com/photo/selective-focus-photo-of-plants-2749165/)
+Background image on desktop by Yaroslav Shuraev from [Pexels](https://www.pexels.com/photo/fresh-vegetables-and-fruits-on-the-table-8844888/).
+Background image on mobile and tablet by Nadine Primeau from [Unsplash](https://unsplash.com/photos/wpoKpJqOsKE)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Acknowledgements
+My mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for guiding, support and pointing me in the right direction.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+The Code Institute [Slack](https://slack.com/) channel for having discussion, questions and answers that contribute to my project. Also a lot of similar projects are posted in the slack channel, which contributed to the planning of my project. 
 
-------
+Thanks to Sean from tutor support. He helped me with the add to favorite function.
 
-## Release History
+[Stack Overflow](https://stackoverflow.com/) for helping me understanding and solving issues along the way.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
