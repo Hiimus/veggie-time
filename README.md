@@ -5,7 +5,7 @@
 ### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store and create their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 # Table of Contents
- * - <a href="#user-experience">1. User Experience (UX)</a>
+ - <a href="#ux">1. User Experience (UX)</a>
     - <a href="#project-goals">1.1. Project goals</a>
     - <a href="#user-journey">1.2 User Journey</a>
     - <a href="#user-stories">1.2 User stories</a>
@@ -30,7 +30,8 @@ To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 - <a href="#disclaimer">8. Disclaimer</a>
 
 
-# User Experience (UX)
+# UX
+
 ## Project Goals
 - To make a web application  that has full CRUD (create, read, update and delete) functionality. 
 - To make a full-stack web application using HTML, CSS, JavaScript, Python, MongoDB and the microframework Flask.
@@ -87,7 +88,9 @@ As an admin, I want to be able to edit recipes, so that I can change them if I w
 ## Design
 ### Colors
 There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) where used on most buttons. 
-BILDE
+
+![colour-scheme](readme_img/colour-scheme.JPG)
+
 - The green pistachio colour is the most used colour. The reason behind this is because vegetables are often assosiated with this color. I also think the standard materialize green colour was better suited for the buttons, and not across the whole site. 
 - The black raisin colour is used in the product section, and I think it is a nice contrast to the pistachio color. This color is also used on the login and register button.
 - The white color is used throughout the site, and in my opinion works great due to the high contrast against the pistachio and raisin black.
@@ -200,7 +203,14 @@ Once you have performed the steps above do the following in your IDE:
 6. Create environment variables:
 - Create a .gitignore file in the root directory to hide confidential files.
 - Create a env.py file that will contain all environment variables
-BILDE:
+```
+    Import os
+    os.environ.setdefault("IP", "Added by developer")
+    os.environ.setdefault("PORT", "Added by developer")
+    os.environ.setdefault("SECRET_KEY", "Added by developer")
+    os.environ.setdefault("MONGO_URI", "Added by developer")
+    os.environ.setdefault("MONGO_DBNAME", "Added by developer")
+```
 - Add the env.py file in the .gitignore file.
 7. Now run the app. In your terminal window, type python3 app.py.
 ### Heroku Deployment
@@ -215,7 +225,13 @@ BILDE:
 - Go to the settings tab and click on Reveal Config Vars further down the page.
 - Enter the variables that is contained in your env.pr file. Your env.py file should contain the info mentioned above (IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME).
 4. Now you can add, commit and push the Procfile and requirements.txt.
-BILDE.
+```
+    $ git add requirements.txt
+    $ git commit -m "Add requirements.txt"
+
+    $ git add Procfile 
+    $ git commit -m "Add Procfile"
+```
 5. Finally, click on the deploy tab in Heroku. Scroll down and click on Automatic Deployments. Choose Enable Automatic Deploys. For manual deployment, see the field "Manual deploy" and click on Deploy Branch.
 # Credits
 ## Contents
