@@ -20,12 +20,12 @@ $(document).ready(function(){
     let add_button_instruction      = $(".add_form_field_instruction");
     let x = 1;
     let appendIngredient = `<div class='input-field col s12 m8 l8'>
-        <input id='ingredients' name='ingredients' type='text' maxlength='100' class='validate_me'>
+    <input id="ingredients" name="ingredients" type="text" maxlength="100" class="validate" required>
         <label for='ingredients'>Ingredients</label>
         <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i class='fas fa-minus'></i></button>
     </div>`;
     let appendInstruction = `<div class='input-field col s12 m8 l8'>
-    <input id='instructions' name='instructions' type='text' maxlength='100' class='validate_me'>
+    <input id='instructions' name='instructions' type='text' maxlength='100' class='validate' required>
     <label for='instructions'>Instructions</label>
     <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i class='fas fa-minus'></i></button>
 </div>`;
