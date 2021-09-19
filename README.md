@@ -6,26 +6,27 @@
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 # Table of Contents
  * - <a href="#ux">1. User experience (UX)</a>
-    - <a href="#ux-goals">1.1. Project goals</a>
-    - <a href="#ux-journey">1.2 User Journey</a>
-    - <a href="#ux-stories">1.2 User stories</a>
-    - <a href="#ux-design">1.3 Design</a>
-    - <a href="#ux-architecture">1.4 Information architecture</a>
-    - <a href="#ux-wireframes">1.5 wireframes</a>
+    - <a href="#project-goals">1.1. Project goals</a>
+    - <a href="#user-journey">1.2 User Journey</a>
+    - <a href="#user-stories">1.2 User stories</a>
+    - <a href="#design">1.3 Design</a>
+    - <a href="#information-architecture">1.4 Information architecture</a>
+    - <a href="#wireframes">1.5 wireframes</a>
 - <a href="#features">2. Features</a>
-    - <a href="#features-existing">2.1 Existing features</a>
-    - <a href="#features-future">2.2 Features left to implement</a>
-- <a href="#technologies">3. Technologies used</a>
+    - <a href="#existing-features">2.1 Existing features</a>
+    - <a href="#features-left-to-implement">2.2 Features left to implement</a>
+- <a href="#technologies-used">3. Technologies used</a>
     - <a href="#tools">3.1 Tools</a>
     - <a href="#libraries">3.3 Libraries</a>
     - <a href="#languages">3.4 Languages</a>
-    - <a href="#frameworks">3.4 Frameworks and Other</a>
+    - <a href="#frameworks">3.4 Frameworks & Other</a>
+    - <a href="#testing-tools">3.5 Testing Tools</a>
 - <a href="#testing">4. Testing</a>
 - <a href="#deployment">5. Deployment</a>
 - <a href="#credits">6. Credits</a>
     - <a href="#contents">6.1 Contents</a>
     - <a href="#media">6.2 Media</a>
-    - <a href="#acknowledge">7. Acknowledge</a>
+    - <a href="#acknowledgements">7. Acknowledgements</a>
 - <a href="#disclaimer">8. Disclaimer</a>
 
 
@@ -83,7 +84,7 @@ All features mentioned for the first time users and site users also applies to t
 As an admin, I want to add recipes, so that I can share my own recipes to the site.
 As an admin , I want to be able to delete recipes, so that I can remove recipes if I want to.
 As an admin, I want to be able to edit recipes, so that I can change them if I want to.
-# Design
+## Design
 ### Colors
 There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) where used on most buttons. 
 BILDE
@@ -156,18 +157,18 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - [Materializecss](https://materializecss.com/) for a quick page structure, components and colours.
 - [Font Awesome](https://fontawesome.com/) as a provider of icons.
 
-Languages:
+## Languages:
 
 [HTML5](https://en.wikipedia.org/wiki/HTML5),  [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language).
 
-### Frameworks & Other
+## Frameworks & Other
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) is a microframework that was used to provide libraries, technologies and tools for the app.
 - [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) was used as a templating language for Python.
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) was used for password hashing, authentication and authorization.
 -[Heroku](https://heroku.com/) was used as a platform to deploy the app.
 -[MongoDB](https://mongodb.com) was used as a cloud database.
 
-### Testing tools
+## Testing tools
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) to view the site in various screen sizes and devices. For trying out style and code without doing any real changes to the page. 
 - [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing of performance, accessibility and SEO.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate all the css code.
@@ -217,7 +218,7 @@ BILDE:
 BILDE.
 5. Finally, click on the deploy tab in Heroku. Scroll down and click on Automatic Deployments. Choose Enable Automatic Deploys. For manual deployment, see the field "Manual deploy" and click on Deploy Branch.
 # Credits
-## Content
+## Contents
 [SANwebCORNER](https://www.sanwebcorner.com/2017/02/dynamically-generate-form-fields-using.html) for helping me to create a new field when clicking the add ingredient and add instruction step in add recipes page.
 [JorisPaarde's app My Vegan Recipies](https://my-veganrecipes.herokuapp.com/) for how to make flash messages appear for a short while.
 [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) for how to implement pagination on my all recipes page.
@@ -236,4 +237,7 @@ The Code Institute [Slack](https://slack.com/) channel for having discussion, qu
 Thanks to Sean from tutor support. He helped me with the add to favorite function.
 
 [Stack Overflow](https://stackoverflow.com/) for helping me understanding and solving issues along the way.
+
+# Disclaimer
+
 
