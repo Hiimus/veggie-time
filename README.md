@@ -5,28 +5,29 @@
 ### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store and create their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 # Table of Contents
- * ### UX 
-    * [Project Goals](https://github.com/Hiimus/veggie-time##project-goals)
-    * User Journey
-    * User Stories
-    * Design
-    * Information architecture
-    * Wireframes
-    * Features
-    * Existing Features
-    * Features Left to Implement
-* ### [Technologies Used](https://github.com/Hiimus/veggie-time#technologies-used)
-    - [Tools](https://github.com/Hiimus/veggie-time##tools)
-    - Libraries
-    - Languages
-* ### Testing
-* ### Deployment
-* ### Credits
-    * Contents
-    * Media
-    * Acknowledgements
-* Disclaimer
-    
+ * - <a href="#ux">1. User experience (UX)</a>
+    - <a href="#ux-goals">1.1. Project goals</a>
+    - <a href="#ux-journey">1.2 User Journey</a>
+    - <a href="#ux-stories">1.2 User stories</a>
+    - <a href="#ux-design">1.3 Design</a>
+    - <a href="#ux-architecture">1.4 Information architecture</a>
+    - <a href="#ux-wireframes">1.5 wireframes</a>
+- <a href="#features">2. Features</a>
+    - <a href="#features-existing">2.1 Existing features</a>
+    - <a href="#features-future">2.2 Features left to implement</a>
+- <a href="#technologies">3. Technologies used</a>
+    - <a href="#tools">3.1 Tools</a>
+    - <a href="#libraries">3.3 Libraries</a>
+    - <a href="#languages">3.4 Languages</a>
+    - <a href="#frameworks">3.4 Frameworks and Other</a>
+- <a href="#testing">4. Testing</a>
+- <a href="#deployment">5. Deployment</a>
+- <a href="#credits">6. Credits</a>
+    - <a href="#contents">6.1 Contents</a>
+    - <a href="#media">6.2 Media</a>
+    - <a href="#acknowledge">7. Acknowledge</a>
+- <a href="#disclaimer">8. Disclaimer</a>
+
 
 # User Experience (UX)
 ## Project Goals
