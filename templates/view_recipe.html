@@ -6,7 +6,8 @@
     <a href="{{ url_for('home') }}" class="back-arrow"><i class="far fa-arrow-alt-circle-left fa-3x"></i></a>
   </div>
   <div class="border-recipe-view row border-view">
-    <div class="row valign-wrapper">
+    <!--------- row that vertically aligns content, only on tablet size and up -->
+    <div class="row valign-wrapper hide-on-small-only">
       <div class="col s12 m6">
         <h3 class="muli-font margin-header">{{ recipe.recipe_name }}</h3>
         <h5 class="muli-font margin-header">{{ recipe.recipe_description }}</h5>
@@ -17,8 +18,7 @@
           <h6 class="muli-font margin-top-7">Likes: {{ recipe.liked_by|length }}</h6>
           {% endif %}
         </div>
-        <div class="col s12">
-
+        <div class="col s12 margin-top-14">
           <!-- If a user is logged in, and this user has liked the recipe, the like button will be red -->
           {% if session.user and session.user|lower in recipe.liked_by|lower %}
           <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST"
@@ -82,24 +82,111 @@
           </form>
           {% endif %}
           {% endif %}
-          </div>
-          </div>
-
+        </div>
+      </div>
       <!-- if image url exists, use that-->
       {% if recipe.recipe_img %}
-      <div class="row hide-on-med-and-up">
-        <div class="col hide-on-med-and-up s12">
-          <img class="hide-on-med-and-up view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
-          <p class="hide-on-med-and-up"><em class="hide-on-med-and-up">Added by: {{ recipe.created_by }}</em></p>
-        </div>
-        <div class="col hide-on-small-only m6">
-          <img class="hide-on-small-only view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
-          <p class="hide-on-small-only"><em class="hide-on-small-only">Added by: {{ recipe.created_by }}</em></p>
-        </div>
+      <div class="col s12 m6 margin-top-7">
+        <img class="view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
+        <p><em>Added by: {{ recipe.created_by }}</em></p>
       </div>
       <!-- else, use default image -->
       {% else %}
+      <div class="col s12 m6 margin-top-7">
+        <img class="view-img responsive-img" src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}"
+          alt="Vegetables">
+        <p><em>Added by: {{ recipe.created_by }}</em></p>
+      </div>
+      {% endif %}
+    </div>
+
+    <!----------- row that does not vertically align content, only on small devices -->
+    <div class="row hide-on-med-and-up">
       <div class="col s12 m6">
+        <h3 class="muli-font margin-header">{{ recipe.recipe_name }}</h3>
+        <h5 class="muli-font margin-header">{{ recipe.recipe_description }}</h5>
+        <div class="col s12">
+          <h6 class="muli-font">Difficulty: {{ recipe.difficulty_name }}</h6>
+          <h6 class="muli-font margin-top-7">Category: {{ recipe.category_name }}</h6>
+          {% if recipe.liked_by|length > 0 %}
+          <h6 class="muli-font margin-top-7">Likes: {{ recipe.liked_by|length }}</h6>
+          {% endif %}
+        </div>
+        <div class="col s12 margin-top-7">
+          <!-- If a user is logged in, and this user has liked the recipe, the like button will be red -->
+          {% if session.user and session.user|lower in recipe.liked_by|lower %}
+          <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST"
+            class="margin-top-7">
+            <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating red btn-small"
+              data-position="bottom" data-tooltip="Remove from Favorites"><i class="heart-icon fas fa-heart fa-5x">
+              </i></button>
+            <!-- If user is author of recipe -->
+            {% if session.user|lower == recipe.created_by|lower %}
+            <a href="#modal1" id="delete-btn-view"
+              class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
+              data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4 class="muli-font">Are you sure you want to delete this recipe?</h4>
+              </div>
+              <div class="modal-footer">
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                  class="modal-close waves-effect waves-green btn-flat muli-font">Yes</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat muli-font">No</a>
+              </div>
+            </div>
+            <!-- edit recipe button -->
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
+              class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
+                class="far fa-edit"></i></a>
+            {% endif %}
+          </form>
+          {% elif not session.user %}
+          <a href="{{ url_for('login_to_like') }}" class="margin-top-7">
+            <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small"
+              data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+          </a>
+          {% else %}
+          <!-- Else, if the user is the author of the recipe, but has not liked it, the like button will be green  -->
+          <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
+            method="POST" class="margin-top-7">
+            <button type="submit" id="heart-btn-view" class="btn tooltipped btn-floating green btn-small"
+              data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+            <!-- If user is author of recipe -->
+            {% if session.user|lower == recipe.created_by|lower %}
+            <a href="#modal1" id="delete-btn-view"
+              class="modal-trigger btn tooltipped btn-floating green btn-small delete-btn" data-position="bottom"
+              data-tooltip="Delete Recipe"><i class="fas fa-trash"></i></a>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4 class="muli-font">Are you sure you want to delete this recipe?</h4>
+              </div>
+              <div class="modal-footer">
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                  class="modal-close waves-effect waves-green btn-flat muli-font">Yes</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat muli-font">No</a>
+              </div>
+            </div>
+            <!-- edit recipe button -->
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" id="edit-btn-view"
+              class="btn tooltipped btn-floating green btn-small" data-position="bottom" data-tooltip="Edit Recipe"><i
+                class="far fa-edit"></i></a>
+          </form>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      <!-- if image url exists, use that-->
+      {% if recipe.recipe_img %}
+      <div class="col s12 margin-top-14">
+        <img class="view-img responsive-img" src="{{ recipe.recipe_img }}" alt="recipe image">
+        <p><em>Added by: {{ recipe.created_by }}</em></p>
+      </div>
+      <!-- else, use default image -->
+      {% else %}
+      <div class="col s12 margin-top-14">
         <img class="view-img responsive-img" src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}"
           alt="Vegetables">
         <p><em>Added by: {{ recipe.created_by }}</em></p>
@@ -136,7 +223,7 @@
                 </tr>
                 {% for instruction in recipe.instructions %}
                 <tr>
-                    <td>{{ instruction }}</td>
+                  <td>{{ instruction }}</td>
                 </tr>
                 {% endfor %}
               </tbody>
