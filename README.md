@@ -5,7 +5,7 @@
 ### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store and create their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 # Table of Contents
- * - <a href="#ux">1. User experience (UX)</a>
+ * - <a href="#user-experience">1. User Experience (UX)</a>
     - <a href="#project-goals">1.1. Project goals</a>
     - <a href="#user-journey">1.2 User Journey</a>
     - <a href="#user-stories">1.2 User stories</a>
@@ -19,7 +19,7 @@ To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
     - <a href="#tools">3.1 Tools</a>
     - <a href="#libraries">3.3 Libraries</a>
     - <a href="#languages">3.4 Languages</a>
-    - <a href="#frameworks">3.4 Frameworks & Other</a>
+    - <a href="#frameworks-and-packages">3.4 Frameworks and Packages</a>
     - <a href="#testing-tools">3.5 Testing Tools</a>
 - <a href="#testing">4. Testing</a>
 - <a href="#deployment">5. Deployment</a>
@@ -161,12 +161,12 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 
 [HTML5](https://en.wikipedia.org/wiki/HTML5),  [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language).
 
-## Frameworks & Other
+## Frameworks and Packages
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) is a microframework that was used to provide libraries, technologies and tools for the app.
 - [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) was used as a templating language for Python.
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) was used for password hashing, authentication and authorization.
--[Heroku](https://heroku.com/) was used as a platform to deploy the app.
--[MongoDB](https://mongodb.com) was used as a cloud database.
+- [Heroku](https://heroku.com/) was used as a platform to deploy the app.
+- [MongoDB](https://mongodb.com) was used as a cloud database.
 
 ## Testing tools
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) to view the site in various screen sizes and devices. For trying out style and code without doing any real changes to the page. 
