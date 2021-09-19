@@ -128,11 +128,9 @@
             </div>
               <div class="card-content">
                 <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
-                  <h5 class="h5-card-title">{{ recipe.recipe_name }}</h5>
-                  <p class="margin-top-7">{{ recipe.recipe_description }}</p>
-                  <p class="margin-top-7">Difficulty: {{ recipe.difficulty_name }}</p>
-                  <p class="margin-top-7">Category: {{ recipe.category_name }}</p>
-                  <p class="margin-top-7 right"><em>Added by: {{ recipe.created_by }}</em></p>
+                  <h5 class="h5-card-title line-clamp-2">{{ recipe.recipe_name }}</h5>
+                  <p class="margin-top-7 line-clamp-2">{{ recipe.recipe_description }}</p>
+                  <p class="margin-top-7 added-by line-clamp-1"><em>Added by: {{ recipe.created_by }}</em></p>
                 </a>
               </div>
         </div>
