@@ -161,6 +161,18 @@ All the features mentioned for the first time users also applies to the site mem
     
     ![empty-field](readme_img/empty-field.JPG)
 
+- When adding an image url, it is only optional. If no image is added, a default image will be displayed. However, if the user adds a url, it has to be valid.
+I have used this pattern to ensure the user meets some requirements: 
+```
+pattern="https?://.+"
+
+```
+
+### Deleting a Recipe
+
+- When a user wants to delete a recipe, the user needs to be logged in, and the user have to be the author of the recipe. If the user does not meet these requirements, the page will throw a 403 error.
+    - When the user clicks the delete button, they also have to confirm "Yes" in the pop up modal. 
+    - The user can actually delete a recipe withouth clicking yes, by copying the id of the recipe, and write in the url "delete_recipe/<id>". This will delete the recipe, but again, only if the user is the author.
 
 ## Bugs
 
