@@ -78,7 +78,56 @@ The difference is very small, but noted in the sheet below:
 
 ## User Stories Testing
 
+The users of this site will be first time visitors and site members.
+### First Time Visitor
+- As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
+    - As a first time visitor, the user can browse recipes from the home page and all recipes page. Home page is the default page, and recipes will be found at the bottom of the page. There is also a link at the bottom that will redirect the user to the all recipes page. The user can also choose to enter the all recipes page via the navbar/sidebar or the link in the footer.
+- As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
+    - As a first time visitor, the user can see that all the recipe cards has images. When clicking on a recipe card, the visitor will see the image enlarged. 
+- As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
+    - As a first time visitor, the user will see a heart icon on all the recipes. This icon will give site members the opportunity to like and add the recipe to favorites. If a recipes has gotten any likes, the first time visitor will see the number of likes next to the heart button. 
 
+        ![likes](readme_img/likes.JPG)
+
+- As a first time visitor, I want to see all the ingredients needed so that I know what is needed in order to make the dish.
+    - As a first time visitor, the user can click on a recipe card to view more information. Once clicked, the user will find all ingredients listed.
+
+        ![ingredients](readme_img/ingredients.JPG)
+
+- As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
+    - As a first time visitor, the user can click on a recipe card to view more information. Once clicked, the user will find all instructions listed.
+
+        ![instructions](readme_img/instructions.JPG)
+
+- As a first time visitor, I want to be able to search for recipes, so that I can search instead of browse for recipes.
+    - As a first time visitor, the user can find a search bar on the home page and on the all recipes page. 
+
+        ![search-bar](readme_img/search.JPG)
+
+- As a first time visitor, I want to know if the dish is easy, medium or hard to make, so that I know the difficulty level of the dish.
+    - As a first time visitor, the user will find information about the difficulty when clicking on a recipe. Once clicked, the difficulty will display without any need for scrolling.
+
+        ![difficulty](readme_img/difficulty.JPG)
+
+### Site Members
+All the features mentioned for the first time users also applies to the site members.
+- As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
+    - As a site member, the user can store recipes by clicking the heart button that is displayed on all cards. This button/icon will turn red if the user likes it, and revert back to green if the user choose to click it again(remove it from favorites.)
+
+        ![not-liked-icon](readme_img/not-liked.JPG) VS ![liked-icon](readme_img/liked.JPG)
+
+- As a site member, I want to add recipes, so that I can share my own recipes to the site.
+    - As a site member, the user can add a recipe by clicking "Add Recipe" either from the navbar/sidebar or from the link in the footer.
+        ![add-recipe](readme_img/add-recipe.JPG)
+- As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
+    - As a site member, the user can edit recipes when the user has clicked a recipe card. Once clicked, an edit icon should appear if the user the author of the recipe.
+        ![edit-recipe](readme_img/edit-recipe.JPG)
+        ![editing-recipe](readme_img/editing-recipe.JPG)
+
+- As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
+    - As a site member, the user can delete recipes, when the user has clicked on a recipe card. Once clicked, a delete icon should appear if the user is the author of the recipe.
+        ![delete-recipe](readme_img/delete-recipe.JPG)
+        ![deleting-recipe](readme_img/deleting-recipe.JPG)
 
 ## Defensive Design
 
