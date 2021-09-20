@@ -65,7 +65,7 @@
                 <div>
                     {% for ingredient in recipe.ingredients %}
                     <div class="input-field col s12 m8 l8">
-                        <input id="ingredients" name="ingredients" pattern="^\S+[a-zA-Z0-9-_\s-.]+$" type="text" maxlength="100" value="{{ ingredient }}"
+                        <input id="ingredients" name="ingredients" pattern="^\S+[a-zA-Z0-9-._\s]+$" type="text" maxlength="100" value="{{ ingredient }}"
                             class="validate" required>
                         <button type='button' class='delete btn-floating btn-small waves-effect waves-light red'><i
                                 class='fas fa-minus'></i></button>
@@ -87,7 +87,7 @@
             <div class="container2">
                 {% for instruction in recipe.instructions %}
                 <div class="input-field col s12 m8 l8">
-                    <input id="instructions" name="instructions" pattern="^\S+[a-zA-Z0-9-_\s-.]+$" type="text" class="validate add-instruction-edit"
+                    <input id="instructions" name="instructions" pattern="^\S+[a-zA-Z0-9-._\s]+$" type="text" class="validate add-instruction-edit"
                         value="{{ instruction }}" required maxlength="200">
                     <button type='button' class='radius muli-font delete btn-floating btn-small waves-effect waves-light red'><i
                             class='fas fa-minus'></i></button>
