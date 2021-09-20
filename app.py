@@ -199,8 +199,9 @@ def profile(username):
 
 @app.route("/login")
 def login_to_like():
-    flash("Please log in in order to like recipes")
-    return redirect(url_for('login'))
+    if not session["user"]:
+        flash("Please log in in order to like recipes")
+        return render_template("login.html")
 
 
 # Adds to favorites, redirects to profile page if added while on profile
