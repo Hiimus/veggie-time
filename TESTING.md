@@ -134,6 +134,32 @@ All the features mentioned for the first time users also applies to the site mem
 
 ## Defensive Design
 
+- The user will only be able to access and view pages like add recipe, edit recipe and my profile if the user is logged in.
+    - If the user tries to access a page that is not the user is not authorized to access, it will throw an 403 error:
+
+        ![403-error](readme_img/403.JPG)
+    - If the user tries to access a page that does not exist, it will throw a 404 error:
+
+        ![404-error](readme_img/404.JPG)
+
+- The user is not able to break the site by clicking on buttons or links. All buttons or links have functions or lead to other places on the site. All external links open in a new tab.
+
+### Register Form:
+
+- When registering, the user has to enter a valid username and password, the requirements is mentioned below the input fields. 
+    ![register](readme_img/register.JPG)
+    
+### Adding a Recipe/Editing a Recipe
+
+- When adding a recipe, the user must enter valid inputs. All important fields are required fields. The user can use spaces, but not start with it, or only input spaces.
+    
+    Only spaces is not valid:
+
+    ![only-spaces](readme_img/only-spaces.JPG) 
+    
+    And empty field is not valid: 
+    
+    ![empty-field](readme_img/empty-field.JPG)
 
 
 ## Bugs
