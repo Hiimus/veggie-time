@@ -40,7 +40,10 @@ This warning is due to the base.html file having jinja templating for viewing fl
 
 ## Responsiveness
 
-Responsiveness was tested with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/). Various devices and screen sizes was tested. Note: Throughout the project I have adjusted the screen size in the one of the window corners for a quick responsiveness check. See below for an overview of responsiveness testing:
+Responsiveness was tested with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/). Various devices and screen sizes was tested. 
+Note: 
+- Throughout the project I have adjusted the screen size in the one of the window corners for a quick responsiveness check. 
+See below for an overview of responsiveness testing:
 
 Testing for smartphones:
 
@@ -57,9 +60,25 @@ Testing for desktops:
 
 ## Browser Compatibility
 
+All browser testing was carried out on various screen sizes to check if responsiveness was okay. 
 
+Results : The floating headline over the hero image on the home page has a slightly blurry background. This is to increase contrast between header and background. The blurry background does not appear on the Mozilla Firefox browser. The backdrop-filter: blur is not supported in Firefox. I don't think this is a major concern as it does not make much difference. See image of the finding:
+
+No blurry background in Firefox:
+
+![firefox-blurry](readme_img/firefox.JPG)
+
+How it should look:
+
+![chrome-blurry](readme_img/chrome.JPG)
+
+The difference is very small, but noted in the sheet below:
+
+![browser-test](readme_img/browser-test.JPG)
 
 ## User Stories Testing
+
+
 
 ## Defensive Design
 

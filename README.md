@@ -159,7 +159,6 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - [Balsamiq](https://balsamiq.com/) for creating wireframes.
 - [dbdiagram](https://dbdiagram.io/) for creating a database diagram of Veggie Time.
 - [Lucid](https://lucid.app/) for creating an overview of how the user can navigate the site.
-- [Responsive Design Checker](https://www.responsivedesignchecker.com/) for testing of responsiveness on various screen sizes and devices.
 - [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) for resizing images.
 - [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
 - [CompressJPEG](https://compressjpeg.com/) was used to compress jpg files.
