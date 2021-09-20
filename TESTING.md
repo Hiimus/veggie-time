@@ -149,6 +149,17 @@ All the features mentioned for the first time users also applies to the site mem
 - When registering, the user has to enter a valid username and password, the requirements is mentioned below the input fields. 
     ![register](readme_img/register.JPG)
     
+    - This is the required pattern for the username:
+    ```
+    pattern="^[A-Za-z0-9_]{5,20}$"
+    ```
+
+    - This is the required pattern for the password field:
+    ```
+    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+    ```
+
+    
 ### Adding a Recipe/Editing a Recipe
 
 - When adding a recipe, the user must enter valid inputs. All important fields are required fields. The user can use spaces, but not start with it, or only input spaces.
