@@ -111,10 +111,13 @@ The user have to make sure the username has between 5-20 characters. The passwor
 ## Interactive Design
 - The website is easy to navigate for the user. Below is a overview of how the user can navigate.
 
+![overview of site](readme_img/overview.JPG)
+
 DIAGRAM.
 ## Information Architecture
 This project uses MongoDB as a database, and is using four collections. See database structure below:
-STRUKTURDIAGRAM.
+
+![db diagram](readme_img/db-diagram.JPG)
 
 ## Wireframes
 To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
@@ -149,12 +152,15 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - [GitHub](https://github.com/) used to store and share repository.
 - [Git](https://git-scm.com/) for version control.
 - [Balsamiq](https://balsamiq.com/) for creating wireframes.
+- [dbdiagram](https://dbdiagram.io/) for creating a database diagram of Veggie Time.
+- [Lucid](https://lucid.app/) for creating an overview of how the user can navigate the site.
 - [Responsive Design Checker](https://www.responsivedesignchecker.com/) for testing of responsiveness on various screen sizes and devices.
 - [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) for resizing images.
 - [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
 [CompressJPEG](https://compressjpeg.com/) was used to compress jpg files.
 [PurePNG](https://purepng.com/) was used to download image of vegetable chopper and a broccoli image. 
 - [Favicon](https://favicon.io/) was used to create a favicon for this project.
+
 ## Libraries:
 - [jQuery](https://jquery.com/) a JavaScript library.
 - [Materializecss](https://materializecss.com/) for a quick page structure, components and colours.
@@ -162,7 +168,7 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 
 ## Languages:
 
-[HTML5](https://en.wikipedia.org/wiki/HTML5),  [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language).
+[HTML5](https://en.wikipedia.org/wiki/HTML5),  [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 
 ## Frameworks and Packages
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) is a microframework that was used to provide libraries, technologies and tools for the app.
