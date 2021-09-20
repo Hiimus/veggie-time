@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row row-error">
+            <div class="col s12">
+                <h2 class="center-align">403 - Forbidden </h2>
+                <h5 class="center-align">Sorry, access to the requested source is forbidden.</h5>
+                <h5 class="center-align"><a href="{{ url_for('home') }}" class="link">Go to homepage</a></h5>
+                <hr class="hr">  
+            </div>       
+        </div> 
+    </div>
+
+{% endblock %}

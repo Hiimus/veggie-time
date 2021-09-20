@@ -145,7 +145,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("user"):
-        return render_template("errors/404.html")
+        return render_template("errors/403.html")
     if request.method == "POST":
         # checks if username exists in database
         existing_user = mongo.db.users.find_one(
@@ -179,7 +179,7 @@ def profile(username):
     # check if a user is logged in
     # Only users can acces profile
     if not session.get("user"):
-        return render_template("errors/404.html")
+        return render_template("errors/403.html")
     else:
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
@@ -292,7 +292,7 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if not session.get("user"):
-        return render_template("errors/404.html")
+        return render_template("errors/403.html")
 
     if request.method == "POST":
         recipe = {
@@ -324,7 +324,7 @@ def edit_recipe(recipe_id):
         {"created_by": 1, "_id": 0})
     created_by = find_author.get("created_by")
     if session.get("user") != created_by:
-        return render_template("errors/404.html")
+        return render_template("errors/403.html")
 
     if request.method == "POST":
         submit_recipe = {
@@ -357,7 +357,7 @@ def delete_recipe(recipe_id):
         {"created_by": 1, "_id": 0})
     created_by = find_author.get("created_by")
     if session.get("user") != created_by:
-        return render_template("errors/404.html")
+        return render_template("errors/403.html")
 
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
@@ -368,6 +368,11 @@ def delete_recipe(recipe_id):
 @app.errorhandler(404)
 def not_found(e):
     return render_template("errors/404.html"), 404
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template("errors/403.html"), 403
 
 
 @app.errorhandler(500)
