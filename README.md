@@ -150,6 +150,7 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - Adding news/notifications that the user could choose to recieve on their registered mail.
 - Adding a field for servings when adding a recipe.
 - Improve design. I was really inspired by the cool designs on Free Frontend, so I think it can always get better.
+- Adding a superuser/admin with full access that can delete or edit all recipes, so that I don't have to do it through MongoDB.
 # Technologies Used
 ## Tools:
 - [Gitpod](https://www.gitpod.io/) used as IDE.
