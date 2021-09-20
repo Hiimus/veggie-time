@@ -63,7 +63,7 @@ When the user is happy with the information provided, clicking "Add Recipe" will
 
 ## User Stories
 
-The users of this site will be first time visitors, site members and the admin.
+The users of this site will be first time visitors and site members.
 ### First Time Visitor
 - As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
 - As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
@@ -79,11 +79,7 @@ All the features mentioned for the first time users also applies to the site mem
 - As a site member, I want to add recipes, so that I can share my own recipes to the site.
 - As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
 - As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
-### Admin
-All features mentioned for the first time users and site users also applies to the admin.
-- As an admin, I want to add recipes, so that I can share my own recipes to the site.
-- As an admin , I want to be able to delete recipes, so that I can remove recipes if I want to.
-- As an admin, I want to be able to edit recipes, so that I can change them if I want to.
+
 ## Design
 ### Colors
 There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) where used on most buttons. 
