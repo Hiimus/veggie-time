@@ -1,5 +1,7 @@
 
-# Table of Contents - Testing
+# Testing
+
+# Table of Contents
 - <a href="#testing-tools">1. Testing Tools</a>
 - <a href="#code-validators">2. Code Validators</a>
 - <a href="#responsiveness">3. Responsiveness</a>
@@ -197,7 +199,7 @@ pattern="https?://.+"
 
 - I found a really cool product card from [Free Frontend](https://codepen.io/fatihtakey/pen/eyyWVr) that I wanted to use. I added it, and changed it all up and customized it to suit my home page. After I was "done", I realized it looked good on desktop, but horrible on mobile and tablet. I had to spend time I didn't have on customizing it to look good on mobile and tablet. Lesson learned. 
 
-
+<a href="#testing">BACK TO TOP</a>
 
 
 

@@ -148,17 +148,68 @@ This project uses MongoDB as a database, and is using four collections. See data
 To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 # Features
 ## Existing Features:
-Home page:
-The home page has a lot of green and a lot of vegetables, quickly giving an impression of what this site contains and is about. A header floating above the background image also greets the user and give a short explanation about the site. Veggie Time is easy to navigate, using navbar/sidebar or links in the footer.
-There is a product section in the middle of the home page, with a link to amazon.com. 
-Below the product section there is a search bar where the user can search for recipes.
-All the recipes have categories and they can be sorted through the category buttons below the search bar.
-The home page displays some recipes, and offers the user to view all recipes through a link at the bottom. 
-There is a github link at the bottom of the footer.
-### Recipes
-All recipe cards have a heart button where the user can add and remove favorites, if the user is logged in.
-When clicking on a recipe card, the user can delete or edit the recipe if the user is the author. From this page the user can also add/remove favorites.
-When viewing a recipe, the user can click on the arrow button on the top left corner to arrive back to the home page. 
+
+- All pages have the same navbar/sidebar and footer.
+
+### Home page
+
+- Navbar/sidebar with links to all pages within the app.
+
+- Hero background/image that greets the users.
+
+- Product section displaying a vegetable chopper. Contains a fake link to amazon.com.
+
+- A search bar below the product section. Here the user can search for words than exist in the recipes. Clicking the red X will reset the search bar. Pressing enter or clicking the green search button will do a search.
+
+- Category buttons that can be clicked. Clicking a category will sort and search for recipes within that category. A flash message will appear on the top of the page, giving feedback to the user on which category was selected.
+
+- Recipe cards are well organized and display an image, a heart button, the recipe title, description and the creator of the recipe.
+
+- A heart button works as an add to favorite button. Selecting this will store the recipe in the users profile.
+
+- There is a link below the last row of cards, that says "Click here to see all the recipes". This link will direct users to the all recipes page.
+
+- Footer with links to all pages within the app and a link to Github.
+
+### All Recipes
+
+- Also has the search bar and the category buttons.
+
+- Pagination at the bottom will let the user click on the next page. Each page displays max nine recipes.
+
+
+### View Recipe
+
+- On the view recipe page, there is an arrow button on the top left. This button will direct the user back to the home page.
+
+- There is a container that holds all information about the recipe.
+
+- From this page, the user have three buttons: like, delete and edit.
+
+    - If the user is logged in and is the creator of the recipe, all buttons will appear.
+
+    - If the user is not logged in, the like button will appear.
+
+
+- If clicking the delete button, the user has to confirm a pop up modal.
+
+- If the edit button is clicked, the user will be directed to the edit recipe page.
+
+### Edit Recipe 
+
+- Contains a form where the user can edit all fields.
+
+- All fields are prefilled with current stored information.
+
+- Ingredients and Instructions have a button that add a new line.
+
+- User can click the "Cancel" button to cancel the editing and be directed to home page.
+
+- User can click the "Save changes" button to save the changes and edit a recipe.
+
+- A flash message will let the user know the editing was successful.
+
+
 ### Register, Login and Logout
 - Users can create their own account.
 - Users can log in and out of the account.
@@ -172,6 +223,7 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - Adding a field for servings when adding a recipe.
 - Improve design. I was really inspired by the cool designs on Free Frontend, so I think it can always get better.
 - Adding a superuser/admin with full access that can delete or edit all recipes, so that I don't have to do it through MongoDB.
+- Adding pagination to "My Profile".
 # Technologies Used
 ## Tools:
 - [Gitpod](https://www.gitpod.io/) used as IDE.
