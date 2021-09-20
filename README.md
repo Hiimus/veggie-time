@@ -1,6 +1,6 @@
 # Veggie Time
 
-![Am I responsive image](readme-images/amiresponsive.JPG)
+![Am I responsive image](readme_img/veggie-time-devices.JPG)
 
 ### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store and create their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
@@ -38,28 +38,53 @@ To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 - Create a site for users to get inspired to use more vegetables in their own cooking, by browsing or creating their own recipes.
 ## User Journey
 ### Home
-When accessing this website, the user will first arrive at the home page. The home page will greet the user saying "Welcome to Veggie Time, a place to find and share healthy veggie meals". BILDE. Before scrolling the user can see a navbar/side bar, a hero image, and a vegetable chopper product. The vegetable chopper has a fake link to amazon.com. BILDE(desktop+mobil). When the user scrolls past the product section, a search bar, category buttons and recipe cards are displayed. BILDE. Only six recipes are shown, the user has to click on the link at the bottom in order to see all the recipes. If the user choose to search for a recipe, the user will be directed to the "All Recipes" page. BILDE. If the user clicks on a category, the result will be displayed on the home page. BILDE. The user can also perform searches and click on category on the all recipes page, but then all the results will be displayed on that page. More on that later. On the recipe cards there is an image, a recipe title, recipe description and who created the recipe. There is also a green heart button, that has the function of liking/saving a recipe. This button will be green for all users that are not logged in, so if the user tries to like a recipe without being logged in, they will be directed to the login page. However, if the user is logged in, the user can like and remove the like. The button will turn red once the user click it, and revert back to green if the user clicks it again. BILDE. 
-At the bottom there is a footer that contains the Veggie Time logo and links that are the exact same as the ones the user can find in the navbar/sidebar. A copyright is found in the bottom center of the footer, with a github link to this project. BILDE.
+- When accessing this website, the user will first arrive at the home page. Before scrolling the user can see a navbar/side bar, a hero image, and a vegetable chopper product. The vegetable chopper has a fake link to amazon.com. 
+
+![user-journey1](readme_img/user_journey/user-journey1.JPG)
+
+- When the user scrolls past the product section, a search bar, category buttons and recipe cards are displayed. Only six recipes are shown, the user has to click on the link at the bottom in order to see all the recipes. 
+
+![user-journey2](readme_img/user_journey/user-journey2.JPG) ![user-journey3](readme_img/user_journey/user-journey3.JPG)
+
 ### Register Page
-If the user does not own a user account, the user has to register. This is done by clicking on the "Register" link found in the navbar/sidebar or in the footer. However, if the user already own an account, the user can click the "Log In" link either below the form, in the navbar/sidebar or in the footer. Once on the register page, the user fill in a username and a password, both with requirements mentioned below the input fields. BILDE. 
+If the user does not own a user account, the user has to register to get access to all pages and features. This is done by clicking on the "Register" link found in the navbar/sidebar or in the footer. However, if the user already own an account, the user can click the "Log In" link either below the form, in the navbar/sidebar or in the footer. Once on the register page, the user fill in a username and a password, both with requirements mentioned below the input fields. 
+
+![user-journey4](readme_img/user_journey/user-journey4.JPG)
+
 ### Login Page
-The login page looks similar to the register page. If the wrong username or password is submitted, a message will let the user know. BILDE. If the user provides correct information, the user will be directed to the profile page.
+The login page looks similar to the register page. If the wrong username or password is submitted, a message will let the user know. BILDE. If the user provides correct information, the user will be directed to the profile page.  
+
 ### Profile Page
-The user can view their profile when clicking on "My Profile". However, this page will not be accessed if the user is not logged in. BILDE. 
-Once on this page, the user will find an overview of the recipes and favorites the user has created and added. BILDE. On this page the user can also add and remove to favorites without leaving this page. A flash message will give feedback to the user if adding/removing a recipe.BILDE.
+The user can view their profile when clicking on "My Profile". However, this page will not be accessed if the user is not logged in. 
+Once on this page, the user will find an overview of the recipes and favorites the user has created and added. On this page the user can also add and remove to favorites without leaving this page. A flash message will give feedback to the user if adding/removing a recipe.
+
+![user-journey5](readme_img/user_journey/user-journey5.JPG)
+
 ### All Recipes
-When the user clicks on "All Recipes", the page will contain all the recipes, separated by pagination. At the top of the page there's a navbar, a header, a search bar and categories. As mentioned, if the user performes a search or category selection from this page, the result will also be displayed on this page.  On this page there are displayed nine recipes on each page. 
+When the user clicks on "All Recipes", the page will contain all the recipes, separated by pagination. 
+
+![user-journey6](readme_img/user_journey/user-journey6.JPG)
+
 ### Viewing a Recipe
-When clicking on a recipe card, the user will be directed to a new page, displaying more information about the recipe. On this page there is an arrow that will revert the user back to the home page, and there is a large container that displays all information about the recipe that was chosen. BILDE.
-Which icons that are being displayed depends on the state of the user. If the user is not logged in, the green heart button will be displayed. If the user is logged in the heart button will either be green if the user has not liked it, or red if the user already likes it. When the user is the author of a recipe, the user will have the ability to delete and/or edit the recipe. BILDE. 
+When clicking on a recipe card, the user will be directed to a new page, displaying more information about the recipe. On this page there is an arrow that will revert the user back to the home page, and there is a large container that displays all information about the recipe that was chosen. 
+Which icons that are being displayed depends on the state of the user. If the user is not logged in, the green heart button will be displayed. If the user is logged in the heart button will either be green if the user has not liked it, or red if the user already likes it. When the user is the author of a recipe, the user will have the ability to delete and/or edit the recipe. 
+
+![user-journey7](readme_img/user_journey/user-journey7.JPG)
+
 If the user clicks on the delete button, the user will have to confirm this by clicking "Yes" in a modal that pops up. 
 If the user clicks on the edit button, the user will be directed to the editing page.
+
 ### Edit Recipe Page
-On the edit page, the user will see that all information that is currently used on the recipe is already filled in. Here the user can change and edit what they want. Once the user is finished on this page, the user can either click on the "Save Changes" button if they want, or click the "Cancel" button, which directs the user back to the Home page. BILDE.
+On the edit page, the user will see that all information that is currently used on the recipe is already filled in. Here the user can change and edit what they want. Once the user is finished on this page, the user can either click on the "Save Changes" button if they want, or click the "Cancel" button, which directs the user back to the Home page. 
+
+![user-journey8](readme_img/user_journey/user-journey8.JPG)
+
 ### Adding a Recipe
-In order for a user to add a recipe, the user has to be logged in. Once they are logged in, the user can click on the "Add Recipe" link either in the navbar/sidebar or in the footer. 
-Once on the Add Recipe page, the user will be presented with an empty form, where the user can provide information. The user  has the option to add an image url link, but this is optional. If no link is added, a default image will display. On both the ingredients and instructions fields, there are buttons for adding extra fields. BILDE.
+When the user is logged in, the user can click on the "Add Recipe" link either in the navbar/sidebar or in the footer. 
+The user will be presented with an empty form, where the user can provide information. The user has the option to add an image url link, but this is optional. If no link is added, a default image will be chosen. On both the ingredients and instructions fields, there are buttons for adding extra fields. 
 When the user is happy with the information provided, clicking "Add Recipe" will submit the form, creating a new recipe. The user will be directed to the home page, and a flash message will display at the top of the page, saying "Recipe Successfully Added".
+
+![user-journey9](readme_img/user_journey/user-journey9.JPG)
 
 ## User Stories
 
@@ -97,7 +122,7 @@ The Leckerli One font was inspired from [this page]( https://codepen.io/tsimenis
 The muli font was found from [this page](https://codepen.io/fatihtakey/pen/eyyWVr). This font looked so good I just had to use it. This font is cleaner than Leckerli One, so where that font is not used, I have chosen muli.
 Note: Google has renamed the name muli to mulish.
 
-![Leckerli One Font](readme_img/leckerli-font.JPG) ![Muli font](readme_img/muli-font.JPG)
+![Leckerli One Font](readme_img/fonts/leckerli-font.JPG) ![Muli font](readme_img/fonts/muli-font.JPG)
 
 ## Icons
 All icons used on this project is provided by [Font Awesome](https://fontawesome.com/). The icons serves as buttons that has functions, example is the heart button which adds to favorites.
