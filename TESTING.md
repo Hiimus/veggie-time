@@ -22,21 +22,21 @@
 
 When testing the html code, a warning was frequent on all the test. This is a screenshot of the warning:
 
-![warning-html](readme_img/warning.JPG)
+![warning-html](testing_img/code_validation/warning.JPG)
 
 This warning is due to the base.html file having jinja templating for viewing flash messages. If there is no message being flashed, this section will be empty. I tried to test this with generating a flash message, and viewing the source code shortly after, and the section was no longer empty. Other than this warning, no errors were found on the html validator.
 
 ### CSS Validation - No errors 
 
-![css-validation](readme_img/css-valid.JPG)
+![css-validation](testing_img/code_validation/css-valid.JPG)
 
 ### JShint - No errors
 
-![jshint](readme_img/js-hint.JPG)
+![jshint](testing_img/code_validation/js-hint.JPG)
 
 ### PEP8 - No errors
 
-![pep8](readme_img/pep8.JPG)
+![pep8](testing_img/code_validation/pep8.JPG)
 
 ## Responsiveness
 
@@ -47,15 +47,15 @@ See below for an overview of responsiveness testing:
 
 Testing for smartphones:
 
-![Responsiveness-test-phone](readme_img/responsive-sm.JPG)
+![Responsiveness-test-phone](testing_img/responsiveness/responsive-sm.JPG)
 
 Testing for tablets:
 
-![Responsiveness-test-tablet](readme_img/responsive-md.JPG)
+![Responsiveness-test-tablet](testing_img/responsiveness/responsive-md.JPG)
 
 Testing for desktops:
 
-![Responsiveness-test-desktop](readme_img/responsive-lg.JPG)
+![Responsiveness-test-desktop](testing_img/responsiveness/responsive-lg.JPG)
 
 
 ## Browser Compatibility
@@ -66,15 +66,15 @@ Results : The floating headline over the hero image on the home page has a sligh
 
 No blurry background in Firefox:
 
-![firefox-blurry](readme_img/firefox.JPG)
+![firefox-blurry](testing_img/browser_test/firefox.JPG)
 
 How it should look:
 
-![chrome-blurry](readme_img/chrome.JPG)
+![chrome-blurry](testing_img/browser_test/chrome.JPG)
 
 The difference is very small, but noted in the sheet below:
 
-![browser-test](readme_img/browser-test.JPG)
+![browser-test](testing_img/browser_test/browser-test.JPG)
 
 ## User Stories Testing
 
@@ -87,67 +87,67 @@ The users of this site will be first time visitors and site members.
 - As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
     - As a first time visitor, the user will see a heart icon on all the recipes. This icon will give site members the opportunity to like and add the recipe to favorites. If a recipes has gotten any likes, the first time visitor will see the number of likes next to the heart button. 
 
-        ![likes](readme_img/likes.JPG)
+        ![likes](testing_img/userstory_testing/likes.JPG)
 
 - As a first time visitor, I want to see all the ingredients needed so that I know what is needed in order to make the dish.
     - As a first time visitor, the user can click on a recipe card to view more information. Once clicked, the user will find all ingredients listed.
 
-        ![ingredients](readme_img/ingredients.JPG)
+        ![ingredients](testing_img/userstory_testing/ingredients.JPG)
 
 - As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
     - As a first time visitor, the user can click on a recipe card to view more information. Once clicked, the user will find all instructions listed.
 
-        ![instructions](readme_img/instructions.JPG)
+        ![instructions](testing_img/userstory_testing/instructions.JPG)
 
 - As a first time visitor, I want to be able to search for recipes, so that I can search instead of browse for recipes.
     - As a first time visitor, the user can find a search bar on the home page and on the all recipes page. 
 
-        ![search-bar](readme_img/search.JPG)
+        ![search-bar](testing_img/userstory_testing/search.JPG)
 
 - As a first time visitor, I want to know if the dish is easy, medium or hard to make, so that I know the difficulty level of the dish.
     - As a first time visitor, the user will find information about the difficulty when clicking on a recipe. Once clicked, the difficulty will display without any need for scrolling.
 
-        ![difficulty](readme_img/difficulty.JPG)
+        ![difficulty](testing_img/userstory_testing/difficulty.JPG)
 
 ### Site Members
 All the features mentioned for the first time users also applies to the site members.
 - As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
     - As a site member, the user can store recipes by clicking the heart button that is displayed on all cards. This button/icon will turn red if the user likes it, and revert back to green if the user choose to click it again(remove it from favorites.)
 
-        ![not-liked-icon](readme_img/not-liked.JPG) VS ![liked-icon](readme_img/liked.JPG)
+        ![not-liked-icon](testing_img/userstory_testing/not-liked.JPG) VS ![liked-icon](testing_img/userstory_testing/liked.JPG)
 
 - As a site member, I want to add recipes, so that I can share my own recipes to the site.
     - As a site member, the user can add a recipe by clicking "Add Recipe" either from the navbar/sidebar or from the link in the footer.
 
-        ![add-recipe](readme_img/add-recipe.JPG)
+        ![add-recipe](testing_img/userstory_testing/add-recipe.JPG)
 - As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
     - As a site member, the user can edit recipes when the user has clicked a recipe card. Once clicked, an edit icon should appear if the user the author of the recipe.
 
-        ![edit-recipe](readme_img/edit-recipe.JPG)
-        ![editing-recipe](readme_img/editing-recipe.JPG)
+        ![edit-recipe](testing_img/userstory_testing/edit-recipe.JPG)
+        ![editing-recipe](testing_img/userstory_testing/editing-recipe.JPG)
 
 - As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
     - As a site member, the user can delete recipes, when the user has clicked on a recipe card. Once clicked, a delete icon should appear if the user is the author of the recipe.
 
-        ![delete-recipe](readme_img/delete-recipe.JPG)
-        ![deleting-recipe](readme_img/deleting-recipe.JPG)
+        ![delete-recipe](testing_img/userstory_testing/delete-recipe.JPG)
+        ![deleting-recipe](testing_img/userstory_testing/deleting-recipe.JPG)
 
 ## Defensive Design
 
 - The user will only be able to access and view pages like add recipe, edit recipe and my profile if the user is logged in.
     - If the user tries to access a page that is not the user is not authorized to access, it will throw an 403 error:
 
-        ![403-error](readme_img/403.JPG)
+        ![403-error](testing_img/userstory_testing/403.JPG)
     - If the user tries to access a page that does not exist, it will throw a 404 error:
 
-        ![404-error](readme_img/404.JPG)
+        ![404-error](testing_img/userstory_testing/404.JPG)
 
 - The user is not able to break the site by clicking on buttons or links. All buttons or links have functions or lead to other places on the site. All external links open in a new tab.
 
 ### Register Form:
 
 - When registering, the user has to enter a valid username and password, the requirements is mentioned below the input fields. 
-    ![register](readme_img/register.JPG)
+    ![register](testing_img/userstory_testing/register.JPG)
     
     - This is the required pattern for the username:
     ```
@@ -166,11 +166,11 @@ All the features mentioned for the first time users also applies to the site mem
     
     Only spaces is not valid:
 
-    ![only-spaces](readme_img/only-spaces.JPG) 
+    ![only-spaces](testing_img/userstory_testing/only-spaces.JPG) 
     
     And empty field is not valid: 
     
-    ![empty-field](readme_img/empty-field.JPG)
+    ![empty-field](testing_img/userstory_testing/empty-field.JPG)
 
 - When adding an image url, it is only optional. If no image is added, a default image will be displayed. However, if the user adds a url, it has to be valid.
 I have used this pattern to ensure the user meets some requirements: 
