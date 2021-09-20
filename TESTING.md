@@ -118,20 +118,35 @@ All the features mentioned for the first time users also applies to the site mem
 
 - As a site member, I want to add recipes, so that I can share my own recipes to the site.
     - As a site member, the user can add a recipe by clicking "Add Recipe" either from the navbar/sidebar or from the link in the footer.
+
         ![add-recipe](readme_img/add-recipe.JPG)
 - As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
     - As a site member, the user can edit recipes when the user has clicked a recipe card. Once clicked, an edit icon should appear if the user the author of the recipe.
+
         ![edit-recipe](readme_img/edit-recipe.JPG)
         ![editing-recipe](readme_img/editing-recipe.JPG)
 
 - As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
     - As a site member, the user can delete recipes, when the user has clicked on a recipe card. Once clicked, a delete icon should appear if the user is the author of the recipe.
+
         ![delete-recipe](readme_img/delete-recipe.JPG)
         ![deleting-recipe](readme_img/deleting-recipe.JPG)
 
 ## Defensive Design
 
+
+
 ## Bugs
+
+- When adding ingredients and instructions, I kept getting invalid input field. The reason was that I had not added a dot as pattern. After including a dot, the issue was fixed.
+
+- The search function gave me the error: "TypeError: object of type 'Cursor' has no len()". To fix the issue i had to add "list(mongo.db.recipes.find())" instead of "mongo.db.recipes.find()" so the function could search through a list.
+
+- I had problems deploying the project to Heroku. After some searching I found out that the issue was that I had the URI in quotes.
+
+- I had problems loading images from the static folder. After searching for a solution, I found [this](https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files) from Stack Overflow that helped me. It turned out I was using the wrong syntax.
+
+- I found a really cool product card from [Free Frontend](https://codepen.io/fatihtakey/pen/eyyWVr) that I wanted to use. I added it, and changed it all up and customized it to suit my home page. After I was "done", I realized it looked good on desktop, but horrible on mobile and tablet. I had to spend time I didn't have on customizing it to look good on mobile and tablet. Lesson learned. 
 
 
 
