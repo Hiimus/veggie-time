@@ -66,25 +66,25 @@ When the user is happy with the information provided, clicking "Add Recipe" will
 
 The users of this site will be first time visitors, site members and the admin.
 ### First Time Visitor
-As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
-As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
-As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
-As a first time visitor, I want to see all the ingredients needed so that I know what is needed in order to make the dish.
-As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
-As a first time visitor, I want to be able to search for recipes, so that I can search instead of browse for recipes.
-As a first time visitor, I want to know if the dish is easy, medium or hard to make, so that I know the difficulty level of the dish.
-As a first time visitor, I want to know how long it takes to make the dish, so that I can expect how much time I will use.
+- As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
+- As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
+- As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
+- As a first time visitor, I want to see all the ingredients needed so that I know what is needed in order to make the dish.
+- As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
+- As a first time visitor, I want to be able to search for recipes, so that I can search instead of browse for recipes.
+- As a first time visitor, I want to know if the dish is easy, medium or hard to make, so that I know the difficulty level of the dish.
+- As a first time visitor, I want to know how long it takes to make the dish, so that I can expect how much time I will use.
 ### Site Members
 All the features mentioned for the first time users also applies to the site members.
-As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
-As a site member, I want to add recipes, so that I can share my own recipes to the site.
-As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
-As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
+- As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
+- As a site member, I want to add recipes, so that I can share my own recipes to the site.
+- As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
+- As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
 ### Admin
 All features mentioned for the first time users and site users also applies to the admin.
-As an admin, I want to add recipes, so that I can share my own recipes to the site.
-As an admin , I want to be able to delete recipes, so that I can remove recipes if I want to.
-As an admin, I want to be able to edit recipes, so that I can change them if I want to.
+- As an admin, I want to add recipes, so that I can share my own recipes to the site.
+- As an admin , I want to be able to delete recipes, so that I can remove recipes if I want to.
+- As an admin, I want to be able to edit recipes, so that I can change them if I want to.
 ## Design
 ### Colors
 There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) where used on most buttons. 
@@ -92,17 +92,22 @@ There are mainly three colors used on this site, which is pistachio, raisin blac
 ![colour-scheme](readme_img/colour-scheme.JPG)
 
 - The green pistachio colour is the most used colour. The reason behind this is because vegetables are often assosiated with this color. I also think the standard materialize green colour was better suited for the buttons, and not across the whole site. 
-- The black raisin colour is used in the product section, and I think it is a nice contrast to the pistachio color. This color is also used on the login and register button.
+- The black raisin colour is used in the product section, and I think it is a nice contrast to the pistachio color. This color is also used on the login and register button
+- The Orange Crayola colour is only used when hovering over areas where the color black raisin is used. These colour go well together and was inspired from this [Free Frontend card](https://codepen.io/fatihtakey/pen/eyyWVr).
 - The white color is used throughout the site, and in my opinion works great due to the high contrast against the pistachio and raisin black.
 ### Fonts
 There are used two different fonts on this site: 'Leckerli One' and 'muli'. 
 Both of these fonts were found when I was browsing [Free Frontend](https://freefrontend.com/). 
 The Leckerli One font was inspired from [this page]( https://codepen.io/tsimenis/pen/xVPLjp). I think this font looks great for my project, and gives a playful image.
 The muli font was found from [this page](https://codepen.io/fatihtakey/pen/eyyWVr). This font looked so good I just had to use it. This font is cleaner than Leckerli One, so where that font is not used, I have chosen muli.
+Note: Google has renamed the name muli to mulish.
+
+![Leckerli One Font](readme_img/leckerli-font.JPG) ![Muli font](readme_img/muli-font.JPG)
+
 ## Icons
 All icons used on this project is provided by [Font Awesome](https://fontawesome.com/). The icons serves as buttons that has functions, example is the heart button which adds to favorites.
 ## Images
-All images are royalty free and are downloaded from [Pexels](https://pexels.com/), [Unsplash](https://unsplash.com/) and [PurePNG](https://purepng.com/). If users add images to their recipes, they have to copy the image address. 
+All images are royalty free and are downloaded from [Pexels](https://pexels.com/), [Unsplash](https://unsplash.com/) and [PurePNG](https://purepng.com/). If users add images to their recipes, they have to copy the image address. This is mentioned in the disclaimer.
 ## Defensive design
 The users can only like recipes when they have registered, and logged in. Once logged in, the user can only edit and delete their own recipes.
 When deleting a recipe, the user has to confirm this by  clicking one more time on a pop up modal. 
@@ -113,7 +118,7 @@ The user have to make sure the username has between 5-20 characters. The passwor
 
 ![overview of site](readme_img/overview.JPG)
 
-DIAGRAM.
+
 ## Information Architecture
 This project uses MongoDB as a database, and is using four collections. See database structure below:
 
@@ -165,6 +170,7 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - [jQuery](https://jquery.com/) a JavaScript library.
 - [Materializecss](https://materializecss.com/) for a quick page structure, components and colours.
 - [Font Awesome](https://fontawesome.com/) as a provider of icons.
+- [Google Fonts](https://fonts.google.com/) as a provider of fonts.
 
 ## Languages:
 
@@ -261,5 +267,9 @@ Thanks to Sean from tutor support. He helped me with the add to favorite functio
 [Stack Overflow](https://stackoverflow.com/) for helping me understanding and solving issues along the way.
 
 # Disclaimer
+
+This project is meant for educational purposes only. Please contact me if there are any problems or issues.
+
+- When adding a recipe, the user can choose to insert the image url. These images might not be royalty free.
 
 <a href="#veggie-time">BACK TO TOP</a>
