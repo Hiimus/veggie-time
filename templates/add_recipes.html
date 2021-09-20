@@ -27,9 +27,9 @@
         </div>
         <!-- image url -->
         <div class="row">
-            <div class="input-field col s12 tooltipped" data-position="top" data-tooltip='"Right click on the image you want to use --> "Copy image address"'>
-                <input name="recipe_img" id="recipe_img" type="text" class="validate">
-                <label for="recipe_img">Image url - Optional</label>
+            <div class="input-field col s12 tooltipped validate" data-position="top" data-tooltip='"Right click on the image you want to use --> "Copy image address"'>
+                <input name="recipe_img" id="recipe_img" type="url" pattern="https?://.+">
+                <label for="recipe_img">Image url</label>
             </div>
         </div>
         <!-- recipe description -->
