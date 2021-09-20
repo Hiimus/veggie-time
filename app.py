@@ -90,6 +90,7 @@ def sort_category_home():
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
+    flash(category)
     return render_template("home.html", recipes=recipes, category=category)
 
 
@@ -110,6 +111,7 @@ def sort_category_all():
     recipes = list(
                 mongo.db.recipes.find(
                     {"category_name": category}))
+    flash(category)
     return render_template("search.html", recipes=recipes,
                            category=category, recipes_page=recipes_paginated,
                            page=page, per_page=per_page, pagination=pagination)
