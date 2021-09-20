@@ -1,94 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
     <!--Favicon links from favicon.io-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}" crossorigin="use-credentials">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"
+        crossorigin="use-credentials">
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
     <title>Veggie Time</title>
 </head>
+
 <body>
     <div id="page-content">
-    <header>
-        <!-- Navbar -->
-        <nav>
-            <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo"><h2 class="logo">Veggie Time</h2></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i class="fas fa-bars"></i></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
-                    {% if session.user %}
+        <header>
+            <!-- Navbar -->
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="{{ url_for('home') }}" class="brand-logo">
+                        <h2 class="logo">Veggie Time</h2>
+                    </a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><i
+                                class="fas fa-bars"></i></i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+                        {% if session.user %}
                         <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    {% else %}
+                        {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Navbar sidenav for mobile-->
-        <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align">Veggie Time</h4></li>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
-            {% if session.user %}
-                <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-        </ul>
-    </header>
-
-    <!-- FROM CI VIDEOS -->
-    <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-    </section>
-
-  
-        {% block content %}
-        {% endblock %}
-    
-    
-
-    <!-- Materialize footer -->
-</div>
-    <footer class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h3 class="white-text">Veggie Time</h3>
-              <p>The place where veggie lovers can create, save and find recipes. </p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <ul>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            <!-- Navbar sidenav for mobile-->
+            <ul class="sidenav" id="mobile-demo">
+                <li>
+                    <h4 class="center-align">Veggie Time</h4>
+                </li>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
                 {% if session.user %}
@@ -99,19 +66,57 @@
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
-              </ul>
+            </ul>
+        </header>
+        <!-- FROM CI VIDEOS -->
+        <section>
+            <!-- flash messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="row flashes">
+                <h4 class="center-align">{{ message }}</h4>
             </div>
-          </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </section>
+        {% block content %}
+        {% endblock %}
+        <!-- Materialize footer -->
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h3 class="white-text">Veggie Time</h3>
+                    <p>The place where veggie lovers can create, save and find recipes. </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('all_recipes') }}">All Recipes</a></li>
+                        {% if session.user %}
+                        <li><a href="{{ url_for('add_recipe', username=session['user']) }}">Add Recipe</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="footer-copyright">
-          <div class="container center-align">
-          © 2021 Copyright Hiimus
-          <a href="https://github.com/Hiimus/veggie-time" target="_blank"><i class="fa-2x fab fa-github"></i></a>
-          </div>
+            <div class="container center-align">
+                © 2021 Copyright Hiimus
+                <a href="https://github.com/Hiimus/veggie-time" target="_blank"><i class="fa-2x fab fa-github"></i></a>
+            </div>
         </div>
-      </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    </footer>
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -119,4 +124,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>

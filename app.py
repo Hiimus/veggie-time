@@ -17,15 +17,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-app.template_folder = "templates"
-users = list(range(100))
-
-
-def get_users(offset=0, per_page=10):
-    return users[offset: offset + per_page]
-
 
 # Credit to Flask Task Manager Mini-Project videos
+# Default home page
 @app.route("/")
 @app.route("/home")
 def home():
@@ -37,6 +31,13 @@ def home():
 
 # Credit to https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 # for pagination.
+
+users = list(range(100))
+
+
+def get_users(offset=0, per_page=10):
+    return users[offset: offset + per_page]
+
 
 @app.route("/all_recipes")
 def all_recipes():
@@ -56,6 +57,7 @@ def all_recipes():
         per_page=per_page, pagination=pagination)
 
 
+# Function for when clicking a recipe card.
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -63,6 +65,7 @@ def view_recipe(recipe_id):
 
 
 # Credit to Flask Task Manager Mini-Project videos
+# Search function with pagination
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -84,6 +87,7 @@ def search():
         per_page=per_page, pagination=pagination)
 
 
+# Sort category function, from home page.
 @app.route("/sort_category_home", methods=["GET", "POST"])
 def sort_category_home():
     category = request.args.get("category_name")
@@ -94,6 +98,7 @@ def sort_category_home():
     return render_template("home.html", recipes=recipes, category=category)
 
 
+# Sort category function, from all recipes page.
 @app.route("/sort_category_all", methods=["GET", "POST"])
 def sort_category_all():
     page, per_page, offset = get_page_args(
@@ -118,32 +123,30 @@ def sort_category_all():
 
 
 # Credit to Flask Task Manager Mini-Project videos
+# Register function for register page
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # check if username already exists in database
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
-
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
-
     return render_template("register.html")
 
 
 # Credit to Flask Task Manager Mini-Project videos
+# Login function for login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("user"):
@@ -166,15 +169,15 @@ def login():
                 # password does not match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-
     return render_template("login.html")
 
 
+# Partly credited to Flask Task Manager Mini-Project videos
+# Profile function for my profile page
 @app.route("/profile/<username>")
 def profile(username):
     # uses the session user's username from database
@@ -199,6 +202,8 @@ def profile(username):
             created_recipes=created_recipes, real_recipes=real_recipes)
 
 
+# Login to like function, sends user to login page if user tries to
+# like a recipe without being logged in
 @app.route("/login")
 def login_to_like():
     if not session["user"]:
@@ -291,6 +296,7 @@ def logout():
 
 
 # Credit to Flask Task Manager Mini-Project videos
+# Adding a recipe function
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if not session.get("user"):
@@ -319,6 +325,7 @@ def add_recipe():
 
 
 # Credit to Flask Task Manager Mini-Project videos
+# editing a recipe function
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     find_author = mongo.db.recipes.find_one(
@@ -352,6 +359,7 @@ def edit_recipe(recipe_id):
 
 
 # Credit to Flask Task Manager Mini-Project videos
+# Deleting a recipe function
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     find_author = mongo.db.recipes.find_one(
@@ -366,7 +374,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for("home"))
 
 
-# ---------------------------------------------------------- ERROR HANDLERS #
+# Error handlers
 @app.errorhandler(404)
 def not_found(e):
     return render_template("errors/404.html"), 404

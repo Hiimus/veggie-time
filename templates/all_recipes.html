@@ -5,8 +5,6 @@
   <div class="row row-all-recipes">
     <h3 class="center-align margin-header">All Recipes</h3>
   </div>
-
-
   <!-- Search bar -->
   <div class="row">
     <form action="{{ url_for('search') }}" method="post" class="col s12">
@@ -23,8 +21,6 @@
       </div>
     </form>
   </div>
-
-
   <!-- Choose category buttons -->
   <div class="row row-all-recipes">
     <div class="col s12 center-align">
@@ -34,12 +30,10 @@
       <a href="{{ url_for('sort_category_all', category_name='Snack') }}" class="category-btns">Snack</a>
     </div>
   </div>
-
-
+  <!-- Recipe cards -->
   {% if recipes|length > 0 %}
   <div class="row">
     {% for recipe in recipes %}
-
     <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image">
@@ -90,7 +84,6 @@
             <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
             {% endif %}
           </div>
-
           {% endif %}
         </div>
         <div class="card-content">
@@ -102,19 +95,16 @@
         </div>
       </div>
     </div>
-
     {% endfor %}
-
   </div>
   {% else %}
+  <!-- If no recipes -->
   <div class="row">
     <h4 class="center-align">No Results Found</h4>
   </div>
   {% endif %}
-
   <!-- Credit to https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9 for pagination -->
-
-
+  <!-- Pagination -->
   <div class="container center-align row-all-recipes">
     {{ pagination.links }}
     <div class="table-responsive">

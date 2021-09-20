@@ -2,143 +2,134 @@
 {% block content %}
 
 <main class="container">
-    
-    
-    <h4 class="margin-header center-align">{{ username }}'s Profile</h4>
-      
 
-    <h3 class="center-align margin-header">Recipes You Have Created:</h3>
 
-    {% if created_recipes %}
-    <div class="row row-test">
-      {% for recipe in real_recipes %}
-        {% if session.user|lower == recipe.created_by|lower %}
-        
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-image">
-                <!-- if image url exists, use that-->
-                {% if recipe.recipe_img %}
-                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                <img src="{{ recipe.recipe_img }}" alt="recipe image">
-              </a>
-                <!-- else, use default image -->
-                {% else %}
-                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
-              </a>
-                {% endif %}
-                {% if session.user|lower in recipe.liked_by|lower %}
-              <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-                <button name="like" type="submit"
-                  class="heart-btn btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
-                  data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
-              </form>
-              <div class="col">
-                {% if recipe.liked_by|length > 0 %}
-                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-                {% endif %}
-              </div>
-              
-              {% else %}
-              <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
-                method="POST">
-                <button name="like" type="submit"
-                  class="heart-btn btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
-                  data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-              </form>
-              <div class="col">
-                {% if recipe.liked_by|length > 0 %}
-                <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-                {% endif %}
-              </div>
-              {% endif %}
-              </div>
-  
-              <div class="card-content">
-                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
-                  <h5 class="h5-card-title line-clamp-2">{{ recipe.recipe_name }}</h5>
-                  <p class="margin-top-7 line-clamp-2">{{ recipe.recipe_description }}</p>
-                  <p class="margin-top-7 added-by line-clamp-1"><em>Added by: {{ recipe.created_by }}</em></p>
-                </a>
-              </div>
-              {% if session.user|lower == recipe.created_by|lower %}
-              {% else %}
-              <div class="card-action card-action-profile">
-                <p>Added by: <em>{{ recipe.created_by }}</em></p>
-              </div>
-              {% endif %}
-            </div>
+  <h4 class="margin-header center-align">{{ username }}'s Profile</h4>
+
+
+  <h3 class="center-align margin-header">Recipes You Have Created:</h3>
+  <!-- Recipe cards the user has created -->
+  {% if created_recipes %}
+  <div class="row row-test">
+    {% for recipe in real_recipes %}
+    {% if session.user|lower == recipe.created_by|lower %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <!-- if image url exists, use that-->
+          {% if recipe.recipe_img %}
+          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+            <img src="{{ recipe.recipe_img }}" alt="recipe image">
+          </a>
+          <!-- else, use default image -->
+          {% else %}
+          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+            <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
+          </a>
+          {% endif %}
+          {% if session.user|lower in recipe.liked_by|lower %}
+          <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+            <button name="like" type="submit"
+              class="heart-btn btn tooltipped btn-floating halfway-fab red modal-trigger btn-small"
+              data-position="bottom" data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
+          </form>
+          <div class="col">
+            {% if recipe.liked_by|length > 0 %}
+            <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
+            {% endif %}
           </div>
-        
+          {% else %}
+          <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
+            method="POST">
+            <button name="like" type="submit"
+              class="heart-btn btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
+              data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+          </form>
+          <div class="col">
+            {% if recipe.liked_by|length > 0 %}
+            <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
+            <h5 class="h5-card-title line-clamp-2">{{ recipe.recipe_name }}</h5>
+            <p class="margin-top-7 line-clamp-2">{{ recipe.recipe_description }}</p>
+            <p class="margin-top-7 added-by line-clamp-1"><em>Added by: {{ recipe.created_by }}</em></p>
+          </a>
+        </div>
+        {% if session.user|lower == recipe.created_by|lower %}
         {% else %}
-          
+        <div class="card-action card-action-profile">
+          <p>Added by: <em>{{ recipe.created_by }}</em></p>
+        </div>
         {% endif %}
-        
-      {% endfor %}
+      </div>
     </div>
     {% else %}
-    <h4 class="margin-header center-align">No Recipes Added</h4>
     {% endif %}
-
-    <hr class="hr">
-    <h3 class="center-align margin-header">Favorites:</h3>
-
-    {% if recipes|length > 0 %}
-    <div class="row row-test">
-      {% for recipe in recipes %}
-      <div class="col s12 m6 l4">
-        <div class="card">
-          <div class="card-image">
-            <!-- if image url exists, use that-->
-            {% if recipe.recipe_img %}
-            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-              <img src="{{ recipe.recipe_img }}" alt="recipe image">
-            </a>
-            <!-- else, use default image -->
-            {% else %}
-            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-              <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
-            </a>
-            {% endif %}
-            {% if session.user|lower in recipe.liked_by|lower %}
-            <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
-              <button name="like" type="submit"
-                class="heart-btn btn tooltipped btn-floating halfway-fab red modal-trigger btn-small" data-position="bottom"
-                data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
-            </form>
-            <div class="col">
-              <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-            </div>
-            {% else %}
-            <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
-              method="POST">
-              <button name="like" type="submit"
-                class="heart-btn btn tooltipped btn-floating halfway-fab green modal-trigger btn-small" data-position="bottom"
-                data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
-            </form>
-            <div class="col">
-              <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
-            </div>
-            {% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <h4 class="margin-header center-align">No Recipes Added</h4>
+  {% endif %}
+  <hr class="hr">
+  <!-- Recipe cards that the user has added to favorites -->
+  <h3 class="center-align margin-header">Favorites:</h3>
+  {% if recipes|length > 0 %}
+  <div class="row row-test">
+    {% for recipe in recipes %}
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <!-- if image url exists, use that-->
+          {% if recipe.recipe_img %}
+          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+            <img src="{{ recipe.recipe_img }}" alt="recipe image">
+          </a>
+          <!-- else, use default image -->
+          {% else %}
+          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+            <img src="{{ url_for('static', filename='img/vegetables1-min.jpg') }}" alt="Vegetables">
+          </a>
+          {% endif %}
+          {% if session.user|lower in recipe.liked_by|lower %}
+          <form action="{{ url_for('remove_favorite_from_profile', recipe_id=recipe._id) }}" method="POST">
+            <button name="like" type="submit"
+              class="heart-btn btn tooltipped btn-floating halfway-fab red modal-trigger btn-small"
+              data-position="bottom" data-tooltip="Remove from Favorites"><i class="fas fa-heart"></i></button>
+          </form>
+          <div class="col">
+            <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
           </div>
-          <div class="card-content">
-            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
-              <h5 class="h5-card-title line-clamp-2">{{ recipe.recipe_name }}</h5>
-              <p class="margin-top-7 line-clamp-2">{{ recipe.recipe_description }}</p>
-              <p class="margin-top-7 added-by line-clamp-1"><em>Added by: {{ recipe.created_by }}</em></p>
-            </a>
+          {% else %}
+          <form action="{{ url_for('add_favorite_from_profile', username=session['user'], recipe_id=recipe._id) }}"
+            method="POST">
+            <button name="like" type="submit"
+              class="heart-btn btn tooltipped btn-floating halfway-fab green modal-trigger btn-small"
+              data-position="bottom" data-tooltip="Add to Favorites"><i class="fas fa-heart"></i></button>
+          </form>
+          <div class="col">
+            <h6 class="muli-font">{{ recipe.liked_by|length }}</h6>
           </div>
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="muli-font">
+            <h5 class="h5-card-title line-clamp-2">{{ recipe.recipe_name }}</h5>
+            <p class="margin-top-7 line-clamp-2">{{ recipe.recipe_description }}</p>
+            <p class="margin-top-7 added-by line-clamp-1"><em>Added by: {{ recipe.created_by }}</em></p>
+          </a>
         </div>
       </div>
-
-      {% endfor %}
     </div>
-    {% else %}
-    <h4 class="margin-header center-align">No Favorites Added</h4>
-    {% endif %}
-    </main>
-
-    
+    {% endfor %}
+  </div>
+  {% else %}
+  <!-- If no favorites are added -->
+  <h4 class="margin-header center-align">No Favorites Added</h4>
+  {% endif %}
+</main>
 
 {% endblock %}
