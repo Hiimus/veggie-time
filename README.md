@@ -20,7 +20,6 @@ To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
     - <a href="#libraries">3.3 Libraries</a>
     - <a href="#languages">3.4 Languages</a>
     - <a href="#frameworks-and-packages">3.4 Frameworks and Packages</a>
-    - <a href="#testing-tools">3.5 Testing Tools</a>
 - <a href="#testing">4. Testing</a>
 - <a href="#deployment">5. Deployment</a>
 - <a href="#credits">6. Credits</a>
@@ -162,8 +161,8 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - [Responsive Design Checker](https://www.responsivedesignchecker.com/) for testing of responsiveness on various screen sizes and devices.
 - [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) for resizing images.
 - [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
-[CompressJPEG](https://compressjpeg.com/) was used to compress jpg files.
-[PurePNG](https://purepng.com/) was used to download image of vegetable chopper and a broccoli image. 
+- [CompressJPEG](https://compressjpeg.com/) was used to compress jpg files.
+- [PurePNG](https://purepng.com/) was used to download image of vegetable chopper and a broccoli image. 
 - [Favicon](https://favicon.io/) was used to create a favicon for this project.
 
 ## Libraries:
@@ -183,13 +182,6 @@ When viewing a recipe, the user can click on the arrow button on the top left co
 - [Heroku](https://heroku.com/) was used as a platform to deploy the app.
 - [MongoDB](https://mongodb.com) was used as a cloud database.
 
-## Testing tools
-- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) to view the site in various screen sizes and devices. For trying out style and code without doing any real changes to the page. 
-- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing of performance, accessibility and SEO.
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate all the css code.
--[W3C Markup Validation Service](https://validator.w3.org/) was used to validate all the html code.
--[JShint](https://jshint.com/) was used to validate the JavaScript code.
--[PEP8](https://www.python.org/dev/peps/pep-0008/) was used as a style guide for all Python code.
 
 # Testing
 The testing of this project can be found as a seperate [TESTING.md](TESTING.md) file.
@@ -207,7 +199,10 @@ In order to make a local clone of this project:
 4. Follow the steps provided by Github Desktop Application or follow the instruction from this [link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop).
 ## Working with the local copy
 Once you have performed the steps above do the following in your IDE:
-1. Make sure you install all the requirements in a requirements.txt file. In the terminal window, type: pip3 install -r requirements.txt.
+1. Make sure you install all the requirements in a requirements.txt file. In the terminal window, type: 
+```
+pip3 install -r requirements.txt.
+```
 2. Create a MongoDB database.
 3. Sign up to your MongoDB account, and create a cluster and a database.
 4. Create these four collections in the database: categories, recipes, users and difficulties.
@@ -224,11 +219,21 @@ Once you have performed the steps above do the following in your IDE:
     os.environ.setdefault("MONGO_DBNAME", "Added by developer")
 ```
 - Add the env.py file in the .gitignore file.
-7. Now run the app. In your terminal window, type python3 app.py.
+7. Now run the app. In your terminal window, type:
+``` 
+python3 app.py.
+```
 ### Heroku Deployment
 1. Set up the local workspace for Heroku
-- Make sure Heroku know which files to  install by typing the following in your terminal: pip3 freeze --local > requirements.txt
-- You also need a Procfile, which is a list of the process types Heroku looks for. Type the following: python app.py > Procfile
+- Make sure Heroku know which files to  install by typing the following in your terminal: 
+
+```
+pip3 freeze --local > requirements.txt
+```
+- You also need a Procfile, which is a list of the process types Heroku looks for. Type the following: 
+```
+python app.py > Procfile
+```
 2. Sign up to Heroku
 -Sign up to Heroku, select your region and create a new app.
 3. Deployment using the Github deployment method
