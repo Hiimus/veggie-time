@@ -38,7 +38,7 @@ To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 - Create a site for users to get inspired to use more vegetables in their own cooking, by browsing or creating their own recipes.
 ## User Journey
 ### Home
-- When accessing this website, the user will first arrive at the home page. Before scrolling the user can see a navbar/side bar, a hero image, and a vegetable chopper product. The vegetable chopper has a fake link to amazon.com. 
+- When accessing this website, the user will first arrive at the home page. Before scrolling the user can see a navbar/sidebar, a hero image, and a vegetable chopper product. The vegetable chopper has a fake link to amazon.com. 
 
 ![user-journey1](readme_img/user_journey/user-journey1.JPG)
 
@@ -47,12 +47,12 @@ To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 ![user-journey2](readme_img/user_journey/user-journey2.JPG) ![user-journey3](readme_img/user_journey/user-journey3.JPG)
 
 ### Register Page
-If the user does not own a user account, the user has to register to get access to all pages and features. This is done by clicking on the "Register" link found in the navbar/sidebar or in the footer. However, if the user already own an account, the user can click the "Log In" link either below the form, in the navbar/sidebar or in the footer. Once on the register page, the user fill in a username and a password, both with requirements mentioned below the input fields. 
+If the user does not own a user account, the user has to register to get access to all pages and features. This is done by clicking on the "Register" link found in the navbar/sidebar or in the footer. However, if the user already owns an account, the user can click the "Log In" link either below the form, in the navbar/sidebar or in the footer. Once on the register page, the user fills in a username and a password, both with requirements mentioned below the input fields. 
 
 ![user-journey4](readme_img/user_journey/user-journey4.JPG)
 
 ### Login Page
-The login page looks similar to the register page. If the wrong username or password is submitted, a message will let the user know. BILDE. If the user provides correct information, the user will be directed to the profile page.  
+The login page looks similar to the register page. If the wrong username or password is submitted, a message will let the user know. If the user provides correct information, the user will be directed to the profile page.  
 
 ### Profile Page
 The user can view their profile when clicking on "My Profile". However, this page will not be accessed if the user is not logged in. 
@@ -91,32 +91,31 @@ When the user is happy with the information provided, clicking "Add Recipe" will
 The users of this site will be first time visitors and site members.
 ### First Time Visitor
 - As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
-- As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
+- As a first time visitor, I want to see images of the meal so that I can see what the dish looks like.
 - As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
 - As a first time visitor, I want to see all the ingredients needed so that I know what is needed in order to make the dish.
-- As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
+- As a first time visitor, I want to see instructions on how to use the ingredients, so that I know how to make the dish.
 - As a first time visitor, I want to be able to search for recipes, so that I can search instead of browse for recipes.
 - As a first time visitor, I want to know if the dish is easy, medium or hard to make, so that I know the difficulty level of the dish.
-- As a first time visitor, I want to know how long it takes to make the dish, so that I can expect how much time I will use.
 ### Site Members
-All the features mentioned for the first time users also applies to the site members.
-- As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
+All the features mentioned for the first time users also apply to the site members.
+- As a site member, I want to be able to store recipes, so that I can save the recipes I'm more interested in.
 - As a site member, I want to add recipes, so that I can share my own recipes to the site.
 - As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
 - As a site member, I want to be able to delete my recipes, so that I can remove added recipes if I want to.
 
 ## Design
 ### Colors
-There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) where used on most buttons. 
+There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) were used on most buttons. 
 
 ![colour-scheme](readme_img/colour-scheme.JPG)
 
-- The green pistachio colour is the most used colour. The reason behind this is because vegetables are often assosiated with this color. I also think the standard materialize green colour was better suited for the buttons, and not across the whole site. 
+- The green pistachio colour is the most used colour. The reason behind this is because vegetables are often associated with this color. I also think the standard materialize green colour was better suited for the buttons, and not across the whole site. 
 - The black raisin colour is used in the product section, and I think it is a nice contrast to the pistachio color. This color is also used on the login and register button
-- The Orange Crayola colour is only used when hovering over areas where the color black raisin is used. These colour go well together and was inspired from this [Free Frontend card](https://codepen.io/fatihtakey/pen/eyyWVr).
+- The Orange Crayola colour is only used when hovering over areas where the color black raisin is used. These colors go well together and were inspired from this [Free Frontend card](https://codepen.io/fatihtakey/pen/eyyWVr).
 - The white color is used throughout the site, and in my opinion works great due to the high contrast against the pistachio and raisin black.
 ### Fonts
-There are used two different fonts on this site: 'Leckerli One' and 'muli'. 
+There are two different fonts used on this site: 'Leckerli One' and 'muli'. 
 Both of these fonts were found when I was browsing [Free Frontend](https://freefrontend.com/). 
 The Leckerli One font was inspired from [this page]( https://codepen.io/tsimenis/pen/xVPLjp). I think this font looks great for my project, and gives a playful image.
 The muli font was found from [this page](https://codepen.io/fatihtakey/pen/eyyWVr). This font looked so good I just had to use it. This font is cleaner than Leckerli One, so where that font is not used, I have chosen muli.
@@ -125,16 +124,16 @@ Note: Google has renamed the name muli to mulish.
 ![Leckerli One Font](readme_img/fonts/leckerli-font.JPG) ![Muli font](readme_img/fonts/muli-font.JPG)
 
 ## Icons
-All icons used on this project is provided by [Font Awesome](https://fontawesome.com/). The icons serves as buttons that has functions, example is the heart button which adds to favorites.
+All icons used on this project are provided by [Font Awesome](https://fontawesome.com/). The icons serve as buttons that have functions, example is the heart button which adds to favorites.
 ## Images
 All images are royalty free and are downloaded from [Pexels](https://pexels.com/), [Unsplash](https://unsplash.com/) and [PurePNG](https://purepng.com/). If users add images to their recipes, they have to copy the image address. This is mentioned in the disclaimer.
 ## Defensive design
 The users can only like recipes when they have registered, and logged in. Once logged in, the user can only edit and delete their own recipes.
 When deleting a recipe, the user has to confirm this by  clicking one more time on a pop up modal. 
-When adding or editing a recipe, the user is required to enter data in the input fields, and the user can maximum have ten fields of ingredients/instructions. The user also have to provide valid characters.
-The user have to make sure the username has between 5-20 characters. The password needs to be at least eight characters, and have at least one letter and one number. If the username and password provided already exists, the user will get a warning about this.
+When adding or editing a recipe, the user is required to enter data in the input fields, and the user can maximum have ten fields of ingredients/instructions. The user also has to provide valid characters.
+The user has to make sure the username has between 5-20 characters. The password needs to be at least eight characters, and have at least one letter and one number. If the username and password provided already exists, the user will get a warning about this.
 ## Interactive Design
-- The website is easy to navigate for the user. Below is a overview of how the user can navigate.
+- The website is easy to navigate for the user. Below is an overview of how the user can navigate.
 
 ![overview of site](readme_img/overview.JPG)
 
@@ -159,7 +158,7 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 
 - Product section displaying a vegetable chopper. Contains a fake link to amazon.com.
 
-- A search bar below the product section. Here the user can search for words than exist in the recipes. Clicking the red X will reset the search bar. Pressing enter or clicking the green search button will do a search.
+- A search bar below the product section. Here the user can search for words that exist in the recipes. Clicking the red X will reset the search bar. Pressing enter or clicking the green search button will do a search.
 
 - Category buttons that can be clicked. Clicking a category will sort and search for recipes within that category. A flash message will appear on the top of the page, giving feedback to the user on which category was selected.
 
@@ -167,7 +166,7 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 
 - A heart button works as an add to favorite button. Selecting this will store the recipe in the users profile.
 
-- There is a link below the last row of cards, that says "Click here to see all the recipes". This link will direct users to the all recipes page.
+- There is a link below the last row of cards that says "Click here to see all the recipes". This link will direct users to the all recipes page.
 
 - Footer with links to all pages within the app and a link to Github.
 
@@ -175,7 +174,7 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 
 - Also has the search bar and the category buttons.
 
-- Pagination at the bottom will let the user click on the next page. Each page displays max nine recipes.
+- Pagination at the bottom will let the user click on the next page. Each page displays nine recipes.
 
 
 ### View Recipe
@@ -184,7 +183,7 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 
 - There is a container that holds all information about the recipe.
 
-- From this page, the user have three buttons: like, delete and edit.
+- From this page, the user has three buttons: like, delete and edit.
 
     - If the user is logged in and is the creator of the recipe, all buttons will appear.
 
@@ -201,11 +200,11 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 
 - All fields are prefilled with current stored information.
 
-- Ingredients and Instructions have a button that add a new line.
+- Ingredients and Instructions have a button that adds a new line.
 
-- User can click the "Cancel" button to cancel the editing and be directed to home page.
+- Users can click the "Cancel" button to cancel the editing and be directed to the home page.
 
-- User can click the "Save changes" button to save the changes and edit a recipe.
+- Users can click the "Save changes" button to save the changes and edit a recipe.
 
 - A flash message will let the user know the editing was successful.
 
@@ -216,26 +215,26 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 - When the user logs in, a flash message will welcome the user.
 -When the user logs out, a flash message will let the user know he/she successfully logged out.
 ## Features Left to Implement:
-- Having the option so select differents serving, so that ingredient will adjust accordingly.
-- Have the option to upload images, not just from image adress.
+- Having the option to select different portions, so that the ingredients will adjust accordingly.
+- Have the option to upload images, not just from image address.
 - Adding an email to registration. 
-- Adding news/notifications that the user could choose to recieve on their registered mail.
+- Adding news/notifications that the user could choose to receive on their registered mail.
 - Adding a field for servings when adding a recipe.
 - Improve design. I was really inspired by the cool designs on Free Frontend, so I think it can always get better.
 - Adding a superuser/admin with full access that can delete or edit all recipes, so that I don't have to do it through MongoDB.
 - Adding pagination to "My Profile".
 # Technologies Used
 ## Tools:
-- [Gitpod](https://www.gitpod.io/) used as IDE.
-- [GitHub](https://github.com/) used to store and share repository.
+- [Gitpod](https://www.gitpod.io/) used as an IDE.
+- [GitHub](https://github.com/) used to store and share repositories.
 - [Git](https://git-scm.com/) for version control.
 - [Balsamiq](https://balsamiq.com/) for creating wireframes.
 - [dbdiagram](https://dbdiagram.io/) for creating a database diagram of Veggie Time.
 - [Lucid](https://lucid.app/) for creating an overview of how the user can navigate the site.
 - [Microsoft Paint](https://support.microsoft.com/en-us/windows/get-microsoft-paint-a6b9578c-ed1c-5b09-0699-4ed8115f9aa9) for resizing images.
-- [Am I Responsive](http://ami.responsivedesign.is/), a tool that view the site on various devices.
-- [CompressJPEG](https://compressjpeg.com/) was used to compress jpg files.
-- [PurePNG](https://purepng.com/) was used to download image of vegetable chopper and a broccoli image. 
+- [Am I Responsive](http://ami.responsivedesign.is/), a tool that views the site on various devices.
+- [CompressJPEG](https://compressjpeg.com/) was used to compress jpeg files.
+- [PurePNG](https://purepng.com/) was used to download images of vegetable chopper and a broccoli image. 
 - [Favicon](https://favicon.io/) was used to create a favicon for this project.
 
 ## Libraries:
@@ -257,7 +256,7 @@ To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
 
 
 # Testing
-The testing of this project can be found as a seperate [TESTING.md](TESTING.md) file.
+The testing of this project can be found as a separate [TESTING.md](TESTING.md) file.
 # Deployment
 ### Requirements
 - Heroku account
@@ -313,7 +312,7 @@ python app.py > Procfile
 - Click on the deploy  tab, and then click on "connect to Github".
 - Search for your repository and connect to it.
 - Go to the settings tab and click on Reveal Config Vars further down the page.
-- Enter the variables that is contained in your env.pr file. Your env.py file should contain the info mentioned above (IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME).
+- Enter the variables that are contained in your env.pr file. Your env.py file should contain the info mentioned above (IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME).
 4. Now you can add, commit and push the Procfile and requirements.txt.
 ```
     $ git add requirements.txt
@@ -336,13 +335,13 @@ Background image on desktop by Yaroslav Shuraev from [Pexels](https://www.pexels
 Background image on mobile and tablet by Nadine Primeau from [Unsplash](https://unsplash.com/photos/wpoKpJqOsKE)
 
 ## Acknowledgements
-My mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for guiding, support and pointing me in the right direction.
+My mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for guiding, supporting and pointing me in the right direction.
 
 The Code Institute [Slack](https://slack.com/) channel for having discussion, questions and answers that contribute to my project. Also a lot of similar projects are posted in the slack channel, which contributed to the planning of my project. 
 
 Thanks to Sean from tutor support. He helped me with the add to favorite function.
 
-[Stack Overflow](https://stackoverflow.com/) for helping me understanding and solving issues along the way.
+[Stack Overflow](https://stackoverflow.com/) for helping me understand and solving issues along the way.
 
 # Disclaimer
 
