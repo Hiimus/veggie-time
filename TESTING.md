@@ -197,6 +197,8 @@ pattern="https?://.+"
 
 - I had problems loading images from the static folder. After searching for a solution, I found [this](https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files) from Stack Overflow that helped me. It turned out I was using the wrong syntax.
 
+- When adding or editing ingredients and instructions, the pattern would not allow the use of comma. [This link](https://stackoverflow.com/questions/6448573/regular-expression-help-comma-delimited-string) from Stack Overflow helped me understand regular expression patterns, and fixed the issue.
+
 - I found a really cool product card from [Free Frontend](https://codepen.io/fatihtakey/pen/eyyWVr) that I wanted to use. I added it, and changed it all up and customized it to suit my home page. After I was "done", I realized it looked good on desktop, but horrible on mobile and tablet. I had to spend time I didn't have on customizing it to look good on mobile and tablet. Lesson learned. 
 
 <a href="#testing">BACK TO TOP</a>
