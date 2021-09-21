@@ -22,7 +22,7 @@
 
 ### HTML Validation - No errors
 
-When testing the html code, a warning was frequent on all the test. This is a screenshot of the warning:
+When testing the html code, a warning was frequent on all the tests. This is a screenshot of the warning:
 
 ![warning-html](testing_img/code_validation/warning.JPG)
 
@@ -44,7 +44,7 @@ This warning is due to the base.html file having jinja templating for viewing fl
 
 Responsiveness was tested with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/). Various devices and screen sizes was tested. 
 Note: 
-- Throughout the project I have adjusted the screen size in the one of the window corners for a quick responsiveness check. 
+- Throughout the project I have adjusted the screen size in one of the window corners for a quick responsiveness check. 
 See below for an overview of responsiveness testing:
 
 Testing for smartphones:
@@ -84,10 +84,10 @@ The users of this site will be first time visitors and site members.
 ### First Time Visitor
 - As a first time visitor, I want to browse recipes, so that I can easily find recipes I want to read more about.
     - As a first time visitor, the user can browse recipes from the home page and all recipes page. Home page is the default page, and recipes will be found at the bottom of the page. There is also a link at the bottom that will redirect the user to the all recipes page. The user can also choose to enter the all recipes page via the navbar/sidebar or the link in the footer.
-- As a first time visitor, I want to see images of the meal so that I can see how the dish looks like.
-    - As a first time visitor, the user can see that all the recipe cards has images. When clicking on a recipe card, the visitor will see the image enlarged. 
+- As a first time visitor, I want to see images of the meal so that I can see what the dish looks like.
+    - As a first time visitor, the user can see that all the recipe cards have images. When clicking on a recipe card, the visitor will see the image enlarged. 
 - As a first time visitor, I want to see some sort of rating system, so that I can see what others think about them.
-    - As a first time visitor, the user will see a heart icon on all the recipes. This icon will give site members the opportunity to like and add the recipe to favorites. If a recipes has gotten any likes, the first time visitor will see the number of likes next to the heart button. 
+    - As a first time visitor, the user will see a heart icon on all the recipes. This icon will give site members the opportunity to like and add the recipe to favorites. If a recipe has gotten any likes, the first time visitor will see the number of likes next to the heart button. 
 
         ![likes](testing_img/userstory_testing/likes.JPG)
 
@@ -96,7 +96,7 @@ The users of this site will be first time visitors and site members.
 
         ![ingredients](testing_img/userstory_testing/ingredients.JPG)
 
-- As a first time visitor, I want to see intructions on how to use the ingredients, so that I know how to make the dish.
+- As a first time visitor, I want to see instructions on how to use the ingredients, so that I know how to make the dish.
     - As a first time visitor, the user can click on a recipe card to view more information. Once clicked, the user will find all instructions listed.
 
         ![instructions](testing_img/userstory_testing/instructions.JPG)
@@ -112,9 +112,9 @@ The users of this site will be first time visitors and site members.
         ![difficulty](testing_img/userstory_testing/difficulty.JPG)
 
 ### Site Members
-All the features mentioned for the first time users also applies to the site members.
-- As a site member, I want to be able to store recipes, so that I can save the recipes i'm more interested in.
-    - As a site member, the user can store recipes by clicking the heart button that is displayed on all cards. This button/icon will turn red if the user likes it, and revert back to green if the user choose to click it again(remove it from favorites.)
+All the features mentioned for the first time users also apply to the site members.
+- As a site member, I want to be able to store recipes, so that I can save the recipes I'm more interested in.
+    - As a site member, the user can store recipes by clicking the heart button that is displayed on all cards. This button/icon will turn red if the user likes it, and revert back to green if the user chooses to click it again(remove it from favorites.)
 
         ![not-liked-icon](testing_img/userstory_testing/not-liked.JPG) VS ![liked-icon](testing_img/userstory_testing/liked.JPG)
 
@@ -123,7 +123,7 @@ All the features mentioned for the first time users also applies to the site mem
 
         ![add-recipe](testing_img/userstory_testing/add-recipe.JPG)
 - As a site member, I want to be able to edit my recipes, so that I can change it if I want to.
-    - As a site member, the user can edit recipes when the user has clicked a recipe card. Once clicked, an edit icon should appear if the user the author of the recipe.
+    - As a site member, the user can edit recipes when the user has clicked a recipe card. Once clicked, an edit icon should appear if the user is the author of the recipe.
 
         ![edit-recipe](testing_img/userstory_testing/edit-recipe.JPG)
         ![editing-recipe](testing_img/userstory_testing/editing-recipe.JPG)
@@ -148,7 +148,7 @@ All the features mentioned for the first time users also applies to the site mem
 
 ### Register Form:
 
-- When registering, the user has to enter a valid username and password, the requirements is mentioned below the input fields. 
+- When registering, the user has to enter a valid username and password, the requirements are mentioned below the input fields. 
     ![register](testing_img/userstory_testing/register.JPG)
     
     - This is the required pattern for the username:
@@ -191,13 +191,13 @@ pattern="https?://.+"
 
 ### Deleting a Recipe
 
-- When a user wants to delete a recipe, the user needs to be logged in, and the user have to be the author of the recipe. If the user does not meet these requirements, the page will throw a 403 error.
+- When a user wants to delete a recipe, the user needs to be logged in, and the user has to be the author of the recipe. If the user does not meet these requirements, the page will throw a 403 error.
     - When the user clicks the delete button, they also have to confirm "Yes" in the pop up modal. 
-    - The user can actually delete a recipe withouth clicking yes, by copying the id of the recipe, and write in the url "delete_recipe/<id>". This will delete the recipe, but again, only if the user is the author.
+    - The user can actually delete a recipe without clicking yes, by copying the id of the recipe, and write in the url "delete_recipe/<id>". This will delete the recipe, but again, only if the user is the author.
 
 ## Bugs
 
-- When adding ingredients and instructions, I kept getting invalid input field. The reason was that I had not added a dot as pattern. After including a dot, the issue was fixed.
+- When adding ingredients and instructions, I kept getting invalid input field. The reason was that I had not added a dot as a pattern. After including a dot, the issue was fixed.
 
 - The search function gave me the error: "TypeError: object of type 'Cursor' has no len()". To fix the issue i had to add "list(mongo.db.recipes.find())" instead of "mongo.db.recipes.find()" so the function could search through a list.
 
@@ -205,7 +205,7 @@ pattern="https?://.+"
 
 - I had problems loading images from the static folder. After searching for a solution, I found [this](https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files) from Stack Overflow that helped me. It turned out I was using the wrong syntax.
 
-- When adding or editing ingredients and instructions, the pattern would not allow the use of comma. [This link](https://stackoverflow.com/questions/6448573/regular-expression-help-comma-delimited-string) from Stack Overflow helped me understand regular expression patterns, and fixed the issue.
+- When adding or editing ingredients and instructions, the pattern would not allow the use of commas. [This link](https://stackoverflow.com/questions/6448573/regular-expression-help-comma-delimited-string) from Stack Overflow helped me understand regular expression patterns, and fixed the issue.
 
 - I found a really cool product card from [Free Frontend](https://codepen.io/fatihtakey/pen/eyyWVr) that I wanted to use. I added it, and changed it all up and customized it to suit my home page. After I was "done", I realized it looked good on desktop, but horrible on mobile and tablet. I had to spend time I didn't have on customizing it to look good on mobile and tablet. Lesson learned. 
 
