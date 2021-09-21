@@ -165,6 +165,13 @@ All the features mentioned for the first time users also applies to the site mem
 ### Adding a Recipe/Editing a Recipe
 
 - When adding a recipe, the user must enter valid inputs. All important fields are required fields. The user can use spaces, but not start with it, or only input spaces.
+
+- The ingredients and instructions fields also allow for comma and dot.:
+
+    ```
+    pattern="^\S+[a-zA-Z0-9]+,.?_\s]+$"
+    ```
+
     
     Only spaces is not valid:
 
@@ -173,6 +180,7 @@ All the features mentioned for the first time users also applies to the site mem
     And empty field is not valid: 
     
     ![empty-field](testing_img/userstory_testing/empty-field.JPG)
+
 
 - When adding an image url, it is only optional. If no image is added, a default image will be displayed. However, if the user adds a url, it has to be valid.
 I have used this pattern to ensure the user meets some requirements: 
