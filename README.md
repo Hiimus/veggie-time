@@ -2,7 +2,7 @@
 
 ![Am I responsive image](readme_img/veggie-time-devices.JPG)
 
-### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store and create their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
+### Veggie Time is a website that provides food recipes with a focus on using vegetables. On Veggie Time the user can find, store, create and delete their own recipes. All recipes are organized and displayed on cards, and the user can browse, search and sort through these.
 To visit the deployed website, click [here](https://veggie-time.herokuapp.com/).
 # Table of Contents
  - <a href="#ux">1. User Experience (UX)</a>
@@ -106,7 +106,7 @@ All the features mentioned for the first time users also apply to the site membe
 
 ## Design
 ### Colors
-There are mainly three colors used on this site, which is pistachio, raisin black and white. Standard Materialize colours (red, green) were used on most buttons. 
+There are mainly three colors used on this site, which is pistachio, raisin black, orange crayola and white. Standard Materialize colours (red, green) were used on most buttons. 
 
 ![colour-scheme](readme_img/colour-scheme.JPG)
 
@@ -144,7 +144,7 @@ This project uses MongoDB as a database, and is using four collections. See data
 ![db diagram](readme_img/db-diagram.JPG)
 
 ## Wireframes
-To make [wireframes](/wireframes), I used [Balsamiq](https://balsamiq.com/).
+To make [wireframes](readme_img/wireframes), I used [Balsamiq](https://balsamiq.com/).
 # Features
 ## Existing Features:
 
@@ -278,7 +278,7 @@ pip3 install -r requirements.txt.
 2. Create a MongoDB database.
 3. Sign up to your MongoDB account, and create a cluster and a database.
 4. Create these four collections in the database: categories, recipes, users and difficulties.
-5. Add keys and values for the collections, copy the projects [Information Architecture]() so you get the same keys and values.
+5. Add keys and values for the collections, copy the projects <a href="#information-architecture">Information architecture</a> so you get the same keys and values.
 6. Create environment variables:
 - Create a .gitignore file in the root directory to hide confidential files.
 - Create a env.py file that will contain all environment variables
